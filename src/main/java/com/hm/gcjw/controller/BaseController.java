@@ -15,5 +15,15 @@ public class BaseController {
 	String index(ModelMap modelMap) {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/login") 
+	String login() {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/home")
+	String home(ModelMap modelMap) {
+		return "home";
+	}
 
 }
