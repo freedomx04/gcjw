@@ -46,7 +46,9 @@ public class CommonServiceImpl implements CommonService {
 
 	@Override
 	public void updateArticle(String path, String content) throws IOException {
-		File file = Paths.get(uploadPath, articlePath, path + ".html").toFile();
+		String datepath = path.substring(0, 8);
+		String shortUuid = path.substring(8);
+		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
 		if (file.exists()) {
 			FileUtils.write(file, content, "UTF-8");
 		} else {
@@ -58,7 +60,6 @@ public class CommonServiceImpl implements CommonService {
 	public String getArticleContent(String path) throws IOException {
 		String datepath = path.substring(0, 8);
 		String shortUuid = path.substring(8);
-		
 		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
 		if (file.exists()) {
 			String content = FileUtils.readFileToString(file, "UTF-8");
@@ -70,7 +71,10 @@ public class CommonServiceImpl implements CommonService {
 
 	@Override
 	public void deleteArticle(String path) throws IOException {
-		File file = Paths.get(uploadPath, articlePath, path + ".html").toFile();
+		String datepath = path.substring(0, 8);
+		String shortUuid = path.substring(8);
+		
+		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
 		if (file.exists()) {
 			file.delete();
 		}

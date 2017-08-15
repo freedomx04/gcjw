@@ -65,14 +65,14 @@
 							<i class="fa fa-calculator fa-fw"></i><span class="nav-label">网站管理</span><span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="area">图片新闻</a></li>
-							<li><a class="J_menuItem" href="area">廉政头条</a></li>
-							<li><a class="J_menuItem" href="area">廉情在线</a></li>
+							<li><a class="J_menuItem" href="articleList?type=1">图片新闻</a></li>
+							<li><a class="J_menuItem" href="articleList?type=2">廉政头条</a></li>
+							<li><a class="J_menuItem" href="articleList?type=3">廉情在线</a></li>
 							<li><a class="J_menuItem" href="area">专题集锦</a></li>
-							<li><a class="J_menuItem" href="area">曝光台</a></li>
+							<li><a class="J_menuItem" href="articleList?type=4">曝光台</a></li>
 							<li><a class="J_menuItem" href="area">工作动态</a></li>
-							<li><a class="J_menuItem" href="area">党纪法规</a></li>
-							<li><a class="J_menuItem" href="area">莲廉文化</a></li>
+							<li><a class="J_menuItem" href="articleList?type=5">党纪法规</a></li>
+							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
 						</ul>
 					</li>
 					<li>

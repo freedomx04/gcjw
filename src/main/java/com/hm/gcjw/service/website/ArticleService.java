@@ -22,4 +22,6 @@ public interface ArticleService {
 	
 	Page<ArticleEntity> listByType(Integer type, int page, int size);
 
+	String getArticleTitle(Integer type);
+	
 }
