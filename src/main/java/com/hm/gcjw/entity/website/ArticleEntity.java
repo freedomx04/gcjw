@@ -22,6 +22,13 @@ public class ArticleEntity extends BaseEntity {
 		public static final int POLICY = 5;		// 党纪法规
 		public static final int CULTURE = 6;	// 莲廉文化
 		public static final int TOPICNEWS = 7;	// 专题文章
+		
+		public static final int DYNAMIC_PARTY = 8;		// 党风政风
+		public static final int DYNAMIC_EXAMINE = 9;	// 纪律审查
+		public static final int DYNAMIC_PATROL = 10;	// 巡查工作
+		public static final int DYNAMIC_PUBLIC = 11;	// 宣传工作
+		public static final int DYNAMIC_TEAM = 12;		// 队伍建设
+		public static final int DYNAMIC_BASIC = 13;		// 基层风采
 	}
 
 	/**

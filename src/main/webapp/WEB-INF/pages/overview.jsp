@@ -24,7 +24,7 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<div style="display: table-cell; vertical-align: middle; padding-right: 10px;">
-							<img alt="image" class="img-circle" src="${ctx}/api/avatar/${user.avatar}" width="48" height="48">
+							<%-- <img alt="image" class="img-circle" src="${ctx}/api/avatar/${user.avatar}" width="48" height="48"> --%>
 						</div>
 						<div style="display: table-cell; vertical-align: top; width: 10000px; padding-top: 10px;">
 							<p style="font-size: 16px; font-weight: 500; margin-bottom: 5px;">欢迎您，${user.username} <small style="color: #999;">${user.role.name}</small></p>

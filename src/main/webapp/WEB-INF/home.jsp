@@ -32,7 +32,7 @@
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 						<div class="dropdown profile-element">
-							<span><img alt="image" class="user-avatar img-circle" src="${ctx}/api/avatar/${user.avatar}" width="64" height="64"/></span>
+							<%-- <span><img alt="image" class="user-avatar img-circle" src="${ctx}/api/avatar/${user.avatar}" width="64" height="64"/></span> --%>
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<span class="clear">
 									<span class="block m-t-xs"><strong class="font-bold user-name">${user.name}</strong></span>
@@ -70,7 +70,7 @@
 							<li><a class="J_menuItem" href="articleList?type=3">廉情在线</a></li>
 							<li><a class="J_menuItem" href="area">专题集锦</a></li>
 							<li><a class="J_menuItem" href="articleList?type=4">曝光台</a></li>
-							<li><a class="J_menuItem" href="area">工作动态</a></li>
+							<li><a class="J_menuItem" href="dynamicList">工作动态</a></li>
 							<li><a class="J_menuItem" href="articleList?type=5">党纪法规</a></li>
 							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
 						</ul>

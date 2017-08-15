@@ -63,6 +63,13 @@ public class ArticleServiceImpl implements ArticleService {
 		case 5:		title = "党纪法规";		break;
 		case 6:		title = "莲廉文化";		break;
 		case 7:		title = "专题文章";		break;
+		
+		case 8:		title = "党风政风";		break;
+		case 9:		title = "纪律审查";		break;
+		case 10:	title = "巡查工作";		break;
+		case 11:	title = "宣传工作";		break;
+		case 12:	title = "队伍建设";		break;
+		case 13:	title = "基层风采";		break;
 		default:	break;
 		}
 		

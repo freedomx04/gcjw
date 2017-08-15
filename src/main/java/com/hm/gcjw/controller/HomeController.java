@@ -79,4 +79,10 @@ public class HomeController {
 		return "pages/website/article_get";
 	}
 	
+	@RequestMapping(value = "/dynamicList")
+	String dynamicList(ModelMap modelMap) {
+		
+		return "pages/website/dynamic_list";
+	}
+	
 }
