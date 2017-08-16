@@ -49,7 +49,7 @@
 		var $page = $('.body-article-detail');
 		
 		$page.on('click', '.btn-article-back', function() {
-			window.location.href = '${ctx}/articleList?type=${article.type}';
+			window.history.back();
 		});
 		
 	</script>

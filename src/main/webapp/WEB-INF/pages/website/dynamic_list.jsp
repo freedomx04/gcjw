@@ -48,7 +48,7 @@
 					<div class="tab-content">
 						<div id="dynamic-party" class="tab-pane active">
 							<div class="panel-body">
-								<div class="btn-group hidden-xs" id="toolbar-dynamic-party" role="group">
+								<div class="btn-group" id="toolbar-dynamic-party" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
 				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
 				 				</div>
@@ -56,15 +56,55 @@
 							</div>
 						</div>
 						
-						<div id="dynamic-examine" class="tab-pane">2</div>
+						<div id="dynamic-examine" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-examine" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-examine" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 						
-						<div id="dynamic-patrol" class="tab-pane">4</div>
+						<div id="dynamic-patrol" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-patrol" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-patrol" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 						
-						<div id="dynamic-public" class="tab-pane">5</div>
+						<div id="dynamic-public" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-public" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-public" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 						
-						<div id="dynamic-team" class="tab-pane">6</div>
+						<div id="dynamic-team" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-team" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-team" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 						
-						<div id="dynamic-basic" class="tab-pane">7</div>
+						<div id="dynamic-basic" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-basic" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-basic" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -84,12 +124,172 @@
     <script type="text/javascript">
     
     	var $page = $('.body-dynamic-list');
+    	var $party = $page.find('#dynamic-party');
+    	var $examine = $page.find('#dynamic-examine');
+    	var $patrol = $page.find('#dynamic-patrol');
+    	var $public = $page.find('#dynamic-public');
+    	var $team = $page.find('#dynamic-team');
+    	var $basic = $page.find('#dynamic-basic');
+    	
     	var tab = Url.queryString('tab');
     	if (!tab) {
-    		tab = 'dynamic-party';
+    		tab = 'party';
     	}
     	$page.find('a[data-tab="' + tab + '"]').tab('show');
+    	initTable(tab);
     	
+    	var $table, $toolbar, type, $bsTable;
+    	function initTable(tab) {
+    		switch (tab) {
+    		case 'party':	
+    			type = '8';	
+    			$table = $page.find('#table-dynamic-party');
+    			$toolbar = $page.find('#toolbar-dynamic-party');
+    			break;
+    		case 'examine':	
+    			type = '9';
+    			$table = $page.find('#table-dynamic-examine');
+    			$toolbar = $page.find('#toolbar-dynamic-examine');
+    			break;
+    		case 'patrol':	
+    			type = '10';	
+    			$table = $page.find('#table-dynamic-patrol');
+    			$toolbar = $page.find('#toolbar-dynamic-patrol');
+    			break;
+    		case 'public':	
+    			type = '11';
+    			$table = $page.find('#table-dynamic-public');
+    			$toolbar = $page.find('#toolbar-dynamic-public');
+    			break;
+    		case 'team':
+    			type = '12';
+    			$table = $page.find('#table-dynamic-team');
+    			$toolbar = $page.find('#toolbar-dynamic-team');
+    			break;
+    		case 'basic':
+    			type = '13'
+    			$table = $page.find('#table-dynamic-basic');
+    			$toolbar = $page.find('#toolbar-dynamic-basic');
+    			break;
+    		default:		
+    			break;
+    		}
+    		
+    		$bsTable = $k.util.bsTable($table, {
+    			url: '${ctx}/api/article/list?type=' + type,
+    			toolbar: $toolbar,
+    			idField: 'id',
+    			responseHandler: function(res) {
+    				return res.data;
+    			},
+    			columns: [{
+    				field: 'state',
+    				checkbox: true
+    			}, {
+    				field: 'title',
+    				title: '标题',
+    				align: 'center'
+    			}, {
+    				field: 'updateTime',
+    				title: '修改时间',
+    				align: 'center',
+    				formatter: formatDate2
+    			}, {
+    				title: '操作',
+    				align: 'center',
+    				formatter: function(value, row,  index) {
+    					var $detail = '<a class="btn-article-detail a-operate">详情</a>';
+    					var $edit = '<a class="btn-article-edit a-operate">编辑</a>';
+    					var $delete = '<a class="btn-article-delete a-operate">删除</a>';
+    					return $detail + $edit + $delete;
+    				},
+    				events: window.operateEvents = {
+    					'click .btn-article-detail': function(e, value, row, index) {
+    						e.stopPropagation();
+    						window.location.href = './articleGet?articleId=' + row.id;
+    					},
+    					'click .btn-article-edit': function(e, value, row, index) {
+    						e.stopPropagation();
+    						window.location.href = './articleAdd?type=' + type + '&method=edit&articleId=' + row.id;
+    					},
+    					'click .btn-article-delete': function(e, value, row, index) {
+    						e.stopPropagation();
+    						swal({
+    							title: '',
+    							text: '确定删除选中记录',
+    							type: 'warning',
+    							showCancelButton: true,
+    							cancelButtonText: '取消',
+    							confirmButtonColor: '#DD6B55',
+    							confirmButtonText: '确定',
+    							closeOnConfirm: false
+    						}, function() {
+    							var articleId = row.id;
+    							$.ajax({
+    								url: '${ctx}/api/article/delete',
+    								data: { 
+    									articleId: articleId
+    								},
+    								success: function(ret) {
+    									if (ret.code == '0') {
+    										swal('', '删除成功!', 'success');
+    									} else {
+    										swal('', ret.msg, 'error');
+    									}
+    									$bsTable.bootstrapTable('refresh'); 
+    								},
+    								error: function(err) {}
+    							});
+    						});
+    					}
+    				}
+    			}]
+    		});
+    		
+    		$bsTable.on('all.bs.table', function(e, row) {
+    			var selNum = $table.bootstrapTable('getSelections').length;
+    			selNum > 0 ? $page.find('.btn-article-delete-batch').removeAttr('disabled') : $page.find('.btn-article-delete-batch').attr('disabled', 'disabled');
+    		});
+    	}
+    	
+    	$page
+    	.on('click', 'a[data-toggle="tab"]', function() {
+    		var tab = $(this).data('tab');
+    		Url.updateSearchParam('tab', tab);
+    		initTable(tab);
+    	})
+    	.on('click', '.btn-article-add', function() {
+    		window.location.href = '${ctx}/articleAdd?method=add&type=' + type;
+    	})
+    	.on('click', '.btn-article-delete-batch', function() {
+			swal({
+				title: '',
+				text: '确定批量删除选中记录',
+				type: 'warning',
+				showCancelButton: true,
+				cancelButtonText: '取消',
+				confirmButtonColor: '#DD6B55',
+				confirmButtonText: '确定',
+				closeOnConfirm: false
+			}, function() {
+				var rows = $table.bootstrapTable('getSelections');
+				$.ajax({
+					url: '${ctx}/api/article/batchDelete',
+					data: {
+						articleIdList: $k.util.getIdList(rows) 
+					},
+					success: function(ret) {
+						if (ret.code == '0') {
+							swal('', '删除成功!', 'success');
+						} else {
+							swal('', ret.msg, 'error');
+						}
+						$bsTable.bootstrapTable('refresh');
+					},
+					error: function(err) {}
+				});
+			});
+		});;
     	
     
     </script>

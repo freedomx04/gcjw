@@ -146,7 +146,7 @@
 								text: '操作成功',
 								type: 'success'
 							}, function() {
-								window.location.href = './articleList?type=' + type;
+								window.history.back();
 							});
 						} else {
 							swal('', '操作失败', 'error');
@@ -180,7 +180,7 @@
 								text: '操作成功',
 								type: 'success'
 							}, function() {
-								window.location.href = './articleList?type=' + type;
+								window.history.back();
 							});
 						} else {
 							swal('', '操作失败', 'error');
@@ -191,7 +191,7 @@
 			}
 		})
 		.on('click', '.btn-article-cancel', function() {
-			window.location.href = './articleList?type=' + type;
+			window.history.back();
 		});
 		
 	</script>
