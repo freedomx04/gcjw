@@ -28,7 +28,6 @@ public class ArticleEntity extends BaseEntity {
 		public static final int DYNAMIC_PATROL = 10;	// 巡查工作
 		public static final int DYNAMIC_PUBLIC = 11;	// 宣传工作
 		public static final int DYNAMIC_TEAM = 12;		// 队伍建设
-		public static final int DYNAMIC_BASIC = 13;		// 基层风采
 	}
 
 	/**

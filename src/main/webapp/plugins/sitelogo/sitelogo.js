@@ -195,7 +195,7 @@
         this.$img = $('<img src="' + this.url + '">');
         this.$avatarWrapper.empty().html(this.$img);
         this.$img.cropper({
-          aspectRatio: 1,
+          aspectRatio: 6,
           preview: this.$avatarPreview.selector,
           strict: false,
           crop: function (data) {

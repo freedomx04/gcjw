@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>${enterprise.name}</title>
+	<title>工作动态</title>
 	
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,9 +40,6 @@
 						</li>
 						<li>
 							<a data-toggle="tab" href="#dynamic-team" data-tab="team" aria-expanded="true">队伍建设</a>
-						</li>
-						<li>
-							<a data-toggle="tab" href="#dynamic-basic" data-tab="basic" aria-expanded="true">基层风采</a>
 						</li>
 					</ul>
 					<div class="tab-content">
@@ -96,15 +93,6 @@
 							</div>
 						</div>
 						
-						<div id="dynamic-basic" class="tab-pane">
-							<div class="panel-body">
-								<div class="btn-group" id="toolbar-dynamic-basic" role="group">
-				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
-				 				</div>
-				 				<table id="table-dynamic-basic" class="table-hm" data-mobile-responsive="true"></table>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -129,7 +117,6 @@
     	var $patrol = $page.find('#dynamic-patrol');
     	var $public = $page.find('#dynamic-public');
     	var $team = $page.find('#dynamic-team');
-    	var $basic = $page.find('#dynamic-basic');
     	
     	var tab = Url.queryString('tab');
     	if (!tab) {
@@ -165,11 +152,6 @@
     			type = '12';
     			$table = $page.find('#table-dynamic-team');
     			$toolbar = $page.find('#toolbar-dynamic-team');
-    			break;
-    		case 'basic':
-    			type = '13'
-    			$table = $page.find('#table-dynamic-basic');
-    			$toolbar = $page.find('#toolbar-dynamic-basic');
     			break;
     		default:		
     			break;
@@ -289,8 +271,7 @@
 					error: function(err) {}
 				});
 			});
-		});;
-    	
+		});
     
     </script>
     

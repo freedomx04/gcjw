@@ -8,9 +8,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.entity.website.ArticleEntity;
+import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.authority.UserService;
 import com.hm.gcjw.service.website.ArticleService;
+import com.hm.gcjw.service.website.TopicService;
 
 @Controller
 public class HomeController {
@@ -23,6 +25,9 @@ public class HomeController {
 	
 	@Autowired
 	CommonService commonService;
+	
+	@Autowired
+	TopicService topicService;
 
 	/**
 	 * 总览
@@ -81,8 +86,30 @@ public class HomeController {
 	
 	@RequestMapping(value = "/dynamicList")
 	String dynamicList(ModelMap modelMap) {
-		
 		return "pages/website/dynamic_list";
+	}
+	
+	@RequestMapping(value = "/topicList")
+	String topicList(ModelMap modelMap) {
+		return "pages/website/topic_list";
+	}
+	
+	@RequestMapping(value = "/topicAdd")
+	String topicAdd(ModelMap modelMap, String method, Long topicId) {
+		modelMap.addAttribute("method", method);
+		
+		if (topicId != null) {
+			TopicEntity topic = topicService.findOne(topicId);
+			modelMap.addAttribute("topic", topic);
+		}
+		return "pages/website/topic_add";
+	}
+	
+	@RequestMapping(value = "/topicGet")
+	String topicGet(ModelMap modelMap, Long topicId) {
+		TopicEntity topic = topicService.findOne(topicId);
+		modelMap.addAttribute("topic", topic);
+		return "pages/website/topic_get";
 	}
 	
 }
