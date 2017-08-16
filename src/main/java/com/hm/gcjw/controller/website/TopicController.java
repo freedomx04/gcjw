@@ -126,7 +126,7 @@ public class TopicController {
 	}
 	
 	@RequestMapping(value = "/api/topic/list")
-	public Result list(Integer type) {
+	public Result list() {
 		try {
 			List<TopicEntity> list = topicService.list();
 			return new ResultInfo(Code.SUCCESS.value(), "ok", list);
@@ -137,7 +137,7 @@ public class TopicController {
 	}
 	
 	@RequestMapping(value = "/api/topic/listPaging")
-	public Result listPaging(Integer type, int page, int size) {
+	public Result listPaging(int page, int size) {
 		try {
 			Page<TopicEntity> list = topicService.list(page, size);
 			return new ResultInfo(Code.SUCCESS.value(), "ok", list);

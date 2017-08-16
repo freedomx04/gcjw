@@ -75,4 +75,14 @@ public class ArticleServiceImpl implements ArticleService {
 		return title;
 	}
 
+	@Override
+	public List<ArticleEntity> listByTopicId(Long topicId) {
+		return articleRepository.findByTopicIdOrderByUpdateTimeDesc(topicId);
+	}
+
+	@Override
+	public Page<ArticleEntity> listByTopicId(Long topicId, int page, int size) {
+		return articleRepository.findByTopicIdOrderByUpdateTimeDesc(topicId, new PageRequest(page, size));
+	}
+
 }

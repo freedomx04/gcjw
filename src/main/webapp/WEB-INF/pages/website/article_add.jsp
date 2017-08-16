@@ -103,6 +103,7 @@
 		
 		var type = '${type}';
 		var method = '${method}';
+		var topicId = '${topicId}';
 		
 		$k.util.bsValidator($form);
 		
@@ -129,6 +130,7 @@
 			
 			if (validator.isValid()) {
 				var formData = new FormData($form[0]); 
+				formData.append('topicId', topicId);
 				formData.append('type', type);
 				formData.append('content', $('#summernote').summernote('code'));
 				

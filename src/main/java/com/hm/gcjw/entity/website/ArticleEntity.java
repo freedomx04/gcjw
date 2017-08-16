@@ -2,6 +2,7 @@ package com.hm.gcjw.entity.website;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -29,7 +30,7 @@ public class ArticleEntity extends BaseEntity {
 		public static final int DYNAMIC_PUBLIC = 11;	// 宣传工作
 		public static final int DYNAMIC_TEAM = 12;		// 队伍建设
 	}
-
+	
 	/**
 	 * 文章类型
 	 */
@@ -59,6 +60,12 @@ public class ArticleEntity extends BaseEntity {
 	 * 文章内容
 	 */
 	private String content;
+	
+	/**
+	 * 专题Id
+	 */
+	@Column(name = "topic_id")
+	private Long topicId;
 
 	public ArticleEntity() {
 		super();
@@ -125,4 +132,12 @@ public class ArticleEntity extends BaseEntity {
 		this.content = content;
 	}
 
+	public Long getTopicId() {
+		return topicId;
+	}
+
+	public void setTopicId(Long topicId) {
+		this.topicId = topicId;
+	}
+	
 }

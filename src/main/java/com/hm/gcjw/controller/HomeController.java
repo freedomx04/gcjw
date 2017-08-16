@@ -53,9 +53,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/articleAdd")
-	String articleAdd(ModelMap modelMap, Integer type, String method, Long articleId) throws IOException {
+	String articleAdd(ModelMap modelMap, Integer type, String method, Long articleId, Long topicId) throws IOException {
 		modelMap.addAttribute("type", type);
 		modelMap.addAttribute("method", method);
+		modelMap.addAttribute("topicId", topicId);
 		
 		String title = articleService.getArticleTitle(type);
 		title += method.equals("add") ? " - 新增" : " - 编辑";
