@@ -17,6 +17,5 @@ public interface MailService {
 	void delete(List<Long> mailIdList);
 	
 	List<MailEntity> list();
-	
 
 }

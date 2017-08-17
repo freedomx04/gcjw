@@ -8,11 +8,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.entity.report.MailEntity;
+import com.hm.gcjw.entity.report.ReportEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.authority.UserService;
 import com.hm.gcjw.service.report.MailService;
+import com.hm.gcjw.service.report.ReportService;
 import com.hm.gcjw.service.website.ArticleService;
 import com.hm.gcjw.service.website.TopicService;
 
@@ -30,6 +32,9 @@ public class HomeController {
 	
 	@Autowired
 	TopicService topicService;
+	
+	@Autowired
+	ReportService reportService;
 	
 	@Autowired
 	MailService mailService;
@@ -126,6 +131,20 @@ public class HomeController {
 		return "pages/report/report_list";
 	}
 	
+	@RequestMapping(value = "reportGet")
+	String reportGet(ModelMap modelMap, Long reportId) {
+		ReportEntity report = reportService.findOne(reportId);
+		modelMap.addAttribute("report", report);
+		return "pages/report/report_get";
+	}
+	
+	@RequestMapping(value = "reportReply")
+	String reportReply(ModelMap modelMap, Long reportId) {
+		ReportEntity report = reportService.findOne(reportId);
+		modelMap.addAttribute("report", report);
+		return "pages/report/report_reply";
+	}
+	
 	@RequestMapping(value = "mailList")
 	String mailList() {
 		return "pages/report/mail_list";
@@ -144,6 +163,5 @@ public class HomeController {
 		modelMap.addAttribute("mail", mail);
 		return "pages/report/mail_reply";
 	}
-	
 	
 }

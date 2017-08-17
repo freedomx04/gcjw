@@ -13,6 +13,11 @@ import com.hm.gcjw.entity.BaseEntity;
 public class MailEntity extends BaseEntity {
 	
 	/**
+	 * 查询码
+	 */
+	private String code;
+	
+	/**
 	 * 发件人信息
 	 */
 	private String info;
@@ -27,11 +32,6 @@ public class MailEntity extends BaseEntity {
 	 */
 	@Column(length = 4000)
 	private String content;
-	
-	/**
-	 * 查询码
-	 */
-	private String code;
 	
 	/**
 	 * 回复信息
