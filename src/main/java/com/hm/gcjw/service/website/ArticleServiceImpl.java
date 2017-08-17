@@ -56,6 +56,7 @@ public class ArticleServiceImpl implements ArticleService {
 	public String getArticleTitle(Integer type) {
 		String title = "";
 		switch (type) {
+		case 0:		title = "通知公告";		break;
 		case 1:		title = "图片新闻";		break;
 		case 2:		title = "廉政头条";		break;
 		case 3:		title = "廉情在线";		break;

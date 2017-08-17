@@ -16,6 +16,7 @@ public class ArticleEntity extends BaseEntity {
 	 * 类型分类
 	 */
 	public class ArticleType {
+		public static final int ANNOUNCE = 0;	// 通知公告
 		public static final int PHOTONEWS = 1; 	// 图片新闻
 		public static final int HEADLINE = 2;	// 廉政头条
 		public static final int FOCUSNEWS = 3;	// 廉情在线

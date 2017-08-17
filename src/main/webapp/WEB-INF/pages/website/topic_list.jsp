@@ -75,7 +75,7 @@
 				title: '操作',
 				align: 'center',
 				formatter: function(value, row, index) {
-					var $detail = '<a class="btn-topic-detail a-operate">专题文章</a>';
+					var $detail = '<a class="btn-topic-detail a-operate">专题文章(' + row.articles.length + ')</a>';
 					var $edit = '<a class="btn-topic-edit a-operate">编辑</a>';
 					var $delete = '<a class="btn-topic-delete a-operate">删除</a>';
 					return $detail + $edit + $delete;

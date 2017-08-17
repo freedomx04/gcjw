@@ -9,7 +9,7 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	
-	<title>广昌廉政网  | 后台管理</title>
+	<title>广昌县监察局  | 后台管理</title>
 	<meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -65,6 +65,7 @@
 							<i class="fa fa-calculator fa-fw"></i><span class="nav-label">网站管理</span><span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
+							<li><a class="J_menuItem" href="articleList?type=0">通知公告</a></li>
 							<li><a class="J_menuItem" href="articleList?type=1">图片新闻</a></li>
 							<li><a class="J_menuItem" href="articleList?type=2">廉政头条</a></li>
 							<li><a class="J_menuItem" href="articleList?type=3">廉情在线</a></li>
@@ -95,7 +96,7 @@
 				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
 					<div class="navbar-header">
 						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
-                        <div style="padding: 16px; font-size: 18px; font-weight: 400;">南城县工业园区综合信息服务平台后台管理页面</div>
+                        <div style="padding: 16px; font-size: 18px; font-weight: 400;">广昌县监察局后台管理页面</div>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                     	<li><a href="index" target="_blank"><i class="fa fa-home fa-fw"></i>平台首页</a></li>
@@ -136,8 +137,8 @@
 			
 			<!-- footer -->
 			<div class="footer">
-				<div class="pull-left">南城县工业园区综合信息服务平台</div>
-				<div class="pull-right">当前版本：${versionCode}<a class="J_menuItem" href="versionHistory" style="padding-left: 10px;"><i class="fa fa-history fa-fw"></i>版本历史</a></div>
+				<div class="pull-left">中共广昌县纪律检查委员会</div>
+				<div class="pull-right"></div>
 			</div>
 		</div>
 		<!--右侧部分结束-->
