@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hm.gcjw.entity.report.MailEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.authority.UserService;
+import com.hm.gcjw.service.report.MailService;
 import com.hm.gcjw.service.website.ArticleService;
 import com.hm.gcjw.service.website.TopicService;
 
@@ -28,6 +30,9 @@ public class HomeController {
 	
 	@Autowired
 	TopicService topicService;
+	
+	@Autowired
+	MailService mailService;
 
 	/**
 	 * 总览
@@ -112,5 +117,33 @@ public class HomeController {
 		modelMap.addAttribute("topic", topic);
 		return "pages/website/topic_get";
 	}
+	
+	/**
+	 * 举报管理
+	 */
+	@RequestMapping(value = "reportList")
+	String reportList() {
+		return "pages/report/report_list";
+	}
+	
+	@RequestMapping(value = "mailList")
+	String mailList() {
+		return "pages/report/mail_list";
+	}
+	
+	@RequestMapping(value = "/mailGet")
+	String mailGet(ModelMap modelMap, Long mailId) {
+		MailEntity mail = mailService.findOne(mailId);
+		modelMap.addAttribute("mail", mail);
+		return "pages/report/mail_get";
+	}
+	
+	@RequestMapping(value = "/mailReply")
+	String mailReply(ModelMap modelMap, Long mailId) {
+		MailEntity mail = mailService.findOne(mailId);
+		modelMap.addAttribute("mail", mail);
+		return "pages/report/mail_reply";
+	}
+	
 	
 }

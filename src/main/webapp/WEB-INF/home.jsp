@@ -62,7 +62,7 @@
 					</li>
 					<li>
 						<a href="#">
-							<i class="fa fa-calculator fa-fw"></i><span class="nav-label">网站管理</span><span class="fa arrow"></span>
+							<i class="fa fa-globe fa-fw"></i><span class="nav-label">网站管理</span><span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="articleList?type=0">通知公告</a></li>
@@ -74,6 +74,15 @@
 							<li><a class="J_menuItem" href="dynamicList">工作动态</a></li>
 							<li><a class="J_menuItem" href="articleList?type=5">党纪法规</a></li>
 							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">
+							<i class="fa fa-edit fa-fw"></i><span class="nav-label">举报管理</span><span class="fa arrow"></span>
+						</a>
+						<ul class="nav nav-second-level">
+							<li><a class="J_menuItem" href="reportList">网络举报</a></li>
+							<li><a class="J_menuItem" href="mailList">书记信箱</a></li>
 						</ul>
 					</li>
 					<li>
