@@ -11,8 +11,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.entity.website.ArticleEntity;
+import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.website.ArticleService;
+import com.hm.gcjw.service.website.TopicService;
 
 @Controller
 public class BaseController {
@@ -25,9 +27,18 @@ public class BaseController {
 	@Autowired
 	CommonService commonService;
 	
+	@Autowired
+	TopicService topicService;
+	
 	@RequestMapping(value = { "/", "/index" })
 	String index(ModelMap modelMap) {
 		Page<ArticleEntity> list = null;
+		
+		// 通知公告
+		list = articleService.listByType(0, 0, 5);
+		modelMap.addAttribute("announceList", list.getContent());
+		list = articleService.listByType(0, 1, 5);
+		modelMap.addAttribute("announceList2", list.getContent());
 		
 		// 图片新闻
 		list = articleService.listByType(1, 0, 5);
@@ -48,6 +59,7 @@ public class BaseController {
 			e.printStackTrace();
 		}
 		
+		
 		// 廉情在线
 		list = articleService.listByType(3, 0, 5);
 		modelMap.addAttribute("focusnewsList", list.getContent());
@@ -65,6 +77,10 @@ public class BaseController {
 		// 莲廉文化
 		list = articleService.listByType(6, 0, 5);
 		modelMap.addAttribute("cultureList", list.getContent());
+		
+		// 专题文章
+		Page<TopicEntity> topicList = topicService.list(0, 5);
+		modelMap.addAttribute("topicList", topicList.getContent());
 		
 		// 工作动态--党风政风
 		list = articleService.listByType(8, 0, 6);

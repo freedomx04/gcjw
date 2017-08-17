@@ -16,6 +16,9 @@
 <title></title>
 
 <style>
+* {
+    font-family: "Microsoft Yahei","宋体";
+}
 #toplinecontainer {
     margin: 0 auto;
     background-color: #ebeaea;
@@ -51,13 +54,10 @@
     width: 980px;
     border-bottom: 1px dashed rgb(221, 221, 221);
 }
-.tophead h1 {
+.tophead h2 {
     width: 980px;
     color: #15537f;
     text-align: center;
-    line-height: 40px;
-    font-family: "寰蒋闆呴粦";
-    padding-top: 10px;
     margin-bottom: 15px;
 }
 .authortime {
@@ -83,6 +83,9 @@
     width: 850px;
     padding: 0 65px 50px 65px;
     height: 100%;
+    word-break: break-all;
+    line-height: 1.4;
+    font-size: 14px;
 }
 
 </style>
@@ -98,7 +101,7 @@
 				<p>
 					<span>当前位置：<a href="./">首页</a>
 						&nbsp;&gt;&nbsp;
-						<a href="" class="weizhi">${articleTitle}</a>
+						<a href="${ctx}/column?type=${article.type}" class="weizhi">${articleTitle}</a>
 						&nbsp;&gt;&nbsp;
 						正文
 					</span>
@@ -106,9 +109,9 @@
 			</div>
 			<div id="topline">
 				<div class="tophead">
-					<h1 style="word-break: break-all;">
+					<h2 style="word-break: break-all;">
 						${article.title}
-					</h1>
+					</h2>
 					<div class="authortime">
 						<span class="author">来源：</span>
 						<span>${article.source}</span>

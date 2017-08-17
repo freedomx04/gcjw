@@ -1,6 +1,7 @@
 package com.hm.gcjw.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.entity.website.ArticleEntity;
+import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.website.ArticleService;
+import com.hm.gcjw.service.website.TopicService;
 
 @Controller
 public class PageController {
@@ -24,14 +27,22 @@ public class PageController {
 	@Autowired
 	CommonService commonService;
 	
+	@Autowired
+	TopicService topicService;
+	
 	@RequestMapping(value = "/column") 
 	String column(ModelMap modelMap, Integer type) {
-		if (type != 0) {
-			Integer count = articleService.listByType(type).size();
-			String articleTitle = articleService.getArticleTitle(type);
-			modelMap.addAttribute("count", count);
-			modelMap.addAttribute("articleTitle", articleTitle);
+		Integer count = articleService.listByType(type).size();
+		String articleTitle = articleService.getArticleTitle(type);
+		modelMap.addAttribute("count", count);
+		modelMap.addAttribute("type", type);
+		modelMap.addAttribute("articleTitle", articleTitle);
+		
+		if (type == 7) {
+			List<TopicEntity> topicList = topicService.list();
+			modelMap.addAttribute("topicList", topicList);
 		}
+		
 		return "pages/portal/column";
 	}
 	
