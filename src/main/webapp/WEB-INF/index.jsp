@@ -6,6 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>广昌县纪委监察厅网站</title>
     
+    <script type="text/javascript" src="${ctx}/plugins/marquee/MSClass.js"></script>
     <link rel="stylesheet" type="text/css" href="${ctx}/plugins/paging/paging.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/slideBox/jquery.slideBox.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/local/index.css">
@@ -28,22 +29,19 @@
 							<table border="0" cellpadding="0" cellspacing="0" align="center">
 								<tbody>
 									<tr>
-										<td width="187"><a href="http://www.fzlz.gov.cn/show-44-5300-1.html" target="_blank">我市启动第二轮巡察 公布联系方式及接访地点</a></td>
-										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-4900-1.html" target="_blank">关于表彰“当代好家风故事”征文获奖作品的通报   ...</a></td>
-										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3805-1.html" target="_blank">中共抚州市纪律检查委员会（市监察局）2017年部门预算公开</a></td>
-										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3804-1.html" target="_blank">2016年抚州市纪委预算公开</a></td>
-										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3803-1.html" target="_blank">抚州市纪委2015年部门决算情况汇总</a></td>
+										<c:forEach var="announce" items="${announceList}">
+										<td><a href="article/${announce.path}?type=0" target="_blank">${announce.title}</a></td>
+										</c:forEach>
 									</tr>
-								</tbody></table>
+								</tbody>
+							</table>
 						</td>
 						<td nowrap="true" style="white-space: nowrap;word-break:keep-all;">
 							<table border="0" cellpadding="0" cellspacing="0" align="center">
 							<tbody><tr>
-								<td width="187"><a href="http://www.fzlz.gov.cn/show-44-5300-1.html" target="_blank">我市启动第二轮巡察 公布联系方式及接访地点</a></td>
-								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-4900-1.html" target="_blank">关于表彰“当代好家风故事”征文获奖作品的通报   ...</a></td>
-								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3805-1.html" target="_blank">中共抚州市纪律检查委员会（市监察局）2017年部门预算公开</a></td>
-								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3804-1.html" target="_blank">2016年抚州市纪委预算公开</a></td>
-								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3803-1.html" target="_blank">抚州市纪委2015年部门决算情况汇总</a></td>
+								<c:forEach var="announce" items="${announceList2}">
+								<td><a href="article/${announce.path}?type=0" target="_blank">${announce.title}</a></td>
+								</c:forEach>
 							</tr></tbody>
 							</table>
 						</td>
@@ -87,7 +85,7 @@
 						</p>
 				    </div>
 				    <div style="padding-top:8px"></div>
-					<a href="" target="_blank" class="currentC">更多+</a> 
+					<a href="column?type=2" target="_blank" class="currentC">更多+</a> 
 				</div>
 			</div>
 			
@@ -95,8 +93,8 @@
 				<!-- 廉情在线 -->
 				<div class="lianzheng-box">
 					<div class="lianzheng-top"> 
-						<a href="" target="_blank">廉情在线</a> 
-						<a class="currentD" href="" target="_blank">更多+</a> 
+						<a href="column?type=3" target="_blank">廉情在线</a> 
+						<a class="currentD" href="column?type=3" target="_blank">更多+</a> 
 					</div>
 					<div class="lianzheng-bottom">
 						<ul style="border-bottom: solid 1px #969696;">
@@ -123,14 +121,21 @@
 							</a> </li>
 							</c:forEach>
 						</ul>
-						<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+						<span class="js_more"><a class="currentD" href="column?type=3" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 					</div>
 				</div>
 				<!-- 专题集锦 -->
 				<div class="zhuanti-box">
 					<div class="common-box-top" style="padding-top:9px;">
 						<a href="" target="_blank">专题集锦</a>
-						<a class="currentD" href="./ztzl/" target="_blank">更多+</a>
+						<a class="currentD" href="column?type=7" target="_blank">更多+</a>
+					</div>
+					<div class="img-box">
+						<c:forEach var="topic" items="${topicList}">
+							<a href="column?type=7&topicId=${topic.id}" target="_blank">
+								<img src="${ctx}${topic.imagePath}" class="limg" width="420" height="70">
+							</a>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
@@ -139,8 +144,8 @@
 				<!-- 曝光台 -->
 				<div class="puguang-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="" target="_blank">曝光台</a>
-						<a class="currentD" href="./ztzl/" target="_blank">更多+</a>
+						<a href="column?type=4" target="_blank">曝光台</a>
+						<a class="currentD" href="column?type=4" target="_blank">更多+</a>
 					</div>
 					<div class="puguang-bottom">
 						<ul>
@@ -168,15 +173,15 @@
 			<div class="banner-four">
 				<!-- 工作动态 -->
 				<div class="common-box-top">
-					<a href="./jjjcyw/" target="_blank">工作动态</a>
+					<a href="column?ptype=dynamic&type=8" target="_blank">工作动态</a>
 				</div>
 				<div class="bottom-nav-container">
 			        <div class="left-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav">
-								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="" target="_blank" style="margin-right: 20px;">党风政风</a> 
-								<a id="news2" onmouseover="news_change('left', 2)" href="" target="_blank" style="margin-right: 20px;">纪律审查</a> 
-								<a id="news3" onmouseover="news_change('left', 3)" href="" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
+								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="column?ptype=dynamic&type=8" target="_blank" style="margin-right: 20px;">党风政风</a> 
+								<a id="news2" onmouseover="news_change('left', 2)" href="column?ptype=dynamic&type=9" target="_blank" style="margin-right: 20px;">纪律审查</a> 
+								<a id="news3" onmouseover="news_change('left', 3)" href="column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
 								<a class="currentI" href="" target="_blank"></a> 
 							</div>
 							<!-- 党风政风 -->
@@ -212,7 +217,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=8" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 纪律审查 -->
 				      		<div id="newscon2" style="display: none;">
@@ -247,7 +252,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=9" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 				      		<!-- 巡查工作 -->
 				      		<div id="newscon3" style="display: none;">
@@ -282,15 +287,15 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=10" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 						</div>
 			        </div>
 			        <div class="right-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav"> 
-								<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="" target="_blank" style="margin-right: 40px;">宣传工作</a> 
-								<a id="news2" onmouseover="news_change('right', 2)" href="" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
+								<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
+								<a id="news2" onmouseover="news_change('right', 2)" href="column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
 								<a class="currentI" href="" target="_blank"></a> 
 							</div>
 							<!-- 宣传工作 -->
@@ -326,7 +331,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 队伍建设 -->
 							<div id="newscon2" style="display:none">
@@ -361,7 +366,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=12" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 						</div>
 					</div>
@@ -376,8 +381,8 @@
 				<!-- 党纪法规 -->
 				<div class="dangji-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="" target="_blank">党纪法规</a>
-						<a class="currentD" href="./ztzl/" target="_blank">更多+</a>
+						<a href="column?type=5" target="_blank">党纪法规</a>
+						<a class="currentD" href="column?type=5" target="_blank">更多+</a>
 					</div>
 					<div class="dangji-bottom">
 						<ul>
@@ -397,8 +402,8 @@
 				<!-- 莲廉文化 -->
 				<div class="lianlian-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="" target="_blank">莲廉文化</a>
-						<a class="currentD" href="./ztzl/" target="_blank">更多+</a>
+						<a href="column?type=6" target="_blank">莲廉文化</a>
+						<a class="currentD" href="column?type=6" target="_blank">更多+</a>
 					</div>
 					<div class="lianlian-bottom">
 						<ul>
@@ -420,7 +425,6 @@
 			<div class="banner-link">
 				<div class="common-box-top"> 
 					<a href="" target="_blank">网站链接</a> 
-					<a class="currentD" href="" target="_blank">更多+</a> 
 				</div>
 				<div class="lianjie-nav">
 					<a id="ch_0" class="currentP" href="javascript:void(0);" target="_blank">全国各省市纪委网站</a>
@@ -511,7 +515,6 @@
 	</div>
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="${ctx}/plugins/marquee/MSClass.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
 	
 	<script>

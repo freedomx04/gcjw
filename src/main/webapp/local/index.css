@@ -235,9 +235,13 @@ li {
     position: relative;
 }
 .zhuanti-box, .xinfang-box, .lianlian-box {
-	width: 417px;
+	width: 426px;
     height: 250px;
     float: right; 
+}
+.img-box .limg {
+    margin-top: 5px;
+    cursor: pointer;
 }
 .lianzheng-top {
     width: 482px;

@@ -41,27 +41,20 @@ color:#000000;
 .top a{
 color:#FFFFFF;
 }
-.manu {
-    PADDING-RIGHT: 3px;
-    PADDING-LEFT: 3px;
-    PADDING-BOTTOM: 3px;
-    MARGIN: 3px;
-    PADDING-TOP: 3px;
-    TEXT-ALIGN: center;
-	
+.left-nav-td {
+	border-bottom: 1px solid #D8D8D8;
+	background: #F8F8F8; 
+	padding: 0 10px 0 10px;
 }
-.manu A {
-    BORDER-RIGHT: #eee 1px solid;
-    PADDING-RIGHT: 5px;
-    BORDER-TOP: #eee 1px solid;
-    PADDING-LEFT: 5px;
-    PADDING-BOTTOM: 2px;
-    MARGIN: 2px;
-    BORDER-LEFT: #eee 1px solid;
-    COLOR: #036cb4;
-    PADDING-TOP: 2px;
-    BORDER-BOTTOM: #eee 1px solid;
-    TEXT-DECORATION: none;
+.left-nav-td a {
+	position: relative;
+	top:5px; font-size:14px; 
+	font-weight: bold; 
+	color: #004279;
+}
+.right-title {
+	font-size: 18px; 
+	border-bottom: 3px #941D23 solid;
 }
 </style>
 
@@ -77,58 +70,93 @@ color:#FFFFFF;
 					<tr><td colspan="3" height="6" bgcolor="#EBEAEA"></td></tr>
 	                <tr>
 						<td colspan="3" height="40" align="left" style="padding-left:5px;" bgcolor="#FFFFFF">当前位置：
-							<a href="http://www.fzlz.gov.cn">首页</a>&nbsp;&gt;&nbsp;<a href="http://www.fzlz.gov.cn/list-9-1.html"></a>
-							<a href="http://www.fzlz.gov.cn/list-9-1.html">${articleTitle}</a> &gt; 
+							<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
+							<a class="weizhi-dynamic" style="display: none;" href="ptype=dynamic&type=8">工作动态</a>
+							<span class="weizhi-dynamic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
+							
+							<a href="column?type=${type}">${articleTitle}</a>
+							
+							<span class="weizhi-topic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
+							<a class="weizhi-topic articleTitle" style="display: none;" href="column?type=7"></a>
 						</td>
 					</tr>                
 	                <tr><td colspan="3" height="6" bgcolor="#EBEAEA"></td></tr>
 					<tr>
 						<td width="292" valign="top" bgcolor="#FFFFFF">
-								<table width="100%" cellpadding="0" cellspacing="0">
-								<tbody> 
+							<table width="100%" cellpadding="0" cellspacing="0">
+								<tbody class="article"> 
+									<c:forEach var="articleTitle" items="通知公告, 图片新闻" varStatus="status">
 									<tr>
-										<td width="10%" align="center" valign="middle" height="32" style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;"> 
+										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
-										<td style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;" align="left">
-											<a href="column?type=1" style="position:relative;top:5px; font-size:14px; font-weight:bold; color:#004279">图片新闻</a>
+										<td class="left-nav-td" align="left">
+											<a href="column?type=${status.index}">${articleTitle}</a>
 										</td>
 									</tr>
-									<c:forEach var="articleTitle" items="廉情在线, 曝光台, 党纪法规, 莲廉文化" varStatus="status">
+									</c:forEach>
+									<c:forEach var="articleTitle" items="廉情在线, 曝光台, 党纪法规, 莲廉文化, 专题集锦" varStatus="status">
 									<tr>
-										<td width="10%" align="center" valign="middle" height="32" style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;"> 
+										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
-										<td style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;" align="left">
-											<a href="column?type=${status.index + 2}" style="position:relative;top:5px; font-size:14px; font-weight:bold; color:#004279">${articleTitle}</a>
+										<td class="left-nav-td" align="left">
+											<a href="column?type=${status.index + 3}">${articleTitle}</a>
 										</td>
 									</tr>
 									</c:forEach>
 									<tr>
-										<td width="10%" align="center" valign="middle" height="32" style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;"> 
+										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
-										<td style="border-bottom:1px solid #D8D8D8;background:#F8F8F8; padding:0 10px 0 10px;" align="left">
-											<a href="column?type=0" style="position:relative;top:5px; font-size:14px; font-weight:bold; color:#004279">工作动态</a>
+										<td class="left-nav-td" align="left">
+											<a href="column?ptype=dynamic&type=8">工作动态</a>
 										</td>
 									</tr>
-								</tbody></table>				
+								</tbody>
+								
+								<tbody class="dynamic" style="display: none;">
+									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡查工作, 宣传工作, 队伍建设" varStatus="status">
+									<tr>
+										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
+											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
+										</td>
+										<td class="left-nav-td" align="left">
+											<a href="column?ptype=dynamic&type=${status.index + 8}">${articleTitle}</a>
+										</td>
+									</tr>
+									</c:forEach>
+								</tbody>
+								
+								<tbody class="topic" style="display: none;">
+									<c:forEach var="topicnews" items="${topicList}">
+									<tr>
+										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
+											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
+										</td>
+										<td class="left-nav-td" align="left">
+											<a href="column?type=7&topicId=${topicnews.id}">${topicnews.title}</a>
+										</td>
+									</tr>
+									</c:forEach>
+								</tbody>
+								
+							</table>				
 						</td>
 						<td width="5" bgcolor="#EBEAEA"></td>
 						
 						<td width="669" valign="top" bgcolor="#FFFFFF">
 						    <table width="100%"><tbody><tr>
-	                            <td height="36" style="font-size:18px; border-bottom:3px #941D23 solid;" align="left" oldid="3395" related="1">${articleTitle}</td>
+	                            <td class="articleTitle right-title" height="36" align="left" oldid="3395" related="1">${articleTitle}</td>
 	                        </tr></tbody></table>
 	                        <table width="100%"><tbody>
 								<tr>
 	                            	<td class="red articleList">
-										
 	                                </td>
 	                            </tr>                            
 	                            <tr>
 	                            	<td align="center">
-										<div id="pageTool"></div>
+										<div id="pageTool" style="padding: 10px 0;"></div>
 									</td>
 	                            </tr>
 	                        </tbody></table>
@@ -147,38 +175,69 @@ var pageSize = 10;
 var $page = $("#page");
 ;(function() {
 	var type = Url.queryString("type");
-	if (type == 0) {
+	var ptype = Url.queryString("ptype");
+	
+	if (ptype == 'dynamic') {
 		$page.find(".dynamic").css("display", "block");
 		$page.find(".article").css("display", "none");
-	} else {
-		getData(type, 0, pageSize);
-		
-		$page.find('#pageTool').Paging({
-			pagesize: pageSize, 
-			count: '${count}', 
-			callback: function(page, size, count) {
-				getData(type, page-1, size);
-			}
-		});
+		$page.find(".weizhi-dynamic").show();
 	}
+	if (type == '7') {
+		$page.find(".dynamic").css("display", "none");
+		$page.find(".article").css("display", "none");
+		$page.find(".topic").css("display", "block");
+		$page.find(".weizhi-topic").show();
+	}
+	getData(type, 0, pageSize);
+	$page.find('#pageTool').Paging({
+		pagesize: pageSize, 
+		count: '${count}', 
+		callback: function(page, size, count) {
+			getData(type, page-1, size);
+		}
+	});
 	
 })();
 function getData(type, page, size) {
-	$.ajax({
-		url: "${ctx}/api/article/listPaging",
-		type: "POST",
-		data: {
-			type: type,
+	$page.find(".articleList").html("");
+	var topicId = Url.queryString("topicId");
+	var url = "${ctx}/api/article/listPaging";
+	var data = {
+		type: type,
+		page: parseInt(page),
+		size: pageSize
+	};
+	
+	if (type == '7' && topicId != "") {
+		url = "${ctx}/api/article/listByTopicIdPaging";
+		data = {
+			topicId: topicId,
 			page: parseInt(page),
 			size: pageSize
-		},
+		};
+		
+		$.ajax({
+			url: "${ctx}/api/topic/get",
+			type: "POST",
+			data: {topicId: topicId},
+			success: function(ret) {
+				$page.find(".articleTitle").text(ret.data.title);
+			},
+			error: function(err) {}
+		});
+	}
+	
+	$.ajax({
+		url: url,
+		type: "POST",
+		data: data,
 		success: function(ret) {
+			console.info(ret)
 			if(ret.code == 0) {
-				console.info(ret)
 				$.each(ret.data.content, function(key, article) {
-					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
+					var title = article.title.length > 30 ? article.title.substring(0, 30) + "..." : article.title;
 					var content = article.content || "";
-					content = content.length > 60 ? content.substring(0, 60) + "..." : content;
+					content = content.length > 120 ? content.substring(0, 120) + "..." : content;
 					
 					$('<table width="100%"><tbody>'
 						+ '<tr><td height="15"></td></tr>'
@@ -187,7 +246,7 @@ function getData(type, page, size) {
 						+ '<a href="article/'+ article.path +'?type='+ type +'" target="_blank">'+ title +'</a></td>'
 						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
 						+ '<tr>'
-						+ '<td colspan="2" align="left" style="color:#BCBCA7;">'+ content +'</td>'
+						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
 						+ '</tr>'
                         + '<tr><td height="10" style="border-bottom:1px solid gray;" colspan="2"></td></tr>'
 						+ '</tbody></table>')

@@ -56,12 +56,12 @@
 	</div>
 	<div class="nav-container">
 		<div class="nav"> 
-			<a href="" target="_blank">网站首页</a> 
-			<a href="" target="_blank">信息公开</a> 
-			<a href="" target="_blank">廉情在线</a> 
-			<a href="" target="_blank">监督曝光</a> 
-			<a href="" target="_blank">图片新闻</a> 
-			<a href="" target="_blank" style="background-image: none;">专题专栏</a> 
+			<a href="${ctx}" target="_blank">网站首页</a> 
+			<a href="column?type=0" target="_blank">通知公告</a> 
+			<a href="column?type=3" target="_blank">廉情在线</a> 
+			<a href="column?ptype=dynamic&type=9" target="_blank">纪律审查</a> 
+			<a href="column?type=1" target="_blank">图片新闻</a> 
+			<a href="column?type=7" target="_blank" style="background-image: none;">专题文章</a> 
 		</div>
 	</div>
 </body>
