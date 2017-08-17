@@ -17,25 +17,74 @@
 	
 	<div class="footer-container">
 		<div class="footer">
+			<div class="tzgg" style="font-size: 16px;">
+				<div class="tztitle">通知公告：</div>
+				<div id="fgyy1" style="overflow: hidden; width: 800px; height: 30px; white-space: nowrap;">
+				
+				<table cellspacing="0" cellpadding="0" style="border-collapse:collapse;display:inline;">
+					<tbody>
+						<tr>
+						<td nowrap="true" style="white-space: nowrap;word-break:keep-all;">
+							<table border="0" cellpadding="0" cellspacing="0" align="center">
+								<tbody>
+									<tr>
+										<td width="187"><a href="http://www.fzlz.gov.cn/show-44-5300-1.html" target="_blank">我市启动第二轮巡察 公布联系方式及接访地点</a></td>
+										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-4900-1.html" target="_blank">关于表彰“当代好家风故事”征文获奖作品的通报   ...</a></td>
+										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3805-1.html" target="_blank">中共抚州市纪律检查委员会（市监察局）2017年部门预算公开</a></td>
+										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3804-1.html" target="_blank">2016年抚州市纪委预算公开</a></td>
+										<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3803-1.html" target="_blank">抚州市纪委2015年部门决算情况汇总</a></td>
+									</tr>
+								</tbody></table>
+						</td>
+						<td nowrap="true" style="white-space: nowrap;word-break:keep-all;">
+							<table border="0" cellpadding="0" cellspacing="0" align="center">
+							<tbody><tr>
+								<td width="187"><a href="http://www.fzlz.gov.cn/show-44-5300-1.html" target="_blank">我市启动第二轮巡察 公布联系方式及接访地点</a></td>
+								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-4900-1.html" target="_blank">关于表彰“当代好家风故事”征文获奖作品的通报   ...</a></td>
+								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3805-1.html" target="_blank">中共抚州市纪律检查委员会（市监察局）2017年部门预算公开</a></td>
+								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3804-1.html" target="_blank">2016年抚州市纪委预算公开</a></td>
+								<td width="187"><a href="http://www.fzlz.gov.cn/show-9-3803-1.html" target="_blank">抚州市纪委2015年部门决算情况汇总</a></td>
+							</tr></tbody>
+							</table>
+						</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<script>new Marquee('fgyy1', 2, 1, 800, 30, 50, 0);</script>
+			</div>
+			
 			<div class="banner-one">
 				<!-- 图片新闻 -->
 				<div class="sy_zwL">
 					<div class="slideBox">
 						<ul class="items">
+							<c:forEach var="photonews" items="${photonewsList}">
 							<li>
-								<a href="" title="dfdf" target="_blank" style="width: 480px; height: 261px;">
-									<img src="./img/1.jpg" style="width: 100%; height: 100%;">
+								<a href="${ctx}/news/${photonews.path}" title="${photonews.title}" target="_blank" style="width: 480px; height: 261px;">
+									<img src="${ctx}${photonews.imagePath}" style="width: 100%; height: 100%;">
 								</a>
 							</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
-				<!-- 头条 -->
+				<!-- 廉政头条 -->
 				<div class="right-box">
-				    <a class="currentB" href="" target="_blank" title="">省纪委常委会学习贯彻习近平总书记“7·26”重要讲话精神</a>
+			    	<img src="${ctx}/img/lztt.gif" style="width: 50px;padding: 10px;margin-left: 10px;margin-top: 16px;">
+				    <a class="currentB" href="" target="_blank" title="">
+				    	${headline.title}
+				    </a>
 				    <div style="padding-top:13px"></div>
 				    <div class="js_yw">
-				      <p>　　8月4日下午，省纪委召开常委会学习贯彻习近平总书记在省部级主要领导干部专题研讨班上的重要讲话精神。省委常委、省纪委书记孙新阳主持会议并讲话。</p>
+						<p>
+							<c:if test="${fn:length(headline.content) > 65}">
+								${fn:substring(headline.content, 0, 65)}...
+							</c:if>
+							<c:if test="${fn:length(headline.content) <= 65}">
+								${headline.content}
+							</c:if>
+						</p>
 				    </div>
 				    <div style="padding-top:8px"></div>
 					<a href="" target="_blank" class="currentC">更多+</a> 
@@ -46,21 +95,35 @@
 				<!-- 廉情在线 -->
 				<div class="lianzheng-box">
 					<div class="lianzheng-top"> 
-						<a href="./gplz/" target="_blank">廉情在线</a> 
-						<a class="currentD" href="./gplz/" target="_blank">更多+</a> 
+						<a href="" target="_blank">廉情在线</a> 
+						<a class="currentD" href="" target="_blank">更多+</a> 
 					</div>
 					<div class="lianzheng-bottom">
-						<ul>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
+						<ul style="border-bottom: solid 1px #969696;">
+							<c:forEach var="focusnews" items="${focusnewsList}">
+							<li><a href="${ctx}/news/${focusnews.path}" target="_blank" title="${focusnews.title}">
+								<c:if test="${fn:length(focusnews.title) > 20}">
+									${fn:substring(focusnews.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(focusnews.title) <= 20}">
+									${focusnews.title}
+								</c:if>
+							</a> </li>
+							</c:forEach>
 						</ul>
+						<ul style="padding-top: 0;">
+							<c:forEach var="focusnews" items="${focusnewsList2}">
+							<li><a href="${ctx}/news/${focusnews.path}" target="_blank" title="${focusnews.title}">
+								<c:if test="${fn:length(focusnews.title) > 20}">
+									${fn:substring(focusnews.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(focusnews.title) <= 20}">
+									${focusnews.title}
+								</c:if>
+							</a> </li>
+							</c:forEach>
+						</ul>
+						<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 					</div>
 				</div>
 				<!-- 专题集锦 -->
@@ -81,15 +144,16 @@
 					</div>
 					<div class="puguang-bottom">
 						<ul>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
+							<c:forEach var="exposure" items="${exposureList}">
+							<li><a href="${ctx}/news/${exposure.path}" target="_blank" title="${exposure.title}">
+								<c:if test="${fn:length(exposure.title) > 20}">
+									${fn:substring(exposure.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(exposure.title) <= 20}">
+									${exposure.title}
+								</c:if>
+							</a> </li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -111,106 +175,201 @@
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav">
 								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="" target="_blank" style="margin-right: 20px;">党风政风</a> 
-								<a id="news2" onmouseover="news_change('left', 2)" href="" target="_blank" style="margin-right: 20px;">巡视工作</a> 
-								<a id="news3" onmouseover="news_change('left', 3)" href="" target="_blank" style="margin-right: 20px;" class="">信访举报</a>
+								<a id="news2" onmouseover="news_change('left', 2)" href="" target="_blank" style="margin-right: 20px;">纪律审查</a> 
+								<a id="news3" onmouseover="news_change('left', 3)" href="" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
 								<a class="currentI" href="" target="_blank"></a> 
 							</div>
-							<div id="newscon1" style="display: none;">
-								<a class="currentJ" href="" target="_blank">南昌：严治“微腐败” 基层荡“清风”</a>
+							<!-- 党风政风 -->
+							<div id="newscon1" style="display: block;">
+								<a class="currentJ" href="" target="_blank">
+									<c:if test="${fn:length(dynamicParty.title) > 20}">
+										${fn:substring(dynamicParty.title, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicParty.title) <= 20}">
+										${dynamicParty.title}
+									</c:if>
+								</a>
 								<a class="currentK" href="" target="_blank"></a>
 								<p>
-									<a class="currentK" href="" target="_blank">　　去年6月以来，南昌市结合实际，深入推进集中整治和查处基层侵害群众利益不正之风和腐败问题工作...</a>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamicParty.content) > 20}">
+										${fn:substring(dynamicParty.content, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicParty.content) <= 20}">
+										${dynamicParty.content}
+										</c:if>
+									</a>
 								</p>
 								<ul>
-							      <li><a href="" target="_blank" title="濂溪区纪委：“四强化”深化作风建设">濂溪区纪委：“四强化”深化作风建设</a></li>
-							      <li><a href="" target="_blank" title="鄱阳：“三突出”加强扶贫领域监督问责">鄱阳：“三突出”加强扶贫领域监督问责</a></li>
-							      <li><a href="" target="_blank" title="德兴：“四个强化”为脱贫攻坚“保驾护航”">德兴：“四个强化”为脱贫攻坚“保驾护航”</a></li>
-							      <li><a href="" target="_blank" title="上饶三清山：实行“阳光票务”预防“微腐败”">上饶三清山：实行“阳光票务”预防“微腐败”</a></li>
-							      <li><a href="" target="_blank" title="袁州：13人不认真履责被问责">袁州：13人不认真履责被问责</a></li>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicPartyList)}">
+									<li><a href="${ctx}/news/${dynamicPartyList[i].path}" target="_blank" title="${dynamicPartyList[i + 1].title}">
+										<c:if test="${fn:length(dynamicPartyList[i].title) > 20}">
+										${fn:substring(dynamicPartyList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicPartyList[i].title) <= 20}">
+										${dynamicPartyList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="./jjjcyw/dfzf/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
-				      		<div id="newscon2" style="display: block;">
-								<a class="currentJ" href="./gplz/201708/t20170807_85584.htm" target="_blank">赣州：通报第二轮被巡察单位的问题反馈情况</a>
-								<a class="currentK" href="./gplz/201708/t20170807_85584.htm" target="_blank"></a>
+							<!-- 纪律审查 -->
+				      		<div id="newscon2" style="display: none;">
+								<a class="currentJ" href="" target="_blank">
+									<c:if test="${fn:length(dynamicExamine.title) > 20}">
+										${fn:substring(dynamicExamine.title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicExamine.title) <= 20}">
+										${dynamicExamine.title}
+									</c:if>
+								</a>
+								<a class="currentK" href="" target="_blank"></a>
 								<p>
-									<a class="currentK" href="./gplz/201708/t20170807_85584.htm" target="_blank">　　赣州市委派出5个巡察组对市统计局等4个市政府工作部门和市旅发委等11个市政府直属单位进行了巡察...</a>
-				            	</p>
-				            	<ul>
-						            <li><a href="./gplz/201708/t20170804_85577.htm" target="_blank" title="抚州市委巡察组2017年第二轮巡察全部进驻">抚州市委巡察组2017年第二轮巡察全部进驻</a> </li>
-						            <li><a href="./gplz/201707/t20170731_85516.htm" target="_blank" title="鹰潭：出台巡察工作五年规划">鹰潭：出台巡察工作五年规划</a> </li>
-						            <li><a href="./jjjcyw/xsgz/201707/t20170726_85486.htm" target="_blank" title="万载：签订“军令状”巡察出实效">万载：签订“军令状”巡察出实效</a> </li>
-						            <li><a href="./gplz/201707/t20170721_85441.htm" target="_blank" title="景德镇：出台巡察工作五年规划">景德镇：出台巡察工作五年规划</a> </li>
-						            <li><a href="./gplz/201707/t20170720_85429.htm" target="_blank" title="鹰潭：部署八届市委第三轮巡察工作">鹰潭：部署八届市委第三轮巡察工作</a> </li>
-					            </ul>
-				            	<span class="js_more"><a class="currentD" href="./jjjcyw/xsgz/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamicExamine.content) > 20}">
+										${fn:substring(dynamicExamine.content, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicExamine.content) <= 20}">
+										${dynamicExamine.content}
+										</c:if>
+									</a>
+								</p>
+								<ul>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicExamineList)}">
+									<li><a href="${ctx}/news/${dynamicExamineList[i].path}" target="_blank" title="${dynamicExamineList[i].title}">
+										<c:if test="${fn:length(dynamicExamineList[i].title) > 20}">
+										${fn:substring(dynamicExamineList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicExamineList[i].title) <= 20}">
+										${dynamicExamineList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
+								</ul>
+								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
+				      		<!-- 巡查工作 -->
 				      		<div id="newscon3" style="display: none;">
-					            <a class="currentJ" href="./jjjcyw/xfgz/201707/t20170717_85402.htm" target="_blank">湘东：信访举报全覆盖 随时随地可监督</a>
-					      		<a class="currentK" href="./jjjcyw/xfgz/201707/t20170717_85402.htm" target="_blank">今年来，萍乡市湘东区全面畅通基层群众投诉举报渠道，面向全区群众、企业、窗口单位逐门逐户张贴“信访...</a>
-				            	<ul>
-						            <li><a href="./jjjcyw/xfgz/201707/t20170704_85292.htm" target="_blank" title="西湖区：当好“三大员”，提升信访工作质效">西湖区：当好“三大员”，提升信访工作质效</a> </li>
-						            <li><a href="./jjjcyw/xfgz/201706/t20170622_85213.htm" target="_blank" title="信丰：运用“互联网+”网格化责任体系平台，凸显信访监督新成效">信丰：运用“互联网+”网格化责任体系平台，凸显信访监督...</a> </li>
-						            <li><a href="./jjjcyw/xfgz/201706/t20170616_85171.htm" target="_blank" title="鄱阳：探索“一二三四五”信访举报问题处置新模式">鄱阳：探索“一二三四五”信访举报问题处置新模式</a> </li>
-						            <li><a href="./jjjcyw/xfgz/201706/t20170602_85095.htm" target="_blank" title="上犹：加大督办工作力度确保信访线索“零遗漏”">上犹：加大督办工作力度确保信访线索“零遗漏”</a> </li>
-						            <li><a href="./jjjcyw/xfgz/201706/t20170607_85119.htm" target="_blank" title="万年：“四个及时”化解重信重访难题">万年：“四个及时”化解重信重访难题</a> </li>
-					            </ul>
-				            	<span class="js_more"><a class="currentD" href="./jjjcyw/xfgz/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+					            <a class="currentJ" href="" target="_blank">
+								<c:if test="${fn:length(dynamicPatrol.title) > 20}">
+									${fn:substring(dynamicPatrol.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(dynamicPatrol.title) <= 20}">
+									${dynamicPatrol.title}
+								</c:if>
+								</a>
+								<a class="currentK" href="" target="_blank"></a>
+								<p>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamicPatrol.content) > 20}">
+										${fn:substring(dynamicPatrol.content, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicPatrol.content) <= 20}">
+										${dynamicPatrol.content}
+										</c:if>
+									</a>
+								</p>
+								<ul>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicPatrolList)}">
+									<li><a href="${ctx}/news/${dynamicPatrolList[i].path}" target="_blank" title="${dynamicPatrolList[i].title}">
+										<c:if test="${fn:length(dynamicPatrolList[i].title) > 20}">
+										${fn:substring(dynamicPatrolList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicPatrolList[i].title) <= 20}">
+										${dynamicPatrolList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
+								</ul>
+								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 						</div>
 			        </div>
 			        <div class="right-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav"> 
-								<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="./jjjcyw/jlsc/" target="_blank" style="margin-right: 40px;">纪律审查</a> 
-								<a id="news2" onmouseover="news_change('right', 2)" href="" target="_blank" style="margin-right: 40px;" class="">组织人事</a> 
-								<a id="news3" onmouseover="news_change('right', 3)" href="./jjjcyw/lltt/" target="_blank" style="margin-right: 40px;" class="">理论探讨</a> 
+								<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="" target="_blank" style="margin-right: 40px;">宣传工作</a> 
+								<a id="news2" onmouseover="news_change('right', 2)" href="" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
 								<a class="currentI" href="" target="_blank"></a> 
 							</div>
+							<!-- 宣传工作 -->
 							<div id="newscon1" style="display: block;">
-								<a class="currentJ" href="./gplz/201708/t20170814_85619.htm" target="_blank">萍乡三名干部涉嫌违纪接受组织审查</a>
-								<a class="currentK" href="./gplz/201708/t20170814_85619.htm" target="_blank"></a>
+								<a class="currentJ" href="" target="_blank">
+								<c:if test="${fn:length(dynamicPublic.title) > 20}">
+									${fn:substring(dynamicPublic.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(dynamicPublic.title) <= 20}">
+									${dynamicPublic.title}
+								</c:if>
+								</a>
+								<a class="currentK" href="" target="_blank"></a>
 								<p>
-									<a class="currentK" href="./gplz/201708/t20170814_85619.htm" target="_blank">　　从萍乡市纪委获悉，上栗县委政法委书记柳本伙、莲花县委统战部副部长江英豪、湘东区东桥镇厚田村...</a>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamicPublic.content) > 20}">
+										${fn:substring(dynamicPublic.content, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicPublic.content) <= 20}">
+										${dynamicPublic.content}
+										</c:if>
+									</a>
 								</p>
 								<ul>
-									<li><a href="./gplz/201706/t20170629_85269.htm" target="_blank" title="信州区人民法院原党组书记、院长朱英禄被开除党籍和公职">信州区人民法院原党组书记、院长朱英禄被开除党籍和公职</a> </li>
-									<li><a href="./gplz/201706/t20170622_85215.htm" target="_blank" title="南昌市前湖高校园区管委会原主任曾必伟严重违纪被开除党籍和公职">南昌市前湖高校园区管委会原主任曾必伟严重违纪被开除党...</a> </li>
-									<li><a href="./gplz/201706/t20170614_85159.htm" target="_blank" title="宜春市环保局原党组成员、副局长龙金军严重违纪被开除党籍和公职">宜春市环保局原党组成员、副局长龙金军严重违纪被开除党...</a> </li>
-									<li><a href="./gplz/201706/t20170607_85118.htm" target="_blank" title="九江经济技术开发区经发局局长殷毓任接受组织审查">九江经济技术开发区经发局局长殷毓任接受组织审查</a> </li>
-									<li><a href="./tttt/201706/t20170605_85102.htm" target="_blank" title="南昌市前湖高校园区管委会主任曾必伟涉嫌严重违纪接受组织审查">南昌市前湖高校园区管委会主任曾必伟涉嫌严重违纪接受组...</a> </li>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicPublicList)}">
+									<li><a href="${ctx}/news/${dynamicPublicList[i].path}" target="_blank" title="${dynamicPublicList[i].title}">
+										<c:if test="${fn:length(dynamicPublicList[i].title) > 20}">
+										${fn:substring(dynamicPublicList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamicPublicList[i].title) <= 20}">
+										${dynamicPublicList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="./jjjcyw/jlsc/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
+							<!-- 队伍建设 -->
 							<div id="newscon2" style="display:none">
-								<a class="currentJ" href="./gplz/201708/t20170811_85616.htm" target="_blank">全南：为千名党员干部建电子廉政档案</a>
-								<a class="currentK" href="./gplz/201708/t20170811_85616.htm" target="_blank"></a>
-								<ul>
-									<li><a href="./jjjcyw/gbrs/201707/t20170717_85397.htm" target="_blank" title="万载：四抓并举强化乡镇纪委执纪审查能力">万载：四抓并举强化乡镇纪委执纪审查能力</a> </li>
-									<li><a href="./jjjcyw/gbrs/201707/t20170712_85360.htm" target="_blank" title="全南：廉政档案“信息化”开启党员干部监督新模式">全南：廉政档案“信息化”开启党员干部监督新模式</a> </li>
-									<li><a href="./jjjcyw/gbrs/201707/t20170714_85379.htm" target="_blank" title="湾里：出台监督执纪工作规程切实提升监督执纪质效">湾里：出台监督执纪工作规程切实提升监督执纪质效</a> </li>
-									<li><a href="./jjjcyw/gbrs/201706/t20170621_85209.htm" target="_blank" title="西湖区：“三个注重”锻造监督执纪铁军">西湖区：“三个注重”锻造监督执纪铁军</a> </li>
-									<li><a href="./jjjcyw/gbrs/201706/t20170616_85184.htm" target="_blank" title="赣州：学好用好规则 提升执纪能力">赣州：学好用好规则 提升执纪能力</a> </li>
-								</ul>
-								<span class="js_more"><a class="currentD" href="./jjjcyw/gbrs/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
-							</div>
-							<div id="newscon3" style="display:none">
-					            <a class="currentJ" href="./jjjcyw/lltt/201708/t20170801_85534.htm" target="_blank">纪检监察干部要存尚莲之心</a>
-								<a class="currentK" href="./jjjcyw/lltt/201708/t20170801_85534.htm" target="_blank">
-									<p>　　莲花品格为人们景仰，更应该成为纪检监察干部的人生信条、精神境界和现实追求。</p>
+								<a class="currentJ" href="" target="_blank">
+								<c:if test="${fn:length(dynamiTeam.title) > 20}">
+									${fn:substring(dynamiTeam.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(dynamiTeam.title) <= 20}">
+									${dynamiTeam.title}
+								</c:if>
 								</a>
-					            <ul>
-						            <li><a href="./jjjcyw/lltt/201707/t20170725_85478.htm" target="_blank" title="吉州：强化“精准监督” 护航“精准脱贫”">吉州：强化“精准监督” 护航“精准脱贫”</a> </li>
-						            <li><a href="./jjjcyw/lltt/201707/t20170712_85357.htm" target="_blank" title="抓准严肃党内政治生活的关键点">抓准严肃党内政治生活的关键点</a> </li>
-						            <li><a href="./jjjcyw/lltt/201707/t20170706_85305.htm" target="_blank" title="奉新：做好“党建+”文章推动监督责任落实">奉新：做好“党建+”文章推动监督责任落实</a> </li>
-						            <li><a href="./jjjcyw/lltt/201706/t20170630_85275.htm" target="_blank" title="浅谈如何正确运用第一种形态严把执纪监督第一道“关口”">浅谈如何正确运用第一种形态严把执纪监督第一道“关口”</a> </li>
-						            <li><a href="./jjjcyw/lltt/201706/t20170616_85174.htm" target="_blank" title="在“四责”中锻造执纪的铁军">在“四责”中锻造执纪的铁军</a> </li>
-					            </ul>
-					            <span class="js_more"><a class="currentD" href="./jjjcyw/lltt/" target="_blank" style="color:black">更多&gt;&gt;</a></span>
-				      		</div>
+								<a class="currentK" href="" target="_blank"></a>
+								<p>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamiTeam.content) > 20}">
+										${fn:substring(dynamiTeam.content, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamiTeam.content) <= 20}">
+										${dynamiTeam.content}
+										</c:if>
+									</a>
+								</p>
+								<ul>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamiTeamList)}">
+									<li><a href="${ctx}/news/${dynamiTeamList[i].path}" target="_blank" title="${dynamiTeamList[i].title}">
+										<c:if test="${fn:length(dynamiTeamList[i].title) > 20}">
+										${fn:substring(dynamiTeamList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamiTeamList[i].title) <= 20}">
+										${dynamiTeamList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
+								</ul>
+								<span class="js_more"><a class="currentD" href="" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+			
+			<div class="banner-h">
+				<img class="rimg" src="${ctx}/img/hf.gif">
 			</div>
 			
 			<div class="banner-five">
@@ -222,15 +381,16 @@
 					</div>
 					<div class="dangji-bottom">
 						<ul>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
+							<c:forEach var="policy" items="${policyList}">
+							<li><a href="${ctx}/news/${policy.path}" target="_blank" title="${policy.title}">
+								<c:if test="${fn:length(policy.title) > 20}">
+									${fn:substring(policy.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(policy.title) <= 20}">
+									${policy.title}
+								</c:if>
+							</a> </li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -242,15 +402,16 @@
 					</div>
 					<div class="lianlian-bottom">
 						<ul>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
-							<li><a href="" target="_blank" title="">孙新阳调研时强调：要积极推进扶贫领域监督执纪问责</a> </li>
+							<c:forEach var="culture" items="${cultureList}">
+							<li><a href="${ctx}/news/${culture.path}" target="_blank" title="${culture.title}">
+								<c:if test="${fn:length(culture.title) > 20}">
+									${fn:substring(culture.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(culture.title) <= 20}">
+									${culture.title}
+								</c:if>
+							</a> </li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>
@@ -261,66 +422,86 @@
 					<a href="" target="_blank">网站链接</a> 
 					<a class="currentD" href="" target="_blank">更多+</a> 
 				</div>
-				<ul class="site_img">
-					<li><a href="http://www.ccdi.gov.cn/" target="_blank"><img src="img/site/site_01.jpg"></a></li>
-					<li><a href="http://www.jx.gov.cn" target="_blank"><img src="img/site/site_02.jpg"></a></li>
-					<li><a href="http://www.jxdi.gov.cn" target="_blank"><img src="img/site/site_03.jpg"></li>
-					<li><a href="http://www.jxnc.gov.cn/" target="_blank"><img src="img/site/site_04.jpg"></a></li>
-				</ul>
-				<ul class="nav">
-					<li class="active" id="sitenav_0"><a>全省纪检监察网站</a></li>
-					<li id="sitenav_1"><a>本市纪检监察网站</a></li>
-					<li id="sitenav_2"><a>重点新闻网站</a></li>
-				</ul>
-				<div style="margin: 8px 0 50px 0;text-align: center;clear: both;">
-					<ul class="sitelink">
-						<ol>
-							<li><a href="http://www.jjlx.gov.cn" target="_blank">九江市</a></li>
-							<li><a href="http://www.jdzlz.gov.cn" target="_blank">景德镇市</a></li>
-							<li><a href="http://www.pxql.gov.cn" target="_blank">萍乡市</a></li>
-							<li><a href="http://www.xylz.gov.cn" target="_blank">新余市</a></li>
-							<li><a href="http://www.srlz.gov.cn" target="_blank">上饶市</a></li>
-							<li><a href="http://www.ytlz.gov.cn" target="_blank">鹰潭市</a></li>
-							<li><a href="http://www.jglz.gov.cn" target="_blank">吉安市</a></li>
-							<li><a href="http://www.gzjj.gov.cn" target="_blank">赣州市</a></li>
-							<li><a href="http://www.ncdi.gov.cn/" target="_blank">南昌市</a></li>
-							<li><a href="http://www.ycjjjc.gov.cn" target="_blank">宜春市</a></li>
-						</ol>
-						<ol style="display: none;">
-							<li><a href="http://www.lcxlz.gov.cn/index.html" target="_blank">黎川县</a></li>
-							<li><a href="http://www.lcqlzw.com/" target="_blank">临川区</a></li>
-							<li><a href="http://www.dxlzw.com/" target="_blank">东乡县</a></li>
-							<li><a href="http://www.zxlz.gov.cn" target="_blank">资溪县</a></li>
-							<li><a href="http://www.jxgc.gov.cn/gcjj" target="_blank">广昌县</a></li>
-							<li><a href="http://www.jxlean.gov.cn/lzw/" target="_blank">乐安县</a></li>
-							<li><a href="http://yhlzw.jxyh.gov.cn/index.html" target="_blank">宜黄县</a></li>
-						</ol>
-						<ol style="display: none;">
-							<li><a href="http://www.people.com.cn" target="_blank">人民网</a></li>
-							<li><a href="http://www.xinhuanet.com" target="_blank">新华网</a></li>
-							<li><a href="http://www.cntv.cn" target="_blank">央视网</a>
-							</li><li><a href="http://www.china.com.cn" target="_blank">中国网</a></li>
-							<li><a href="http://gb.cri.cn" target="_blank">国际在线</a></li>
-							<li><a href="http://www.chinadaily.com.cn/hqzx" target="_blank">中国日报网</a></li>
-							<li><a href="http://www.youth.cn" target="_blank">中青网</a></li>
-							<li><a href="http://www.ce.cn" target="_blank">中国经济网</a></li>
-							<li><a href="http://www.chinataiwan.org" target="_blank">中国台湾网</a></li>
-							<li><a href="http://www.chinataiwan.org" target="_blank">中国西藏网</a></li>
-							<li><a href="http://www.gmw.cn" target="_blank">光明网</a></li>
-							<li><a href="http://www.cnr.cn" target="_blank">中国广播网</a></li>
-							<li><a href="http://www.chinanews.com" target="_blank">中国新闻网</a></li>
-							<li><a href="http://jx.people.com.cn" target="_blank">人民网江西频道</a></li>
-							<li><a href="http://www.jx.xinhuanet.com" target="_blank">新华网江西频道</a></li>
-							<li><a href="http://www.jxjgdj.gov.cn" target="_blank">江西机关党建网</a></li>
-							<li><a href="http://www.jxwmw.cn" target="_blank">江西文明网</a></li>
-							<li><a href="http://www.jxcn.cn" target="_blank">今视网</a></li>
-							<li><a href="http://www.jxgdw.com" target="_blank">中国台湾网</a></li>
-							<li><a href="www.jxnews.com.cn" target="_blank">大江网</a></li>
-							<li><a href="http://www.ncnews.com.cn" target="_blank">天圆网</a></li>
-							<li><a href="http://www.ncwm.gov.cn" target="_blank">南昌文明网</a></li>
-						</ol>
-						<div style="clear: both;"></div>
-					</ul>
+				<div class="lianjie-nav">
+					<a id="ch_0" class="currentP" href="javascript:void(0);" target="_blank">全国各省市纪委网站</a>
+					<a id="ch_1" href="javascript:void(0);" target="_blank" class="">全省各设区市纪委网站</a>
+					<a id="ch_2" href="javascript:void(0);" target="_blank" class="">全市各县区纪委网站</a>
+					<a id="ch_3" href="javascript:void(0);" target="_blank" class="">市直各部门官方网站</a>
+				</div>
+				<div class="city">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: none;"><tbody>
+						<tr><td>  
+							<span><a href="http://www.bjsupervision.gov.cn/" target="_blank">北京市</a></span>
+							<span><a href="http://www.shjcw.gov.cn/" target="_blank">上海市</a></span>
+							<span><a href="http://www.gdjct.gd.gov.cn/" target="_blank">广东省</a></span>
+							<span><a href="http://www.zjsjw.gov.cn/" target="_blank">浙江省</a></span>
+							<span><a href="http://www.jssjw.gov.cn/" target="_blank">江苏省</a></span>
+							<span><a href="http://www.sxdi.gov.cn/" target="_blank">山西省</a></span>
+							<span><a href="http://www.qlgov.org/pd/sanxi/" target="_blank">陕西省</a></span>
+							<span><a href="http://www.hebcdi.gov.cn/" target="_blank">河北省</a></span>
+							<span><a href="http://www.hnsjct.gov.cn/" target="_blank">河南省</a></span>
+							<span><a href="http://www.hbjwjc.gov.cn/" target="_blank">湖北省</a></span>
+							<span><a href="http://www.sxfj.gov.cn/" target="_blank">湖南省</a></span>
+							<span><a href="http://www.lnsjjjc.gov.cn/" target="_blank">辽宁省</a></span>
+							<span><a href="http://www.mirror.gov.cn/" target="_blank">山东省</a></span>
+							<span><a href="http://www.fjjc.gov.cn/" target="_blank">福建省</a></span>
+							<span><a href="http://www.scjc.gov.cn/" target="_blank">四川省</a></span>
+							<span><a href="http://www.cnfxj.org/" target="_blank">中国反邪教网</a></span>
+							<span><a href="http://www.kaiwind.com/" target="_blank">凯风网</a></span>
+						</td></tr>
+						
+					</tbody></table>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: block;"><tbody>
+						<tr><td>
+							<span><a href="http://nclz.nc.gov.cn/" target="_blank">南昌市</a></span>
+							<span><a href="http://www.jjlx.gov.cn/" target="_blank">九江市</a></span>
+							<span><a href="http://www.pxql.gov.cn/" target="_blank">萍乡市</a></span>
+							<span><a href="http://www.xylz.gov.cn/" target="_blank">新余市</a></span>
+							<span><a href="http://www.ytlz.gov.cn/" target="_blank">鹰潭市</a></span>
+							<span><a href="http://www.gzjj.gov.cn/" target="_blank">赣州市</a></span>
+							<span><a href="http://www.ycjjjc.gov.cn/" target="_blank">宜春市</a></span>
+							<span><a href="http://www.srlz.gov.cn/" target="_blank">上饶市</a></span>
+							<span><a href="http://www.jadi.gov.cn/" target="_blank">吉安市</a></span>
+							<span><a href="http://www.jdzdi.gov.cn/" target="_blank">景德镇市</a></span>
+							<span><a href="http://www.ganyunwang.com/" target="_blank">赣韵网</a></span>
+						</td></tr>
+						
+					</tbody></table>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: none;"><tbody>
+						<tr><td>
+							<span><a href="http://www.lcqlzw.com/" target="_blank">临川区</a></span>
+							<span><a href="http://www.dxlzw.com/" target="_blank">东乡区</a></span>
+							<span><a href="http://jxnclzw.gov.cn/" target="_blank">南城县</a></span>
+							<span><a href="http://www.jdlzw.cn/" target="_blank">南丰县</a></span>
+							<span><a href="http://www.jxgc.gov.cn/gcjj/" target="_blank">广昌县</a></span>
+							<span><a href="http://www.jxxlzw.com/" target="_blank">金溪县</a></span>
+							<span><a href="http://www.zxxlzw.com/" target="_blank">资溪县</a></span>
+							<span><a href="http://www.lcxlz.gov.cn/index.html" target="_blank">黎川县</a></span>
+							<span><a href="http://jw.jxcr.gov.cn/" target="_blank">崇仁县</a></span>
+							<span><a href="http://yhlzw.jxyh.gov.cn/index.html" target="_blank">宜黄县</a></span>
+							<span><a href="http://www.jxlean.gov.cn/lzw/" target="_blank">乐安县</a></span>
+						</td></tr>
+						
+					</tbody></table>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" style="display: none;"><tbody>
+						<tr><td>
+							<span><a href="http://www.fzdj.gov.cn/" target="_blank">市委组织部</a></span>
+							<span><a href="http://www.zgfznews.com/" target="_blank">市委宣传部</a></span>
+							<span><a href="http://www.jxfzgaj.gov.cn" target="_blank">市公安局</a></span>
+							<span><a href="http://fzzy.chinacourt.org/index.shtml" target="_blank">市法院</a></span>
+							<span><a href="http://www.jxfuzhou.jcy.gov.cn" target="_blank">市检察院</a></span>
+							<span><a href="http://sjj.jxfz.gov.cn/" target="_blank">市审计局</a></span>
+							<span><a href="http://czj.jxfz.gov.cn/" target="_blank">市财政局</a></span>
+							<span><a href="http://www.fzjsj.gov.cn/" target="_blank">市建设局</a></span>
+							<span><a href="http://www.fzdpc.gov.cn/" target="_blank">市发改委</a></span>
+							
+						</td></tr>
+						
+					</tbody></table>
+				</div>
+				<div class="lianjie-img" style="height: 40px;">
+					<img src="${ctx}/img/zhengfu-2.png" style="cursor:pointer;width: 405px;" onclick="window.open('http://www.ccdi.gov.cn/')">
+					<a href="http://www.jxlz.gov.cn/" target="_blank" style=" width: 400px;float: right;"><img src="${ctx}/img/jxlz.jpg" style="cursor:pointer;width: 400px;"></a>
 				</div>
 			</div>
 			
@@ -330,6 +511,7 @@
 	</div>
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/marquee/MSClass.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
 	
 	<script>
@@ -343,12 +525,12 @@
 			clickBarRadius: 1
 		});
 		$page
-		.on('mouseover', '.banner-link .nav li', function() {
+		.on('mouseover', '.lianjie-nav a', function() {
 			var $this = $(this);
-			$page.find('.banner-link .nav li').removeClass('active');
-			$this.addClass('active');
-			$page.find('.sitelink').find('ol').css('display', 'none');
-			$page.find('.sitelink').find('ol').eq($this.attr("id").split("_")[1]).css('display', 'block');
+			$page.find('.lianjie-nav a').removeClass('currentP');
+			$this.addClass('currentP');
+			$page.find('.city').find('table').css('display', 'none');
+			$page.find('.city').find('table').eq($this.attr("id").split("_")[1]).css('display', 'block');
 		})
 		
 	})();

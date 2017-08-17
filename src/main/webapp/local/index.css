@@ -5,7 +5,7 @@
 }
 body {
     margin: 0;
-    background-image: url(../img/body-bg.png);
+    background: url(../img/body-bg.png) repeat-x 0 0;
 }
 a {
     text-decoration: none;
@@ -18,6 +18,56 @@ li {
 }
 
 /** 头部header **/
+.t_title {
+    background: #f4f4f4;
+    width: 100%;
+    height: 30px;
+}
+.t_word {
+    width: 1000px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #000;
+    background: #f4f4f4;
+    height: 30px;
+}
+.t_word .tl_word {
+    margin-left: 10px;
+    width: 150px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    display: block;
+}
+.t_word .date {
+    margin-left: 40px;
+    width: 150px;
+    float: left;
+    line-height: 30px;
+    color: #ff7e00;
+    text-align: center;
+}
+.t_word .weahter {
+    width: 296px;
+    float: left;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 110px;
+}
+.t_word .tr_word {
+    float: left;
+    width: 218px;
+    line-height: 30px;
+    text-align: center;
+}
+.clear {
+    clear: both;
+    font-size: 0px;
+    line-height: 0px;
+    height: 0px;
+    visibility: hidden;
+    overflow: hidden;
+}
 .header-container {
     background: url(../img/header.png) no-repeat 50% top;
     height: 220px;
@@ -79,6 +129,34 @@ li {
     text-align: center;
 }
 
+/** 通知公告 **/
+.tzgg {
+    width: 940px;
+    height: 30px;
+    margin: auto;
+}
+.tzgg .tztitle {
+    color: #9b1017;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+    padding: 0px 10px;
+}
+#fgyy1 {
+    /* float: left; */
+    line-height: 30px;
+}
+#fgyy1 td {
+    padding: 0px 10px;
+}
+#fgyy1 a {
+    background-image: url(../img/li-bg.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 10px;
+    color: #3f3f3f;
+}
 /** 中间内容和底部 **/
 .footer-container {
     width: 100%;
@@ -115,7 +193,7 @@ li {
     border-bottom: solid 3px #cccccc;
 }
 .right-box a {
-    width: 382px;
+    width: 398px;
     line-height: 36px;
     color: black;
     font-size: 28px;
@@ -130,7 +208,9 @@ li {
     overflow: hidden;
     font-size: 16px;
     line-height: 30px;
+    text-indent: 2em;
     font-family: "Microsoft Yahei","\5b8b\4f53";
+    word-break: break-all;
 }
 .right-box .currentC {
     padding: 0;
@@ -148,15 +228,15 @@ li {
 }
 .lianzheng-box {
     width: 482px;
-    background-color: white;
-    box-shadow: 0px 0px 30px #e9e9e9;
+    height: 400px;
     float: left;
     overflow: hidden;
     margin-bottom: 15px;
+    position: relative;
 }
 .zhuanti-box, .xinfang-box, .lianlian-box {
 	width: 417px;
-    height: 362px;
+    height: 250px;
     float: right; 
 }
 .lianzheng-top {
@@ -217,30 +297,36 @@ li {
 }
 .banner-three, .banner-five {
     width: 940px;
-    height: 390px;
+    height: 250px;
     margin: auto;
     margin-top: 21px;
 }
 .puguang-box, .dangji-box {
     width: 480px;
-    height: 350px;
+    height: 250px;
     float: left;
     margin-bottom: 10px;
 }
 .banner-four {
     width: 940px;
-    height: 360px;
+    height: 385px;
     margin: auto;
+    clear: both;
+}
+.banner-h {
+    width: 980px;
+    height: 80px;
+    margin: 0 auto;
 }
 .bottom-nav-container {
     width: 940px;
-    height: 304px;
 }
 .bottom-nav-container .left-nav, .bottom-nav-container .right-nav {
     width: 470px;
-    height: 290px;
+    height: 355px;
     float: left;
     margin: 0;
+    position: relative;
 }
 .banner-four-leftnav {
     height: 52px;
@@ -269,6 +355,7 @@ li {
     color: #323232;
     margin-left: 20px;
     margin-top: 12px;
+    text-indent: 2em;
 }
 .left-nav ul, .right-nav ul {
     margin: 0;
@@ -294,6 +381,9 @@ li {
     margin-bottom: 10px;
     float: right;
     padding-right: 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .banner-four-leftnav .currentH {
     color: #9e0e18;
@@ -301,62 +391,79 @@ li {
 /** 网站链接  **/
 .banner-link {
 	width: 940px;
-    height: 200px;
+    margin: auto;
+    margin-bottom: 26px;
+    clear: both;
+}
+.lianjie-nav {
+    width: 833px;
+    height: 26px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.lianjie-nav a {
+    line-height: 26px;
+    margin-left: 65px;
+    float: left;
+    color: black;
+    font-size: 14px;
+}	
+.lianjie-nav .currentP {
+    color: #1d4f80;
+    background-image: url(../img/lianjie-a-bg.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-bottom: 4px;
+}
+.city {
+    padding: 10px 20px;
+    border: 1px solid #417197;
+    width: 880px;
+    height: 110px;
+    overflow: hidden;
     margin: auto;
 }
-.site_img {
-	height: 30px;
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-.site_img li {
+.city a {
+    font-size: 12px;
+    color: black;
     float: left;
-    padding-left: 5px;
+    margin-right: 35px;
+    margin-bottom: 4px;
 }
-.banner-link .nav li {
-    width: 15%;
-    float: left;
-    text-align: center;
-    font-size: 15px;
+.lianjie-img {
+    width: 833px;
+    margin-top: 20px;
+    margin-left: 60px;
 }
-.banner-link .nav li.active a, .site .nav a:hover {
-    color: #c6242f;
-    border-bottom: 2px solid #c6242f;
-}
-.sitelink {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.sitelink li {
-    float: left;
-    padding-left: 10px;
-    font-size: 16px;
-    color: #2a2a2a;
-    font-weight: bold;
+.lianjie-img img {
+    margin-right: 10px;
 }
 /** 底部 **/
 .yewei {
     width: 100%;
-    height: 170px;
+    height: 124px;
     background-color: #e4e4e4;
     padding-top: 26px;
     margin-top: 0px;
-    text-align: center;
 }
 .yewei-center {
-    width: 407px;
+    width: 445px;
     overflow: hidden;
     margin: auto;
+}
+.yewei-center li {
     font-size: 12px;
     color: black;
+    margin-bottom: 10px;
     line-height: 20px;
     overflow: hidden;
+    width: 440px;
 }
-.yewei-center a {
-    display: inline;
+.yewei-center li a {
+    float: left;
     font-size: 12px;
     color: black;
 }
 .yewei-center .currentZ {
-    margin-left: 15%;
+    margin-left: 23%;
 }
