@@ -1,6 +1,7 @@
 package com.hm.gcjw.controller.website;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -147,6 +148,12 @@ public class ArticleController {
 	public Result listPaging(Integer type, int page, int size) {
 		try {
 			Page<ArticleEntity> articlePage = articleService.listByType(type, page, size);
+			Iterator<ArticleEntity> iterator = articlePage.iterator();
+			while (iterator.hasNext()){
+				ArticleEntity article = iterator.next();
+				String content = commonService.getArticleContent(article.getPath());
+				article.setContent(content);
+			}
 			return new ResultInfo(Code.SUCCESS.value(), "ok", articlePage);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
