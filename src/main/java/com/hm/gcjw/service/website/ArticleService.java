@@ -24,4 +24,8 @@ public interface ArticleService {
 
 	String getArticleTitle(Integer type);
 	
+	List<ArticleEntity> listByTopicId(Long topicId);
+	
+	Page<ArticleEntity> listByTopicId(Long topicId, int page, int size);
+	
 }

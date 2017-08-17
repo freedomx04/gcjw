@@ -33,7 +33,8 @@ public class ArticleController {
 
 	@RequestMapping(value = "/api/article/create", method = RequestMethod.POST)
 	public Result create(Integer type, String title, String source,
-			@RequestParam(name = "uploadImage", required = false) MultipartFile uploadImage, String content) {
+			@RequestParam(name = "uploadImage", required = false) MultipartFile uploadImage, String content,
+			Long topicId) {
 		try {
 			String path = commonService.saveArticle(content);
 
@@ -44,8 +45,13 @@ public class ArticleController {
 
 			Date now = new Date();
 			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, path, now, now);
+			
+			if (topicId != null) {
+				article.setTopicId(topicId);
+			}
+			
 			articleService.save(article);
-
+			
 			return new Result(Code.SUCCESS.value(), "created");
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
@@ -61,24 +67,23 @@ public class ArticleController {
 			article.setTitle(title);
 			article.setSource(source);
 			article.setUpdateTime(new Date());
-			
+
 			if (uploadImage != null && !uploadImage.isEmpty()) {
 				commonService.deleteImage(article.getImagePath());
 				String imagePath = commonService.saveImage(uploadImage);
 				article.setImagePath(imagePath);
 			}
-			
+
 			commonService.updateArticle(article.getPath(), content);
 			articleService.save(article);
-			
-			
+
 			return new Result(Code.SUCCESS.value(), "updated");
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/delete")
 	public Result delete(Long articleId) {
 		try {
@@ -115,7 +120,7 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/get")
 	public Result get(Long articleId) {
 		try {
@@ -137,11 +142,33 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/listPaging")
 	public Result listPaging(Integer type, int page, int size) {
 		try {
 			Page<ArticleEntity> articlePage = articleService.listByType(type, page, size);
+			return new ResultInfo(Code.SUCCESS.value(), "ok", articlePage);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
+
+	@RequestMapping(value = "/api/article/listByTopicId")
+	public Result listByTopicId(Long topicId) {
+		try {
+			List<ArticleEntity> list = articleService.listByTopicId(topicId);
+			return new ResultInfo(Code.SUCCESS.value(), "ok", list);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
+
+	@RequestMapping(value = "/api/article/listByTopicIdPaging")
+	public Result listByTopicIdPaging(Long topicId, int page, int size) {
+		try {
+			Page<ArticleEntity> articlePage = articleService.listByTopicId(topicId, page, size);
 			return new ResultInfo(Code.SUCCESS.value(), "ok", articlePage);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

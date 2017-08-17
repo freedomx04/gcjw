@@ -18,4 +18,8 @@ public interface ArticleRepository extends PagingAndSortingRepository<ArticleEnt
 	
 	Page<ArticleEntity> findByTypeOrderByUpdateTimeDesc(Integer type, Pageable pageable);
 	
+	List<ArticleEntity> findByTopicIdOrderByUpdateTimeDesc(Long topicId);
+	
+	Page<ArticleEntity> findByTopicIdOrderByUpdateTimeDesc(Long topicId, Pageable pageable);
+	
 }
