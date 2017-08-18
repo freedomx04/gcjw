@@ -67,7 +67,7 @@ td, label {
 					<tbody>
 						<tr>
 							<td style="display:none" id="lblAgree">
-								<a href="../../ForeJBBill/Index"><img src="${ctx}/img/report/js.gif" width="105" height="43" border="0" alt="填写表单"></a>
+								<a href="${ctx}/report/JBBill"><img src="${ctx}/img/report/js.gif" width="105" height="43" border="0" alt="填写表单"></a>
 							</td>
 							<td id="tblWait">
 								<table border="0" cellpadding="0" cellspacing="0">

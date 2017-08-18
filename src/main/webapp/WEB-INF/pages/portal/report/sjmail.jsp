@@ -10,7 +10,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
-<link rel="stylesheet" href="${ctx}/local/report.css" type="text/css"/>
 
 <title></title>
 <style>
@@ -33,25 +32,27 @@ td, label {
 	   
 		<div style="width: 900px; margin-right: auto; margin-left: auto">
 			<div align="center" style="width:100%; margin-bottom: 50px; margin-top: 20px;">
-				<form id="cform" action="../ForeSJMail/SaveModel" style="margin:0px" method="post">
+				<form id="cform" style="margin:0px">
 					<table cellspacing="1" cellpadding="0" class="form" width="900px" bgcolor="DDE5E7" border="0" align="center">
 						<tbody>
 							<tr> 
 								<td align="left" width="70px" bgcolor="#EEF0F7" height="25px" style="padding-left: 15px"><font color="#FF0000"> *</font>认证码</td>
-								<td width="850px" bgcolor="F8FBFE" align="left"><input class="input" name="rand" id="rand" maxlength="6">&nbsp;
+								<td width="850px" bgcolor="F8FBFE" align="left">
+									<input class="input" name="kaptcha" id="kaptcha" maxlength="6">&nbsp;
 									<img id="kaptcha-img" src="${ctx}/api/kaptcha/captcha.jpg"  height="30" title="点击更换" style="cursor: pointer;"/>
 								</td>
  
 							</tr>
 							<tr> 
 								<td align="left" width="70px" bgcolor="#EEF0F7" height="25px" style="padding-left: 15px"><font color="#FF0000"> *</font>您的信息</td>
-								<td width="850px" bgcolor="F8FBFE" align="left"><input class="input" id="SendInfo" name="SendInfo" maxlength="64" style="width: 600px">
+								<td width="850px" bgcolor="F8FBFE" align="left">
+									<input class="input" id="info" name="info" style="width: 600px">
 								</td>
 							</tr>
 							<tr> 
 								<td align="left" width="70px" bgcolor="#EEF0F7" height="25px" style="padding-left: 15px"><font color="#FF0000"> *</font>信件标题</td>
 								<td bgcolor="F8FBFE" align="left">
-									<input class="input" id="MailTitle" name="MailTitle" maxlength="64" style="width: 600px">
+									<input class="input" id="title" name="title" style="width: 600px">
 								</td>
 							</tr>
 							<tr> 
@@ -59,7 +60,7 @@ td, label {
 									<font color="#FF0000"> *</font>信件内容
 								</td>
 								<td bgcolor="F8FBFE" align="left">
-									<textarea name="MailContext" id="MailContext" cols="70" rows="8" style="width: 95%;height: 300px"></textarea>
+									<textarea name="content" id="content" cols="70" rows="8" style="width: 95%;height: 300px"></textarea>
 								</td>
 							</tr>      
 						</tbody>
@@ -70,7 +71,7 @@ td, label {
 								<td align="right" height="30px" width="820px">
 								</td>
 								<td align="right" height="30px" width="100px" style="padding-right: 50px">
-									<button type="">发送</button>
+									<button type="button" id="sendMail">发送</button>
     							</td>
 							</tr>
 						</tbody>
@@ -87,9 +88,66 @@ td, label {
 
 <script>
 ;(function() {
+	var $form = $("#cform");
+	var $kaptcha_img = $("#kaptcha-img");
+	var $kaptcha = $("#kaptcha");
+	
 	//点击更换图形验证码
-	$("#kaptcha-img").click(function() {
+	$kaptcha_img.click(function() {
 		$(this).attr("src", "${ctx}/api/kaptcha/captcha.jpg?t=" + Math.random()); 
+	});
+	
+	$("#sendMail").on("click", function() {
+		if (cform.kaptcha.value == "") {
+            alert("认证码不能为空，请重新填写！");
+            cform.kaptcha.focus();
+            return ;
+        }
+
+        if (cform.title.value == "") {
+            alert("信件主题不能为空，请重新填写！");
+            cform.title.focus();
+            return;
+        }
+
+        if (cform.content.value == "") {
+            alert("信件内容不能为空，请重新填写！");
+            cform.content.focus();
+            return;
+        }
+
+		$.ajax({
+			url: "${ctx}/api/kaptcha/check",
+			type: "POST",
+			data: {
+				kaptcha: $kaptcha.val()
+			},
+			success: function(result) {
+				if (result.code == 0) {
+					$.ajax({
+						url: "${ctx}/api/mail/create",
+						type: "POST",
+						data: {
+							info: $form.find("#info").val(),
+							title: $form.find("#title").val(),
+							content: $form.find("#content").val()
+						},
+						success: function(ret) {
+							if (ret.code == 0) {
+								alert("您的信件查询码为" + ret.data);
+								cform.reset();
+							}
+						},
+						error: function(err) {}
+					});
+				} else {
+					alert("认证码错误，请重新填写！");
+					$kaptcha_img.attr("src","${ctx}/api/kaptcha/captcha.jpg?t=" + Math.random()); 
+					$kaptcha.val("");
+				}
+			},
+			error: function(err) {}
+		});
 	});
 })();
 </script>
