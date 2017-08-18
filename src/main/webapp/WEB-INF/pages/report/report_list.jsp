@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>书记信箱</title>
+	<title>网络举报</title>
 
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,14 +20,14 @@
 
 </head>
 
-<body class="gray-bg body-mail-list">
+<body class="gray-bg body-report-list">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="ibox float-e-margins">
 	 		<div class="ibox-title">
-	 			<h5>书记信箱</h5>
+	 			<h5>网络举报</h5>
 	 		</div>
 	 		<div class="ibox-content">
- 				<table id="mail-list-table" class="table-hm" data-mobile-responsive="true"></table>
+ 				<table id="report-list-table" class="table-hm" data-mobile-responsive="true"></table>
 	 		</div>
 	 	</div>	
 	</div>
@@ -44,21 +44,29 @@
 	<script type="text/javascript">
 	;(function( $ ) {
 		
-		var $page = $('.body-mail-list');
+		var $page = $('.body-report-list');
 		
-		var $table = $k.util.bsTable($page.find('#mail-list-table'), {
-			url: '${ctx}/api/mail/list',
+		var $table = $k.util.bsTable($page.find('#report-list-table'), {
+			url: '${ctx}/api/report/list',
 			idField: 'id',
 			responseHandler: function(res) {
 				return res.data;
 			},
 			columns:[{
 				field: 'code',
-				title: '信件查询码',
+				title: '举报查询码',
 				align: 'center'
 			}, {
-				field: 'title',
-				title: '信件标题',
+				field: 'reportUnit',
+				title: '单位名称',
+				align: 'center'
+			}, {
+				field: 'reportName',
+				title: '举报人姓名',
+				align: 'center'
+			}, {
+				field: 'type',
+				title: '举报类别',
 				align: 'center'
 			}, {
 				field: 'updateTime',
@@ -66,38 +74,19 @@
 				align: 'center',
 				formatter: formatDate2
 			}, {
-				field: 'reply',
-				title: '回复状态',
-				align: 'center',
-				formatter: function(value, row, index) {
-					if (value == null) {
-            			return '<span class="label label-warning">未回复</span>';
-            		} else {
-            			return '<span class="label label-primary">已回复</span>';
-            		}
-				}
-			}, {
 				title: '操作',
 				align: 'center',
 				formatter: function(value, row, index) {
-					var $detail = '<a class="btn-mail-detail a-operate">详情</a>';
-					var $reply = '';
-					if (row.reply == null) {
-						$reply = '<a class="btn-mail-reply a-operate">回复</a>';
-					}
-					var $delete = '<a class="btn-mail-delete a-operate">删除</a>';
-					return $detail + $reply + $delete;
+					var $detail = '<a class="btn-report-detail a-operate">详情</a>';
+					var $delete = '<a class="btn-report-delete a-operate">删除</a>';
+					return $detail + $delete;
 				},
 				events: window.operateEvents = {
-					'click .btn-mail-detail': function(e, value, row, index) {
+					'click .btn-report-detail': function(e, value, row, index) {
 						e.stopPropagation();
-						window.location.href = '${ctx}/mailGet?mailId=' + row.id;
+						window.location.href = '${ctx}/reportGet?reportId=' + row.id;
 					},
-					'click .btn-mail-reply': function(e, value, row, index) {
-						e.stopPropagation();
-						window.location.href = '${ctx}/mailReply?mailId=' + row.id;
-					},
-					'click .btn-mail-delete': function(e, value, row, index) {
+					'click .btn-report-delete': function(e, value, row, index) {
 						e.stopPropagation();
 						swal({
 							title: '',
@@ -109,11 +98,11 @@
 							confirmButtonText: '确定',
 							closeOnConfirm: false
 						}, function() {
-							var mailId = row.id;
+							var reportId = row.id;
 							$.ajax({
-								url: '${ctx}/api/mail/delete',
+								url: '${ctx}/api/report/delete',
 								data: { 
-									mailId: mailId
+									reportId: reportId
 								},
 								success: function(ret) {
 									if (ret.code == '0') {

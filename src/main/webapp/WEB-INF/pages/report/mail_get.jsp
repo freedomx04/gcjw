@@ -31,35 +31,35 @@
  					<div class="form-group">
  						<label for="code" class="col-sm-2 control-label">信件查询码</label>
  						<div class="col-sm-8">
-							<input type="text" class="form-control" name="code" value="${mail.code}" disabled>
+							<input type="text" class="form-control disabled" name="code" value="${mail.code}">
 						</div>
  					</div>
  					
 					<div class="form-group">
 						<label for="title" class="col-sm-2 control-label">信件标题</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="title" value="${mail.title}" disabled>
+							<input type="text" class="form-control disabled" name="title" value="${mail.title}">
 						</div>
 					</div>	
 					
 					<div class="form-group">
 						<label for="content" class="col-sm-2 control-label">信件内容</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" name="content" style="resize:none; height: 250px;" disabled>${mail.content}</textarea>
+                            <textarea class="form-control disabled" name="content" style="resize:none; height: 250px;">${mail.content}</textarea>
                         </div>
 					</div>
 					
 					<div class="form-group">
 						<label for="updateTime" class="col-sm-2 control-label">时间</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="updateTime" value="<fmt:formatDate value="${mail.updateTime}" pattern="yyyy-MM-dd HH:mm"/>" disabled>
+							<input type="text" class="form-control disabled" name="updateTime" value="<fmt:formatDate value="${mail.updateTime}" pattern="yyyy-MM-dd HH:mm"/>">
 						</div>
 					</div>	
 					
 					<div class="form-group">
 						<label for="reply" class="col-sm-2 control-label">回复内容</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control textarea-mail-reply" name="content" style="resize:none; height: 150px;" disabled>${mail.reply}</textarea>
+                            <textarea class="form-control textarea-mail-reply disabled" name="content" style="resize:none; height: 150px;">${mail.reply}</textarea>
                         </div>
 					</div>
 					
@@ -100,7 +100,8 @@
 		
 		$page
 		.on('click', '.btn-mail-reply', function() {
-			$form.find('.textarea-mail-reply').removeAttr('disabled');
+			$form.find('.textarea-mail-reply').removeClass('disabled');
+			$form.find('.textarea-mail-reply').attr('placeholder', '请输入回复内容');
 			$form.find('.btn-mail-reply').addClass('hide');
 			$form.find('.btn-mail-confirm').removeClass('hide');
 		})

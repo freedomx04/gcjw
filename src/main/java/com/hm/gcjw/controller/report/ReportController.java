@@ -30,7 +30,7 @@ public class ReportController {
 
 	@RequestMapping(value = "/api/report/create", method = RequestMethod.POST)
 	public Result create(String name, String telephone, String idCards, String address, String reportUnit,
-			String reportName, String position, Integer level, Integer politics, Integer type, String content) {
+			String reportName, String position, String level, String politics, String type, String content) {
 		try {
 			Date now = new Date();
 			ReportEntity report = new ReportEntity(name, telephone, idCards, address, reportUnit, reportName, position,

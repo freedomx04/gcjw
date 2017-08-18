@@ -55,17 +55,17 @@ public class ReportEntity extends BaseEntity {
 	/**
 	 * 级别
 	 */
-	private Integer level;
+	private String level;
 
 	/**
 	 * 政治面貌
 	 */
-	private Integer politics;
+	private String politics;
 
 	/**
 	 * 问题类别
 	 */
-	private Integer type;
+	private String type;
 
 	/**
 	 * 问题内容
@@ -84,7 +84,7 @@ public class ReportEntity extends BaseEntity {
 	}
 
 	public ReportEntity(String name, String telephone, String idCards, String address, String reportUnit,
-			String reportName, String position, Integer level, Integer politics, Integer type, String content,
+			String reportName, String position, String level, String politics, String type, String content,
 			Date createTime, Date updateTime) {
 		super();
 		this.name = name;
@@ -166,27 +166,27 @@ public class ReportEntity extends BaseEntity {
 		this.position = position;
 	}
 
-	public Integer getLevel() {
+	public String getLevel() {
 		return level;
 	}
 
-	public void setLevel(Integer level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 
-	public Integer getPolitics() {
+	public String getPolitics() {
 		return politics;
 	}
 
-	public void setPolitics(Integer politics) {
+	public void setPolitics(String politics) {
 		this.politics = politics;
 	}
 
-	public Integer getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(Integer type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
