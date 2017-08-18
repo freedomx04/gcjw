@@ -63,4 +63,53 @@ public class PageController {
 		modelMap.addAttribute("articleTitle", articleTitle);
 		return "pages/portal/article";
 	}
+	
+	/** 举报指南 **/
+	@RequestMapping(value = "/guide") 
+	String guide() {
+		return "pages/portal/report/guide";
+		
+	}
+	
+	/** 举报首页  **/
+	@RequestMapping(value = "/report/index") 
+	String home() {
+		return "pages/portal/report/index";
+		
+	}
+	
+	/** 相关法律法规  **/
+	@RequestMapping(value = "/report/law") 
+	String law() {
+		return "pages/portal/report/law";
+		
+	}
+	
+	/** 举报须知  **/
+	@RequestMapping(value = "/report/JBXZ") 
+	String jbxz() {
+		return "pages/portal/report/jbxz";
+		
+	}
+	
+	/** 书记信箱  **/
+	@RequestMapping(value = "/report/SJMail") 
+	String sjmail() {
+		return "pages/portal/report/sjmail";
+		
+	}
+	
+	/** 信件查询  **/
+	@RequestMapping(value = "/report/MailCX") 
+	String mailcx() {
+		return "pages/portal/report/mailcx";
+		
+	}
+	
+	/** 举报  **/
+	@RequestMapping(value = "/report/JBBill") 
+	String jbbill() {
+		return "pages/portal/report/jbbill";
+		
+	}
 }
