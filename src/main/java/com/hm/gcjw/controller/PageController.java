@@ -63,4 +63,40 @@ public class PageController {
 		modelMap.addAttribute("articleTitle", articleTitle);
 		return "pages/portal/article";
 	}
+	
+	@RequestMapping(value = "/guide") 
+	String guide() {
+		return "pages/portal/report/guide";
+		
+	}
+	
+	@RequestMapping(value = "/report/index") 
+	String home() {
+		return "pages/portal/report/index";
+		
+	}
+	
+	@RequestMapping(value = "/report/law") 
+	String law() {
+		return "pages/portal/report/law";
+		
+	}
+	
+	@RequestMapping(value = "/report/JBXZ") 
+	String jbxz() {
+		return "pages/portal/report/jbxz";
+		
+	}
+	
+	@RequestMapping(value = "/report/SJMail") 
+	String sjmail() {
+		return "pages/portal/report/sjmail";
+		
+	}
+	
+	@RequestMapping(value = "/report/MailCX") 
+	String mailcx() {
+		return "pages/portal/report/mailcx";
+		
+	}
 }

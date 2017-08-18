@@ -243,6 +243,19 @@ li {
     margin-top: 5px;
     cursor: pointer;
 }
+.xinfang-box .jb-box {
+    margin: 0;
+    margin-top: 5px;
+    width: 425px;
+    height: 195px;
+    cursor: pointer;
+}
+.jb-box .jb-fs {
+    width: 425px;
+    height: 139px;
+    cursor: pointer;
+    color: red;
+}
 .lianzheng-top {
     width: 482px;
     height: 40px;
