@@ -28,4 +28,6 @@ public interface ArticleService {
 	
 	Page<ArticleEntity> listByTopicId(Long topicId, int page, int size);
 	
+	List<Object[]> listCountByType();
+	
 }

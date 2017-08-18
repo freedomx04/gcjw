@@ -1,8 +1,11 @@
 package com.hm.gcjw.controller.website;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -177,6 +180,26 @@ public class ArticleController {
 		try {
 			Page<ArticleEntity> articlePage = articleService.listByTopicId(topicId, page, size);
 			return new ResultInfo(Code.SUCCESS.value(), "ok", articlePage);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
+	
+	@RequestMapping(value = "/api/article/listCountByType")
+	public Result listCountByType() {
+		try {
+			List<Map<String, Object>> resultList = new ArrayList<>();
+			List<Object[]> list = articleService.listCountByType();
+			
+			for (Object[] object: list) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("title", articleService.getArticleTitle(Integer.parseInt(object[0].toString())));
+				map.put("count", object[1]);
+				resultList.add(map);
+			}
+			
+			return new ResultInfo(Code.SUCCESS.value(), "ok", resultList);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			return new Result(Code.ERROR.value(), e.getMessage());

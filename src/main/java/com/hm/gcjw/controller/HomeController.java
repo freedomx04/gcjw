@@ -1,6 +1,10 @@
 package com.hm.gcjw.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,6 +50,18 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/overview")
 	String overview(ModelMap modelMap) {
+		// 网站分析
+		List<Map<String, Object>> articleCountList = new ArrayList<>();
+		List<Object[]> list1 = articleService.listCountByType();
+		for (Object[] object: list1) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("title", articleService.getArticleTitle(Integer.parseInt(object[0].toString())));
+			map.put("count", object[1]);
+			articleCountList.add(map);
+		}
+		modelMap.addAttribute("articleCountList", articleCountList);
+		
+		
 		return "pages/overview";
 	}
 	

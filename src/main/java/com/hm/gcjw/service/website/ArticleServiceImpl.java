@@ -86,4 +86,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleRepository.findByTopicIdOrderByUpdateTimeDesc(topicId, new PageRequest(page, size));
 	}
 
+	@Override
+	public List<Object[]> listCountByType() {
+		return articleRepository.listCountByType();
+	}
+
 }
