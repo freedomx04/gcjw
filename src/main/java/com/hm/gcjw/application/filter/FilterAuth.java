@@ -26,11 +26,11 @@ public class FilterAuth implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 
-//		Object obj = req.getSession().getAttribute("cur_user");
-//		if (obj == null || !(obj instanceof UserEntity)) {
-//			res.sendRedirect(req.getContextPath() + "/login");
-//			return;
-//		}
+		Object obj = req.getSession().getAttribute("cur_user");
+		if (obj == null || !(obj instanceof UserEntity)) {
+			res.sendRedirect(req.getContextPath() + "/login");
+			return;
+		}
 		
 		chain.doFilter(request, response);
 	}

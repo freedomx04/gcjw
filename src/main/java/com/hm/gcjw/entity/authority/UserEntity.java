@@ -1,5 +1,7 @@
 package com.hm.gcjw.entity.authority;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -35,10 +37,12 @@ public class UserEntity extends BaseEntity {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserEntity(String username, String password) {
+	public UserEntity(String username, String password, Date createTime, Date updateTime) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.createTime = createTime;
+		this.updateTime = updateTime;
 	}
 
 	public String getUsername() {

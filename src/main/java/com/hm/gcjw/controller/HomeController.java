@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hm.gcjw.common.utils.CurrentUserUtils;
+import com.hm.gcjw.entity.authority.UserEntity;
 import com.hm.gcjw.entity.report.MailEntity;
 import com.hm.gcjw.entity.report.ReportEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
@@ -50,6 +52,15 @@ public class HomeController {
 	/**
 	 * 系统管理
 	 */
+	@RequestMapping(value = "/userList") 
+	String userList() {
+		return "pages/authority/user_list";
+	}
+	
+	@RequestMapping(value = "/userAdd") 
+	String userAdd() {
+		return "pages/authority/user_add";
+	}
 	
 	/**
 	 * 网站管理
@@ -162,6 +173,16 @@ public class HomeController {
 		MailEntity mail = mailService.findOne(mailId);
 		modelMap.addAttribute("mail", mail);
 		return "pages/report/mail_reply";
+	}
+	
+	/**
+	 * 个人中心
+	 */
+	@RequestMapping(value = "/modifyPassword")
+	String modifyPassword(ModelMap modelMap) {
+		UserEntity user = CurrentUserUtils.getInstance().getUser();
+		modelMap.addAttribute("user", user);
+		return "pages/personal/modify_password";
 	}
 	
 }
