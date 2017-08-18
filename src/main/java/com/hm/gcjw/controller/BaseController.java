@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hm.gcjw.common.utils.CurrentUserUtils;
+import com.hm.gcjw.entity.authority.UserEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
@@ -172,6 +174,8 @@ public class BaseController {
 	
 	@RequestMapping(value = "/home")
 	String home(ModelMap modelMap) {
+		UserEntity user = CurrentUserUtils.getInstance().getUser();
+		modelMap.addAttribute("user", user);
 		return "home";
 	}
 

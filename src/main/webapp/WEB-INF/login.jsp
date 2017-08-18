@@ -154,12 +154,12 @@
 	            <div class="page-brand vertical-align-middle">
 	                <h3>广昌县纪委监察局</h3>
 	                <ul class="list-icons">
-	                    <li>
+<!-- 	                    <li>
 	                        <i class="wb-check" aria-hidden="true"></i> 该平台是主要是为帮助政府建设园区内企业经济数据信息化系统，便于监测分析企业各经济指标，并作出相应决策；
 	                    </li>
 	                    <li>
 	                    	<i class="wb-check" aria-hidden="true"></i> 另外，通过线上平台整合线下资源以便充分了解企业资料和产品情况，有效解决企业在经营上的困难，做到企业与政府的有效沟通和合作，进而促进经济发展。
-	                    </li>
+	                    </li> -->
 	                </ul>
 	                <div>
 	                    <a href="index" class="btn btn-primary btn-outline">返回首页</a>

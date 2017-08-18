@@ -32,15 +32,14 @@
 				<ul class="nav" id="side-menu">
 					<li class="nav-header">
 						<div class="dropdown profile-element">
-							<%-- <span><img alt="image" class="user-avatar img-circle" src="${ctx}/api/avatar/${user.avatar}" width="64" height="64"/></span> --%>
+							<span><img alt="image" class="img-circle" src="${ctx}/img/home-avatar.png" width="64" height="64"/></span>
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<span class="clear">
-									<span class="block m-t-xs"><strong class="font-bold user-name">${user.name}</strong></span>
-									<span class="block text-muted text-xs">${user.role.name}<b class="caret"></b></span>
+									<span class="block m-t-xs"><strong class="font-bold user-name">${user.username}</strong></span>
+									<span class="block text-muted text-xs">管理员<b class="caret"></b></span>
 								</span>
 							</a>
 							<ul class="dropdown-menu animated fadeInRight m-t-xs">
-								<li><a class="J_menuItem" href="personalInfo">个人资料</a></li>
 								<li><a class="J_menuItem" href="modifyPassword">修改密码</a></li>
 								<li class="divider"></li>
 								<li><a class="btn-logout" href="javascript:;">退出</a></li>
@@ -49,7 +48,7 @@
 					</li> 
 					<li>
 						<a class="J_menuItem" href="overview">
-							<i class="fa fa-home fa-fw"></i><span class="nav-label">首页</span>
+							<i class="fa fa-home fa-fw"></i><span class="nav-label">网站概况</span>
 						</a>
 					</li>
 					<li>
@@ -118,7 +117,7 @@
 				<!-- tab列表 -->
 				<nav class="page-tabs J_menuTabs">
 					<div class="page-tabs-content">
-						<a href="javascript:;" class="active J_menuTab" data-id="overview">首页</a>
+						<a href="javascript:;" class="active J_menuTab" data-id="overview">网站概况</a>
 					</div>
 				</nav>
 				<!-- tab往右 -->
