@@ -59,8 +59,23 @@ td, label {
 							</tr>
 						</tbody>
 					</table>
-
 				</form>
+				
+				<table id="searchResult" cellspacing="1" cellpadding="0" width="650" bgcolor="DDE5E7" border="0" align="center" style="display: none;">
+					<tbody>
+						<tr>
+							<td align="right" width="200" bgcolor="EEF0F7" height="30px" valign="middle"><font color="#FF0000"> *</font>查询码：</td>
+							<td class="code" bgcolor="F8FBFE" align="left">
+							</td>
+						</tr>
+						<tr>
+							<td align="right" width="200" bgcolor="EEF0F7" height="30px" valign="middle"><font color="#FF0000"> *</font>回复：</td>
+							<td class="reply" width="450" bgcolor="F8FBFE" align="left">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				
 			</div>
 		</div>
 	
@@ -109,7 +124,11 @@ td, label {
 							code: $form.find("#code").val()
 						},
 						success: function(ret) {
-							alert("chenggong")
+							var $searchResult = $("#searchResult");
+							$searchResult.css("display", "block");
+							$form.css("display", "none");
+							$searchResult.find(".code").text(ret.data.code);
+							$searchResult.find(".reply").text(ret.data.reply);
 						},
 						error: function(err) {}
 					});
