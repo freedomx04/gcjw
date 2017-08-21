@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
 <link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
 
-<title></title>
+<title>举报指南-广昌县纪委监察局</title>
 
 <style>
 * {

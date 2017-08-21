@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/plugins/paging/paging.css">
 <link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
 
-<title></title>
+<title>${articleTitle}-广昌县纪委监察局</title>
 
 <style>
 body {
@@ -71,7 +71,7 @@ color:#FFFFFF;
 	                <tr>
 						<td colspan="3" height="40" align="left" style="padding-left:5px;" bgcolor="#FFFFFF">当前位置：
 							<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
-							<a class="weizhi-dynamic" style="display: none;" href="ptype=dynamic&type=8">工作动态</a>
+							<a class="weizhi-dynamic" style="display: none;" href="column?ptype=dynamic&type=8">工作动态</a>
 							<span class="weizhi-dynamic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
 							
 							<a href="column?type=${type}">${articleTitle}</a>
@@ -235,7 +235,7 @@ function getData(type, page, size) {
 			console.info(ret)
 			if(ret.code == 0) {
 				$.each(ret.data.content, function(key, article) {
-					var title = article.title.length > 30 ? article.title.substring(0, 30) + "..." : article.title;
+					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
 					var content = article.content || "";
 					content = content.length > 120 ? content.substring(0, 120) + "..." : content;
 					
