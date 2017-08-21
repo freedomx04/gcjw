@@ -36,6 +36,9 @@
 							<a data-toggle="tab" href="#dynamic-patrol" data-tab="patrol" aria-expanded="true">巡查工作</a>
 						</li>
 						<li>
+							<a data-toggle="tab" href="#dynamic-info" data-tab="info" aria-expanded="true">信息公开</a>
+						</li>
+						<li>
 							<a data-toggle="tab" href="#dynamic-public" data-tab="public" aria-expanded="true">宣传工作</a>
 						</li>
 						<li>
@@ -70,6 +73,16 @@
 				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
 				 				</div>
 				 				<table id="table-dynamic-patrol" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
+						
+						<div id="dynamic-info" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-info" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 				</div>
+				 				<table id="table-dynamic-info" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
 						</div>
 						
@@ -153,6 +166,10 @@
     			$table = $page.find('#table-dynamic-team');
     			$toolbar = $page.find('#toolbar-dynamic-team');
     			break;
+    		case 'info':
+    			type = '13';
+    			$table = $page.find('#table-dynamic-info');
+    			$toolbar = $page.find('#toolbar-dynamic-info');
     		default:		
     			break;
     		}

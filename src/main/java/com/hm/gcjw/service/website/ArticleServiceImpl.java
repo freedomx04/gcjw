@@ -70,6 +70,7 @@ public class ArticleServiceImpl implements ArticleService {
 		case 10:	title = "巡查工作";		break;
 		case 11:	title = "宣传工作";		break;
 		case 12:	title = "队伍建设";		break;
+		case 13:	title = "信息公开";		break;
 		default:	break;
 		}
 		

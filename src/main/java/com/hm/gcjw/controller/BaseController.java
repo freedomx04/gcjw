@@ -178,5 +178,10 @@ public class BaseController {
 		modelMap.addAttribute("user", user);
 		return "home";
 	}
+	
+	@RequestMapping(value = "/init")
+	String init() {
+		return "init";
+	}
 
 }
