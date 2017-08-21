@@ -116,7 +116,7 @@ color:#FFFFFF;
 								</tbody>
 								
 								<tbody class="dynamic" style="display: none;">
-									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡查工作, 宣传工作, 队伍建设" varStatus="status">
+									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡查工作, 宣传工作, 队伍建设, 信息公开" varStatus="status">
 									<tr>
 										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">

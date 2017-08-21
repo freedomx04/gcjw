@@ -164,6 +164,22 @@ public class BaseController {
 		}
 		modelMap.addAttribute("dynamiTeamList", list.getContent());
 		
+		// 工作动态--信息公开
+		list = articleService.listByType(13, 0, 6);
+		try {
+			if (list.getTotalElements() != 0) {
+				ArticleEntity dynamiTeam = list.getContent().get(0);
+				String content = commonService.getArticleContent(dynamiTeam.getPath());
+				dynamiTeam.setContent(content);
+				modelMap.addAttribute("dynamiInfo", dynamiTeam);
+			} else {
+				modelMap.addAttribute("dynamiInfo", null);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		modelMap.addAttribute("dynamiInfoList", list.getContent());
+		
 		return "index";
 	}
 	

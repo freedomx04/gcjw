@@ -305,12 +305,48 @@
 			        <div class="right-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav"> 
-								<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
-								<a id="news2" onmouseover="news_change('right', 2)" href="column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
+				            	<a id="news1" onmouseover="news_change('right', 1)" href="column?ptype=dynamic&type=13" target="_blank" style="margin-right: 40px;" class="">信息公开</a>
+								<a id="news2" onmouseover="news_change('right', 2)" class="currentH" href="column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
+								<a id="news3" onmouseover="news_change('right', 3)" href="column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
 								<a class="currentI" href="" target="_blank"></a> 
 							</div>
+							<!-- 信息公开 -->
+							<div id="newscon1" style="display: none;">
+								<a class="currentJ" href="" target="_blank">
+								<c:if test="${fn:length(dynamiInfo.title) > 20}">
+									${fn:substring(dynamiInfo.title, 0, 20)}...
+								</c:if>
+								<c:if test="${fn:length(dynamiInfo.title) <= 20}">
+									${dynamiInfo.title}
+								</c:if>
+								</a>
+								<a class="currentK" href="" target="_blank"></a>
+								<p>
+									<a class="currentK" href="" target="_blank">
+										<c:if test="${fn:length(dynamiInfo.content) > 20}">
+										${fn:substring(dynamiInfo.content, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamiInfo.content) <= 20}">
+										${dynamiInfo.content}
+										</c:if>
+									</a>
+								</p>
+								<ul>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamiInfoList)}">
+									<li><a href="${ctx}/news/${dynamiInfoList[i].path}" target="_blank" title="${dynamiInfoList[i].title}">
+										<c:if test="${fn:length(dynamiInfoList[i].title) > 20}">
+										${fn:substring(dynamiInfoList[i].title, 0, 20)}...
+										</c:if>
+										<c:if test="${fn:length(dynamiInfoList[i].title) <= 20}">
+										${dynamiInfoList[i].title}
+										</c:if>
+									</a> </li>
+									</c:forEach>
+								</ul>
+								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+							</div>
 							<!-- 宣传工作 -->
-							<div id="newscon1" style="display: block;">
+							<div id="newscon2" style="display: block;">
 								<a class="currentJ" href="" target="_blank">
 								<c:if test="${fn:length(dynamicPublic.title) > 20}">
 									${fn:substring(dynamicPublic.title, 0, 20)}...
@@ -345,7 +381,7 @@
 								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 队伍建设 -->
-							<div id="newscon2" style="display:none">
+							<div id="newscon3" style="display:none">
 								<a class="currentJ" href="" target="_blank">
 								<c:if test="${fn:length(dynamiTeam.title) > 20}">
 									${fn:substring(dynamiTeam.title, 0, 20)}...
