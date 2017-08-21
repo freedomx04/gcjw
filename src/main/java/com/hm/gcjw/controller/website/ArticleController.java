@@ -205,5 +205,25 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
+	
+	@RequestMapping(value = "/api/article/listDynamicCountByType")
+	public Result listDynamicCountByType() {
+		try {
+			List<Map<String, Object>> resultList = new ArrayList<>();
+			List<Object[]> list = articleService.listDynamicCountByType();
+			
+			for (Object[] object: list) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("title", articleService.getArticleTitle(Integer.parseInt(object[0].toString())));
+				map.put("count", object[1]);
+				resultList.add(map);
+			}
+			
+			return new ResultInfo(Code.SUCCESS.value(), "ok", resultList);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
 
 }

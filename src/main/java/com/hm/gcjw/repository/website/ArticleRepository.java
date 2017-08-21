@@ -23,7 +23,10 @@ public interface ArticleRepository extends PagingAndSortingRepository<ArticleEnt
 	
 	Page<ArticleEntity> findByTopicIdOrderByUpdateTimeDesc(Long topicId, Pageable pageable);
 	
-	@Query(value = "select type, count(*)from website_article group by type", nativeQuery = true)
+	@Query(value = "select type, count(*) from website_article group by type", nativeQuery = true)
 	List<Object[]> listCountByType();
+	
+	@Query(value = "select type, count(*) from website_article where type in (8, 9, 10, 11, 12) group by type", nativeQuery = true)
+	List<Object[]> listDynamicCountByType();
 	
 }

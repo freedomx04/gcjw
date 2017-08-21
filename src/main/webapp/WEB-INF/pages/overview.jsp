@@ -28,29 +28,40 @@
 					
 					<div class="ibox-content">
 						<div class="row">
-							<div class="col-sm-6">
-								<table class="table-hm table text-center" data-mobile-responsive="true">
+							<div class="col-sm-4">
+								<table class="table-article-count table-hm table text-center" data-mobile-responsive="true" style="margin-bottom: 0;">
 									<thead>
 										<tr>
 											<td>类别</td>
 											<td>数量</td>
 										</tr>
 									</thead>
-									<tbody>
-										<c:forEach var="articleCount" items="${articleCountList}">
-											<tr>
-												<td>${articleCount.title}</td>
-												<td>${articleCount.count}</td>
-											</tr>
-										</c:forEach>
-									</tbody>
+									<tbody></tbody>
 								</table>
 							</div>
 							
-							<div class="col-sm-6">
-								<div class="chart-article-count"></div>
+							<div class="col-sm-8">
+								<div class="chart-article-count" style="width: 100%; height: 500px;"></div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<div class="chart-topic" style="width: 100%; height: 400px;"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<div class="chart-dynamic" style="width: 100%; height: 500px;"></div>
 					</div>
 				</div>
 			</div>
@@ -59,7 +70,7 @@
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="${ctx}/plugins/echarts/echarts-all.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/echarts/echarts.common.min.js"></script>
 	
 	<script type="text/javascript">
 	;(function( $ ) {
@@ -67,8 +78,125 @@
 		var $page = $('.body-overview');
 		
 		// 网站分析
-		var articleChart = echarts.init($page.find('.chart-article-count')[0]);
+		$.ajax({
+			url: '${ctx}/api/article/listCountByType',
+			success: function(ret) {
+				//debugger;
+				var seriesData = [];
+				var xAxisData = [];
+				
+				// table
+				$.each(ret.data, function(k, val) {
+					xAxisData.push(val.title);
+					seriesData.push(val.count);
+					
+					var $tr = '<tr><td>' + val.title + '</td><td>' + val.count + '</td></tr>';
+					$page.find('.table-article-count tbody').append($tr);
+				});
+				
+				
+				// chart
+				var chart = echarts.init($page.find('.chart-article-count')[0]);
+				option = {
+					title: {
+						text: '网站类别数量柱状图',
+						x: 'center'
+					},
+					color: ['#3b8cff'],
+					tooltip: {
+						trigger: 'axis',
+						axisPointer: {
+							type: 'line'
+						}
+					},
+					xAxis: [{
+						type: 'category',
+						data: xAxisData,
+						axisTick: {
+							alignWithLabel: true
+						},
+						axisLabel: {
+							interval: 0,
+							rotate: 45,
+							margin: 2,
+						}
+					}],
+					yAxis: [{
+						type: 'value'
+					}],
+					calculable : true,
+					series: [{
+						name: '数量',
+						type: 'bar',
+						barWith: '60%',
+						data: seriesData
+					}]
+				}
+				chart.setOption(option);
+				
+				window.addEventListener("resize", function(){
+					chart.resize();
+		        });
+			},
+			error: function(err) {}
+		});
 		
+		// 专题集锦分析
+		
+		
+		// 工作动态分析
+		$.ajax({
+			url: '${ctx}/api/article/listDynamicCountByType',
+			success: function(ret) {
+				var legendData = [];
+				var seriesData = [];
+				
+				$.each(ret.data, function(k, val) {
+					legendData.push(val.title);
+					seriesData.push({
+						value: val.count,
+						name: val.title
+					});
+				});
+				
+				var chart = echarts.init($page.find('.chart-dynamic')[0]);
+				option = {
+					title: {
+						text: '工作动态分析',
+						x: 'center'
+					},
+					tooltip: {
+						trigger: 'item',
+						formatter: '{b} : {c} ({d}%)'
+					},
+					legend: {
+						orient: 'vertical',
+						x: 'left',
+						data: legendData
+					},
+					series: [{
+						type: 'pie',
+						raduis: '55%',
+						center: ['50%', '60%'],
+						data: seriesData
+					}],
+					itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            },
+		            animationType: 'scale'
+				},
+				chart.setOption(option);
+				
+				window.addEventListener("resize", function(){
+					chart.resize();
+		        });
+			},
+			error: function(err) {}
+		});
 		
 	})( jQuery );
 	</script>

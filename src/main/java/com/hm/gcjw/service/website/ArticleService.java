@@ -30,4 +30,6 @@ public interface ArticleService {
 	
 	List<Object[]> listCountByType();
 	
+	List<Object[]> listDynamicCountByType();
+	
 }

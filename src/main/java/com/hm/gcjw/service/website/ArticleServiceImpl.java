@@ -91,4 +91,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleRepository.listCountByType();
 	}
 
+	@Override
+	public List<Object[]> listDynamicCountByType() {
+		return articleRepository.listDynamicCountByType();
+	}
+
 }
