@@ -5,7 +5,8 @@
 }
 body {
     margin: 0;
-    background: url(../img/body-bg.png) repeat-x 0 0;
+    background: url(../img/body-bg.png) repeat-x;
+    background-color: #F5F4EC;
 }
 a {
     text-decoration: none;
@@ -69,7 +70,7 @@ li {
     overflow: hidden;
 }
 .header-container {
-    background: url(../img/header.png) no-repeat 50% top;
+    background: url(../img/logo.png) no-repeat 50% top;
     height: 220px;
     width: 100%;
     margin: 0 auto;

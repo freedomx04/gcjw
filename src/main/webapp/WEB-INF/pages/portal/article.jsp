@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
 <link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
 
-<title></title>
+<title>${article.title}</title>
 
 <style>
 * {

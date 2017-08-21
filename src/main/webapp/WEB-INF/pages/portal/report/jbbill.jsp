@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="${ctx}/local/common.js"></script>
 
-<title></title>
+<title>广昌县纪委监察部举报网站</title>
 <style>
 body {
 	background-image: url(${ctx}/img/report/bg.gif);

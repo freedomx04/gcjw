@@ -11,7 +11,7 @@
 
 <script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 
-<title></title>
+<title>广昌县纪委监察部举报网站</title>
 <style>
 body {
 	background-image: url(${ctx}/img/report/bg.gif);
@@ -47,26 +47,26 @@ body {
 					                   		<tbody>
 						                   		<tr>
 													<td width="3%" valign="top" height="20px"><img height="14px" src="${ctx}/img/report/flag2.gif" width="16px" align="middle" border="0"></td>
-													<td align="left" style="font-size: small"><a href="../ForeLawShow/Index?lID=4d761ae3-3515-4954-91dd-bfa172227cc5" target="_blank">举报信主要样式</a></td>
+													<td align="left" style="font-size: small"><a href="${ctx}/report/letter" target="_blank">举报信主要样式</a></td>
 												</tr>
 								                   
 						                       	<tr>
 													<td width="3%" valign="top" height="20px"><img height="14px" src="${ctx}/img/report/flag2.gif" width="16px" align="middle" border="0"></td>
-													<td align="left" style="font-size: small"><a href="../ForeLawShow/Index?lID=66b7d628-df96-46de-8509-df782f583a7b" target="_blank">中国共产党纪律处分条例</a></td>
+													<td align="left" style="font-size: small"><a href="${ctx}/report/regulation_1" target="_blank">中国共产党纪律处分条例</a></td>
 												</tr>
 								                   
 						                       	<tr>
 													<td width="3%" valign="top" height="20px"><img height="14px" src="${ctx}/img/report/flag2.gif" width="16px" align="middle" border="0"></td>
-													<td align="left" style="font-size: small"><a href="../ForeLawShow/Index?lID=b27dd4a2-0b13-47ad-8e04-aadeb6f7fc44" target="_blank">中国共产党纪律检查机关控告申诉工作条例</a></td>
+													<td align="left" style="font-size: small"><a href="${ctx}/report/regulation_2" target="_blank">中国共产党纪律检查机关控告申诉工作条例</a></td>
 												</tr>
 								                   
 						                       	<tr>
 													<td width="3%" valign="top" height="20px"><img height="14px" src="${ctx}/img/report/flag2.gif" width="16px" align="middle" border="0"></td>
-													<td align="left" style="font-size: small"><a href="../ForeLawShow/Index?lID=59ed0e39-6bcc-46c2-8ad6-9c4d94c71a57" target="_blank">中纪委监察部关于保护检举、控告人的规定</a></td>
+													<td align="left" style="font-size: small"><a href="${ctx}/report/regulation_3" target="_blank">中纪委监察部关于保护检举、控告人的规定</a></td>
 												</tr>
 						                       	<tr>
 													<td width="3%" valign="top" height="20px"><img height="14px" src="${ctx}/img/report/flag2.gif" width="16px" align="middle" border="0"></td>
-													<td align="left" style="font-size: small"><a href="../ForeLawShow/Index?lID=87801c70-a777-4c64-b67f-2fd160c9f479" target="_blank">中华人民共和国行政监察法实施条例</a></td>
+													<td align="left" style="font-size: small"><a href="${ctx}/report/regulation_4" target="_blank">中华人民共和国行政监察法实施条例</a></td>
 												</tr>
 											</tbody>
 										</table>
@@ -79,7 +79,7 @@ body {
 				</tbody>
 			</table>
 			<div style="width: 160px; margin-right: auto; margin-left: auto; margin-bottom: 20px;">
-				<a href="../ForeJBXZ/Index" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
+				<a href="${ctx}/report/JBXZ" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
 			</div>
 		</div>
 	
