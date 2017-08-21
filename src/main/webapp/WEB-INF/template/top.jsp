@@ -47,7 +47,7 @@
 	</div>
 	<div class="clear"></div>
 	<div class="header-container">
-		<div class="yetou">
+		<div class="yetou" style="display: none;">
 			<div class="search">
 				<input ttype="text" name="keyword" id="keyword" value="输入关键字" onfocus="if(this.value=='输入关键字'){this.value=''}" onblur="if(this.value==''){this.value='输入关键字'}" class="search_key">
 				<input type="submit" class="but_search" value="&nbsp;">

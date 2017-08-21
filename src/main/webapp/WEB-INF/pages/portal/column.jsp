@@ -65,7 +65,7 @@ color:#FFFFFF;
 		
 		<table width="100%" border="0" cellpadding="0" cellspacing="0"><tbody><tr>
 			<td align="center" valign="top">
-				<table width="974" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+				<table width="974" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="min-height: 600px;">
 					<tbody>
 					<tr><td colspan="3" height="6" bgcolor="#EBEAEA"></td></tr>
 	                <tr>
