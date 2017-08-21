@@ -168,14 +168,14 @@
 						<a href="" target="_blank">举报</a>
 					</div>
 					<div class="jb-box">
-						<a href="http://www.fzlz.gov.cn/list-43-1.html" target="_blank"><img src="${ctx}/img/jbzn.png" style="float: left; margin-right:5px;"></a>
-						<a href="http://jb.fzlz.gov.cn/" target="_blank"><img src="${ctx}/img/wyjb.png"></a>
+						<a href="${ctx}/report/guide" target="_blank"><img src="${ctx}/img/jbzn.png" style="float: left; margin-right:5px;"></a>
+						<a href="${ctx}/report/JBXZ" target="_blank"><img src="${ctx}/img/wyjb.png"></a>
 						<img class="jb-fs" src="${ctx}/img/jbfs.png" style="margin-top: 5px;">
 						<div style="margin-top: -121px; color: #ffffff; padding: 18px; font-size: 15px;">
-							<li><a href="http://jb.fzlz.gov.cn/" target="_blank" style="color: #FFEB3B;">网络举报（http://jb.fzlz.gov.cn/）</a></li>
+							<li><a href="${ctx}/report/index" target="_blank" style="color: #FFEB3B;">网络举报（${ctx}/report/index）</a></li>
 							<li>手机信息举报：13870412388 </li>
 							<li>举报电话：（0794）12388 </li>
-							<li>来信请寄：江西省抚州市纪委信访室、江西省抚州市纪委007邮箱（免邮资）</li>
+							<li>来信请寄：江西省广昌县纪委信访室、江西省广昌县纪委007邮箱（免邮资）</li>
 						</div>
 				  </div>
 				</div>

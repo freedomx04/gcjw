@@ -65,7 +65,7 @@ public class PageController {
 	}
 	
 	/** 举报指南 **/
-	@RequestMapping(value = "/guide") 
+	@RequestMapping(value = "/report/guide") 
 	String guide() {
 		return "pages/portal/report/guide";
 		
@@ -116,28 +116,28 @@ public class PageController {
 	/** 相关法律法规--举报信主要样式  **/
 	@RequestMapping(value = "/report/letter") 
 	String letter() {
-		return "pages/portal/report/letter_type";
+		return "pages/portal/report/law/letter_type";
 		
 	}
 	
 	/** 相关法律法规--中国共产党纪律处分条例 **/
 	@RequestMapping(value = "/report/regulation_1") 
 	String regulation_1() {
-		return "pages/portal/report/regulation_1";
+		return "pages/portal/report/law/regulation_1";
 		
 	}
 	
 	/** 相关法律法规--中国共产党纪律检查机关控告申诉工作条例**/
 	@RequestMapping(value = "/report/regulation_2") 
 	String regulation_2() {
-		return "pages/portal/report/regulation_2";
+		return "pages/portal/report/law/regulation_2";
 		
 	}
 	
 	/** 相关法律法规--中纪委监察部关于保护检举、控告人的规定 **/
 	@RequestMapping(value = "/report/regulation_3") 
 	String regulation_3() {
-		return "pages/portal/report/regulation_3";
+		return "pages/portal/report/law/regulation_3";
 		
 	}
 	

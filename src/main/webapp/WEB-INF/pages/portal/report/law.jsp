@@ -79,7 +79,7 @@ body {
 				</tbody>
 			</table>
 			<div style="width: 160px; margin-right: auto; margin-left: auto; margin-bottom: 20px;">
-				<a href="../ForeJBXZ/Index" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
+				<a href="${ctx}/report/JBXZ" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
 			</div>
 		</div>
 	

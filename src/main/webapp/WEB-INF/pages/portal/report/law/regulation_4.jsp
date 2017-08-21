@@ -26,7 +26,7 @@ body {
 	<div style="border: 1px solid #FFFF00; background-color: #FFFFFF; height: 100%; width: 1000px; margin: 0px auto 0px auto; top: 0px; bottom: 0px;">
 		<%@ include file="/WEB-INF/pages/portal/report/top.jsp"%>
 	   
-		<div style="width: 800px; margin-right: auto; margin-left: auto">
+		<div style="width: 800px; margin-right: auto; margin-left: auto;font-size: 8px;">
 			<div name="lawContext" id="lawContext" style="overflow: auto;height:auto;">
 				<table border="0" cellspacing="0" cellpadding="0" width="650" align="center">
 					<tbody>

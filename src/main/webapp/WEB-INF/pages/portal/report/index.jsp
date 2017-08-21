@@ -34,7 +34,7 @@ body {
 				<table border="0" cellspacing="0" cellpadding="0" width="94%">
 					<tbody>
 						<tr><td height="50" width="707" align="center">
-						<div style="font-size: 20px; font-weight: bold;" align="center">抚州市纪委信访室（市监察局举报中心）职能介绍</div></td>
+						<div style="font-size: 20px; font-weight: bold;" align="center">广昌县纪委信访室（县监察局举报中心）职能介绍</div></td>
 						</tr>
 						<tr><td style="line-height: 30px; font-size: 14px;" valign="top">&nbsp;&nbsp;&nbsp; 负责处理群众来信，接待群众来访，接听举报电话，从互联网上收集群众举报；提供信访信息，筛选案件线索；督促、催办、审核转请下级纪检监察机关承办的检举、控告、申诉案件和其他重要信访问题；直接查办一些急待查明、易查易结以及打击报复举报人的案件；对委局领导批办的反映领导干部违纪的问题实施信访监督；对信访工作及信访反映的突出问题进行调查研究，对系统的信访举报工作进行业务指导；承办领导交办的其他事项。
 						</td></tr>
@@ -43,7 +43,7 @@ body {
 				<p align="center">&nbsp;</p>
 			</div>
 			<div style="width: 160px; margin-right: auto; margin-left: auto; margin-bottom: 20px;">
-				<a href="../ForeJBXZ/Index" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
+				<a href="${ctx}/report/JBXZ" style="margin-right: auto; margin-left: auto"><img height="43px" src="${ctx}/img/report/02pic.gif" width="160px" border="0"></a>
 			</div>
 		</div>
 	
