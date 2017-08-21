@@ -66,6 +66,11 @@ public class ReportEntity extends BaseEntity {
 	 * 问题类别
 	 */
 	private String type;
+	
+	/**
+	 * 类别大类
+	 */
+	private String clazz;
 
 	/**
 	 * 问题内容
@@ -84,7 +89,7 @@ public class ReportEntity extends BaseEntity {
 	}
 
 	public ReportEntity(String name, String telephone, String idCards, String address, String reportUnit,
-			String reportName, String position, String level, String politics, String type, String content,
+			String reportName, String position, String level, String politics, String type, String clazz, String content,
 			Date createTime, Date updateTime) {
 		super();
 		this.name = name;
@@ -97,6 +102,7 @@ public class ReportEntity extends BaseEntity {
 		this.level = level;
 		this.politics = politics;
 		this.type = type;
+		this.clazz = clazz;
 		this.content = content;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
@@ -206,4 +212,12 @@ public class ReportEntity extends BaseEntity {
 		this.reply = reply;
 	}
 
+	public String getClazz() {
+		return clazz;
+	}
+
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
+	
 }

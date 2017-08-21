@@ -45,4 +45,9 @@ public class ReportServiceImpl implements ReportService {
 		return reportRepository.findByOrderByUpdateTimeDesc();
 	}
 
+	@Override
+	public List<Object[]> listCountByClazz() {
+		return reportRepository.listCountByClazz();
+	}
+
 }

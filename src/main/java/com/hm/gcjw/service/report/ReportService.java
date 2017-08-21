@@ -17,5 +17,7 @@ public interface ReportService {
 	void delete(List<Long> reportIdList);
 	
 	List<ReportEntity> list();
+	
+	List<Object[]> listCountByClazz();
 
 }

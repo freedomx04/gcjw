@@ -53,7 +53,7 @@
 			<div class="col-sm-6">
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
-						<div class="chart-topic" style="width: 100%; height: 400px;"></div>
+						<div class="chart-report" style="width: 100%; height: 500px;"></div>
 					</div>
 				</div>
 			</div>
@@ -81,7 +81,6 @@
 		$.ajax({
 			url: '${ctx}/api/article/listCountByType',
 			success: function(ret) {
-				//debugger;
 				var seriesData = [];
 				var xAxisData = [];
 				
@@ -122,7 +121,8 @@
 						}
 					}],
 					yAxis: [{
-						type: 'value'
+						type: 'value',
+						minInterval: 1
 					}],
 					calculable : true,
 					series: [{
@@ -141,8 +141,51 @@
 			error: function(err) {}
 		});
 		
-		// 专题集锦分析
-		
+		// 举报类型分析
+		$.ajax({
+			url: '${ctx}/api/report/listCountByClazz',
+			success: function(ret) {
+				var seriesData = [];
+				var yAxisData = [];
+				
+				$.each(ret.data, function(k, val) {
+					yAxisData.push(val.title);
+					seriesData.push(val.count);
+				});
+				
+				var chart = echarts.init($page.find('.chart-report')[0]);
+				option = {
+					title: {
+						text: '举报类型分析',
+						x: 'center'
+					},
+					color: ['#CD2626'],
+					tooltip: {
+						trigger: 'axis',
+						axisPointer: {
+							type: 'line'
+						}
+					},
+					xAxis: {
+						type: 'value',
+					},
+					yAxis: {
+						type: 'category',
+						data: yAxisData
+					},
+					series: [{
+						type: 'bar',
+						data: seriesData
+					}]
+				}
+				chart.setOption(option);
+				
+				window.addEventListener("resize", function(){
+					chart.resize();
+		        });
+			},
+			error: function(err) {}
+		});
 		
 		// 工作动态分析
 		$.ajax({

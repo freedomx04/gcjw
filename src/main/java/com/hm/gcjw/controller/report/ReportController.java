@@ -1,7 +1,10 @@
 package com.hm.gcjw.controller.report;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +36,9 @@ public class ReportController {
 			String reportName, String position, String level, String politics, String type, String content) {
 		try {
 			Date now = new Date();
+			String clazz = type.substring(0, 4);
 			ReportEntity report = new ReportEntity(name, telephone, idCards, address, reportUnit, reportName, position,
-					level, politics, type, content, now, now);
+					level, politics, type, clazz, content, now, now);
 
 			// 生成信件查询码
 			String code = PathFormat.parse(reportFormat);
@@ -110,6 +114,26 @@ public class ReportController {
 			report.setReply(reply);
 			reportService.save(report);
 			return new Result(Code.SUCCESS.value(), "reply");
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
+	
+	@RequestMapping(value = "/api/report/listCountByClazz")
+	public Result listCountByClazz() {
+		try {
+			List<Map<String, Object>> resultList = new ArrayList<>();
+			List<Object[]> list = reportService.listCountByClazz();
+			
+			for (Object[] object: list) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("title", object[0]);
+				map.put("count", object[1]);
+				resultList.add(map);
+			}
+			
+			return new ResultInfo(Code.SUCCESS.value(), "ok", resultList);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			return new Result(Code.ERROR.value(), e.getMessage());
