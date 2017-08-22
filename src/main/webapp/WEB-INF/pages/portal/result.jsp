@@ -90,60 +90,61 @@ color:#FFFFFF;
 	</div>
 </body>
 
-<script>
-var pageSize = 2;
-var $page = $("#page");
-;(function() {
-	var init = true;
-	getData(init, 0, pageSize);
-})();
-function getData(init, page, size) {
-	var input = Url.queryString("input");
+<script type="text/javascript">
+	var pageSize = 2;
+	var $page = $("#page");
 	
-	$page.find(".articleList").html("");
+	;(function() {
+		var init = true;
+		getData(init, 0, pageSize);
+	})();
 	
-	$.ajax({
-		url: "${ctx}/api/article/search",
-		type: "POST",
-		data: {
-			input: input,
-			page: parseInt(page),
-			size: pageSize
-		},
-		success: function(ret) {
-			if(ret.code == 0) {
-				if (init) {
-					$page.find('#pageTool').Paging({
-						pagesize: pageSize, 
-						count: ret.data.totalElements, 
-						callback: function(page, size, count) {
-							getData(false, page-1, size);
-						}
+	function getData(init, page, size) {
+		var input = Url.queryString("input");
+		$page.find(".articleList").html("");
+		
+		$.ajax({
+			url: "${ctx}/api/article/search",
+			type: "POST",
+			data: {
+				input: input,
+				page: parseInt(page),
+				size: pageSize
+			},
+			success: function(ret) {
+				if(ret.code == 0) {
+					if (init) {
+						$page.find('#pageTool').Paging({
+							pagesize: pageSize, 
+							count: ret.data.totalElements, 
+							callback: function(page, size, count) {
+								getData(false, page-1, size);
+							}
+						});
+					}
+					
+					$.each(ret.data.content, function(key, article) {
+						var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
+						var content = article.content || "";
+						content = content.length > 120 ? content.substring(0, 120) + "..." : content;
+						
+						$('<table width="100%"><tbody>'
+							+ '<tr><td height="15"></td></tr>'
+							+ '<tr>'
+							+ '<td width="85%" align="left" style="font-family:黑体;color:#555656; padding-left: 15px;" class="title">'
+							+ '<a href="article/'+ article.path +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
+							+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
+							+ '<tr>'
+							+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
+							+ '</tr>'
+	                        + '<tr><td height="10" style="border-bottom:1px solid gray;" colspan="2"></td></tr>'
+							+ '</tbody></table>')
+						.appendTo($page.find(".articleList"));
 					});
 				}
-				
-				$.each(ret.data.content, function(key, article) {
-					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
-					var content = article.content || "";
-					content = content.length > 120 ? content.substring(0, 120) + "..." : content;
-					
-					$('<table width="100%"><tbody>'
-						+ '<tr><td height="15"></td></tr>'
-						+ '<tr>'
-						+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
-						+ '<a href="article/'+ article.path +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
-						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
-						+ '<tr>'
-						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
-						+ '</tr>'
-                        + '<tr><td height="10" style="border-bottom:1px solid gray;" colspan="2"></td></tr>'
-						+ '</tbody></table>')
-					.appendTo($page.find(".articleList"));
-				});
-			}
-		},
-		error: function(e) {}
-	});
+			},
+			error: function(e) {}
+		});
 }
 </script>
 </html>

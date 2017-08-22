@@ -58,7 +58,6 @@ public class ArticleServiceImpl implements ArticleService {
 		switch (type) {
 		case 0:		title = "通知公告";		break;
 		case 1:		title = "图片新闻";		break;
-		case 2:		title = "廉政头条";		break;
 		case 3:		title = "廉情在线";		break;
 		case 4:		title = "曝光台";		break;
 		case 5:		title = "党纪法规";		break;

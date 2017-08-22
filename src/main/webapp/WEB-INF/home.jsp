@@ -66,7 +66,6 @@
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="articleList?type=0">通知公告</a></li>
 							<li><a class="J_menuItem" href="articleList?type=1">图片新闻</a></li>
-							<li><a class="J_menuItem" href="articleList?type=2">廉政头条</a></li>
 							<li><a class="J_menuItem" href="articleList?type=3">廉情在线</a></li>
 							<li><a class="J_menuItem" href="topicList">专题集锦</a></li>
 							<li><a class="J_menuItem" href="articleList?type=4">曝光台</a></li>
