@@ -91,21 +91,13 @@ color:#FFFFFF;
 </body>
 
 <script>
-var pageSize = 10;
+var pageSize = 2;
 var $page = $("#page");
 ;(function() {
-	getData(0, pageSize);
-	
-	$page.find('#pageTool').Paging({
-		pagesize: pageSize, 
-		count: '${count}', 
-		callback: function(page, size, count) {
-			getData(type, page-1, size);
-		}
-	});
-	
+	var init = true;
+	getData(init, 0, pageSize);
 })();
-function getData(page, size) {
+function getData(init, page, size) {
 	var input = Url.queryString("input");
 	
 	$page.find(".articleList").html("");
@@ -114,13 +106,22 @@ function getData(page, size) {
 		url: "${ctx}/api/article/search",
 		type: "POST",
 		data: {
-			input: $page.find("#input").val(),
+			input: input,
 			page: parseInt(page),
 			size: pageSize
 		},
 		success: function(ret) {
-			console.info(ret)
 			if(ret.code == 0) {
+				if (init) {
+					$page.find('#pageTool').Paging({
+						pagesize: pageSize, 
+						count: ret.data.totalElements, 
+						callback: function(page, size, count) {
+							getData(false, page-1, size);
+						}
+					});
+				}
+				
 				$.each(ret.data.content, function(key, article) {
 					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
 					var content = article.content || "";
@@ -130,7 +131,7 @@ function getData(page, size) {
 						+ '<tr><td height="15"></td></tr>'
 						+ '<tr>'
 						+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
-						+ '<a href="article/'+ article.path +'?type='+ type +'" target="_blank">'+ title +'</a></td>'
+						+ '<a href="article/'+ article.path +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
 						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
 						+ '<tr>'
 						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'

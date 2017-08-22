@@ -242,7 +242,7 @@ function getData(type, page, size) {
 						+ '<tr><td height="15"></td></tr>'
 						+ '<tr>'
 						+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
-						+ '<a href="article/'+ article.path +'?type='+ type +'" target="_blank">'+ title +'</a></td>'
+						+ '<a href="article/'+ article.path +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
 						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
 						+ '<tr>'
 						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
