@@ -232,7 +232,6 @@ function getData(type, page, size) {
 		type: "POST",
 		data: data,
 		success: function(ret) {
-			console.info(ret)
 			if(ret.code == 0) {
 				$.each(ret.data.content, function(key, article) {
 					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;

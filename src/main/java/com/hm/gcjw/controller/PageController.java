@@ -64,6 +64,13 @@ public class PageController {
 		return "pages/portal/article";
 	}
 	
+	/** 搜索结果 **/
+	@RequestMapping(value = "/result") 
+	String result() {
+		return "pages/portal/result";
+		
+	}
+	
 	/** 举报指南 **/
 	@RequestMapping(value = "/report/guide") 
 	String guide() {

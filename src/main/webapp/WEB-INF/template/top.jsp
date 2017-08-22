@@ -47,10 +47,10 @@
 	</div>
 	<div class="clear"></div>
 	<div class="header-container">
-		<div class="yetou" style="display: none;">
+		<div class="yetou">
 			<div class="search">
-				<input ttype="text" name="keyword" id="keyword" value="输入关键字" onfocus="if(this.value=='输入关键字'){this.value=''}" onblur="if(this.value==''){this.value='输入关键字'}" class="search_key">
-				<input type="submit" class="but_search" value="&nbsp;">
+				<input ttype="text" name="input" id="input" value="输入关键字" onfocus="if(this.value=='输入关键字'){this.value=''}" onblur="if(this.value==''){this.value='输入关键字'}" class="search_key">
+				<input type="button" id="but_search" class="but_search" value="&nbsp;">
 			</div>
 		</div>
 	</div>
@@ -64,4 +64,24 @@
 			<a href="column?type=7" target="_blank" style="background-image: none;">专题文章</a> 
 		</div>
 	</div>
+	
+	<script language="JavaScript">
+		window.onload=function(){ 
+			var input = document.getElementById("input").value;
+			var $but_search = document.getElementById('but_search');
+			
+			$but_search.onclick = function() {
+				window.location = '${ctx}/result?input=' +　input;
+			};
+			
+			 document.onkeydown=function(event){
+	            var e = event || window.event || arguments.callee.caller.arguments[0];
+	             if(e && e.keyCode==13){ // enter 键
+	            	 e.preventDefault(); 
+	            	 $but_search.click();
+	            }
+	        }; 
+		}
+	</script>
+
 </body>
