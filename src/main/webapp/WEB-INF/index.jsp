@@ -561,6 +561,10 @@
 		</div>
 	</div>
 	
+	<div style="position: fixed;right: 2px;bottom: 222px;">
+		<img src="${ctx}/img/qrcode.png" alt="无" width="100" height="100"/>
+	</div>
+	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
 	
