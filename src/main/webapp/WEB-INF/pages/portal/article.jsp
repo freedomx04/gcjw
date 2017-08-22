@@ -55,10 +55,9 @@
     border-bottom: 1px dashed rgb(221, 221, 221);
 }
 .tophead h2 {
-    width: 980px;
     color: #15537f;
     text-align: center;
-    margin-bottom: 15px;
+    padding: 15px;
 }
 .authortime {
     display: block;
