@@ -225,5 +225,16 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
+	
+	@RequestMapping(value = "/api/article/search")
+	public Result search(String input, int page, int size) {
+		try {
+			Page<ArticleEntity> articleList = articleService.search(input, page, size);
+			return new ResultInfo(Code.SUCCESS.value(), "ok", articleList);
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
 
 }

@@ -97,4 +97,9 @@ public class ArticleServiceImpl implements ArticleService {
 		return articleRepository.listDynamicCountByType();
 	}
 
+	@Override
+	public Page<ArticleEntity> search(String input, int page, int size) {
+		return articleRepository.findByTitleContaining(input, new PageRequest(page, size));
+	}
+
 }

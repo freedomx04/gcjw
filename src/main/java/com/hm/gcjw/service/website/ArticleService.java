@@ -32,4 +32,6 @@ public interface ArticleService {
 	
 	List<Object[]> listDynamicCountByType();
 	
+	Page<ArticleEntity> search(String input, int page, int size);
+	
 }
