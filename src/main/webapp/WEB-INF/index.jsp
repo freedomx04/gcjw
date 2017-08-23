@@ -69,23 +69,23 @@
 				</div>
 				<!-- 廉政头条 -->
 				<div class="right-box">
-			    	<img src="${ctx}/img/lztt.gif" style="width: 50px;padding: 10px;margin-left: 10px;">
-				    <a class="currentB" href="article/${focusnewsList[0].path}?type=2" target="_blank" title="">
-				    	${focusnewsList[0].title}
+			    	<img src="${ctx}/img/lztt.gif" style="width: 50px; padding: 10px; margin-left: 10px; margin-top: 16px;">
+				    <a class="currentB" href="${ctx}/article/${headline.path}?type=2" target="_blank" title="">
+				    	${headline.title}
 				    </a>
 				    <div style="padding-top:13px"></div>
 				    <div class="js_yw">
 						<p>
-							<c:if test="${fn:length(focusnewsList[0].content) > 65}">
-								${fn:substring(focusnewsList[0].content, 0, 65)}...
+							<c:if test="${fn:length(headline.content) > 65}">
+								${fn:substring(headline.content, 0, 65)}...
 							</c:if>
-							<c:if test="${fn:length(focusnewsList[0].content) <= 65}">
-								${focusnewsList[0].content}
+							<c:if test="${fn:length(headline.content) <= 65}">
+								${headline.content}
 							</c:if>
 						</p>
 				    </div>
 				    <div style="padding-top:8px"></div>
-					<a href="column?type=2" target="_blank" class="currentC">更多+</a> 
+					<a href="${ctx}/article/${focusnewsList[0].path}?type=2" target="_blank" class="currentC">更多+</a> 
 				</div>
 			</div>
 			
@@ -121,7 +121,6 @@
 							</a> </li>
 							</c:forEach>
 						</ul>
-						<span class="js_more"><a class="currentD" href="column?type=3" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 					</div>
 				</div>
 				<!-- 专题集锦 -->
@@ -205,14 +204,14 @@
 										${dynamicParty.title}
 									</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamicParty.path}?type=8" target="_blank">
+							<%-- 	<a class="currentK" href="${ctx}/article/${dynamicParty.path}?type=8" target="_blank">
 									<c:if test="${fn:length(dynamicParty.content) > 20}">
 									${fn:substring(dynamicParty.content, 0, 20)}...
 									</c:if>
 									<c:if test="${fn:length(dynamicParty.content) <= 20}">
 									${dynamicParty.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPartyList)}">
 									<li><a href="${ctx}/article/${dynamicPartyList[i].path}?type=8" target="_blank" title="${dynamicPartyList[i + 1].title}">
@@ -237,14 +236,14 @@
 										${dynamicExamine.title}
 									</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamicExamine.path}?type=9" target="_blank">
+								<%-- <a class="currentK" href="${ctx}/article/${dynamicExamine.path}?type=9" target="_blank">
 									<c:if test="${fn:length(dynamicExamine.content) > 20}">
 									${fn:substring(dynamicExamine.content, 0, 20)}...
 								</c:if>
 								<c:if test="${fn:length(dynamicExamine.content) <= 20}">
 									${dynamicExamine.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicExamineList)}">
 									<li><a href="${ctx}/article/${dynamicExamineList[i].path}?type=9" target="_blank" title="${dynamicExamineList[i].title}">
@@ -269,14 +268,14 @@
 										${dynamicExamine.title}
 									</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamicPatrol.path}?type=10" target="_blank">
+								<%-- <a class="currentK" href="${ctx}/article/${dynamicPatrol.path}?type=10" target="_blank">
 									<c:if test="${fn:length(dynamicPatrol.content) > 20}">
 									${fn:substring(dynamicPatrol.content, 0, 20)}...
 								</c:if>
 								<c:if test="${fn:length(dynamicPatrol.content) <= 20}">
 									${dynamicPatrol.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPatrolList)}">
 									<li><a href="${ctx}/article/${dynamicPatrolList[i].path}?type=10" target="_blank" title="${dynamicPatrolList[i].title}">
@@ -311,14 +310,14 @@
 									${dynamiInfo.title}
 								</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamiInfo.path}?type=13" target="_blank">
+								<%-- <a class="currentK" href="${ctx}/article/${dynamiInfo.path}?type=13" target="_blank">
 									<c:if test="${fn:length(dynamiInfo.content) > 20}">
 									${fn:substring(dynamiInfo.content, 0, 20)}...
 									</c:if>
 									<c:if test="${fn:length(dynamiInfo.content) <= 20}">
 									${dynamiInfo.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamiInfoList)}">
 									<li><a href="${ctx}/article/${dynamiInfoList[i].path}?type=13" target="_blank" title="${dynamiInfoList[i].title}">
@@ -343,14 +342,14 @@
 									${dynamicPublic.title}
 								</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamicPublic.path}?type=11" target="_blank">
+								<%-- <a class="currentK" href="${ctx}/article/${dynamicPublic.path}?type=11" target="_blank">
 									<c:if test="${fn:length(dynamicPublic.content) > 20}">
 									${fn:substring(dynamicPublic.content, 0, 20)}...
 									</c:if>
 									<c:if test="${fn:length(dynamicPublic.content) <= 20}">
 									${dynamicPublic.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPublicList)}">
 									<li><a href="${ctx}/article/${dynamicPublicList[i].path}?type=11" target="_blank" title="${dynamicPublicList[i].title}">
@@ -375,14 +374,14 @@
 									${dynamicTeam.title}
 								</c:if>
 								</a>
-								<a class="currentK" href="${ctx}/article/${dynamicTeam.path}?type=11" target="_blank">
+								<%-- <a class="currentK" href="${ctx}/article/${dynamicTeam.path}?type=11" target="_blank">
 									<c:if test="${fn:length(dynamicTeam.content) > 20}">
 									${fn:substring(dynamicTeam.content, 0, 20)}...
 									</c:if>
 									<c:if test="${fn:length(dynamicTeam.content) <= 20}">
 									${dynamicTeam.content}
 									</c:if>
-								</a>
+								</a> --%>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicTeamList)}">
 									<li><a href="${ctx}/article/${dynamicTeamList[i].path}?type=11" target="_blank" title="${dynamicTeamList[i].title}">

@@ -1,6 +1,7 @@
 package com.hm.gcjw.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +35,7 @@ public class BaseController {
 	TopicService topicService;
 	
 	@RequestMapping(value = { "/", "/index" })
-	String index(ModelMap modelMap) {
+	String index(ModelMap modelMap) throws IOException {
 		Page<ArticleEntity> list = null;
 		
 		// 通知公告
@@ -48,20 +49,13 @@ public class BaseController {
 		modelMap.addAttribute("photonewsList", list.getContent());
 		
 		// 廉政头条
-		list = articleService.listByType(2, 0, 1);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity headline = list.getContent().get(0);
-				String content = commonService.getArticleContent(headline.getPath());
-				headline.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("headline", headline);
-			} else {
-				modelMap.addAttribute("headline", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		List<ArticleEntity> articleList = articleService.listByType(3, 0, 1).getContent();
+		if (articleList.size() > 0) {
+			ArticleEntity headline = articleList.get(0);
+			String content = commonService.getArticleContent(headline.getPath());
+			headline.setContent(HtmlUtil.getTextFromHtml(content));
+			modelMap.addAttribute("headline", headline);
 		}
-		
 		
 		// 廉情在线
 		list = articleService.listByType(3, 0, 5);

@@ -327,7 +327,7 @@ li {
 }
 .banner-four {
     width: 940px;
-    height: 385px;
+    height: 330px;
     margin: auto;
     clear: both;
 }
@@ -341,7 +341,7 @@ li {
 }
 .bottom-nav-container .left-nav, .bottom-nav-container .right-nav {
     width: 470px;
-    height: 355px;
+    height: 280px;
     float: left;
     margin: 0;
     position: relative;
