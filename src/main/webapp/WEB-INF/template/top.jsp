@@ -76,10 +76,10 @@
 
 	<script language="JavaScript">
 		window.onload=function(){ 
-			var input = document.getElementById("input").value;
 			var $but_search = document.getElementById('but_search');
 			
 			$but_search.onclick = function() {
+				var input = document.getElementById("input").value;
 				window.location = '${ctx}/result?input=' +　input;
 			};
 			
