@@ -135,6 +135,35 @@
 		})
 		.on('click', '.btn-article-add', function() {
 			window.location.href = '${ctx}/articleAdd?method=add&type=7&topicId=' + topicId;
+		})
+		.on('click', '.btn-article-delete-batch', function() {
+			swal({
+				title: '',
+				text: '确定批量删除选中记录',
+				type: 'warning',
+				showCancelButton: true,
+				cancelButtonText: '取消',
+				confirmButtonColor: '#DD6B55',
+				confirmButtonText: '确定',
+				closeOnConfirm: false
+			}, function() {
+				var rows = $table.bootstrapTable('getSelections');
+				$.ajax({
+					url: '${ctx}/api/article/batchDelete',
+					data: {
+						articleIdList: $k.util.getIdList(rows) 
+					},
+					success: function(ret) {
+						if (ret.code == '0') {
+							swal('', '删除成功!', 'success');
+						} else {
+							swal('', ret.msg, 'error');
+						}
+						$table.bootstrapTable('refresh');
+					},
+					error: function(err) {}
+				});
+			});
 		});
 		
 	</script>

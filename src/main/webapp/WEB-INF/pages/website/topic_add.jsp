@@ -101,7 +101,11 @@
 			validator.validate();
 			
 			var imagePath = $form.find('.avatar-view > img').attr('src');
-			imagePath = imagePath.substring(imagePath.indexOf('/image'));
+			if (imagePath.indexOf('default_topic_img.png') != -1) {
+				imagePath = imagePath.substring(imagePath.indexOf('/img'));
+			} else {
+				imagePath = imagePath.substring(imagePath.indexOf('/image'));
+			}
 			if (validator.isValid()) {
 				$.ajax({
 					url: '${ctx}/api/topic/create',

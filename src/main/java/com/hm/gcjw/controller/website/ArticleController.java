@@ -236,5 +236,22 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
+	
+	@RequestMapping(value = "/api/article/topic")
+	public Result topic(Long articleId, Long topicId) {
+		try {
+			ArticleEntity article = articleService.findOne(articleId);
+			if (topicId == 0) {
+				article.setTopicId(null);
+			} else {
+				article.setTopicId(topicId);
+			}
+			articleService.save(article);
+			return new Result(Code.SUCCESS.value(), "success");
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
 
 }

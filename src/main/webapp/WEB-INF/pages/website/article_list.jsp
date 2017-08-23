@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/animate/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/iCheck/custom.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap-table/bootstrap-table.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/sweetalert/sweetalert.css">
 	
@@ -36,6 +37,32 @@
 	 	</div>	
 	</div>
 	
+	<div class="modal" id="modal-topic-dialog" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content animated fadeInDown">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title"><strong>请选择专题</strong></h4>
+				</div>
+				<div class="modal-body" style="max-height: 400px; overflow: auto;">
+					<form class="form-horizontal" role="form" autocomplete="off">
+						<div class="form-group">
+							<div class="topic-list col-sm-12"></div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">
+                        <i class="fa fa-close fa-fw"></i>关闭
+                    </button>
+                    <button type="button" class="btn btn-primary btn-confirm">
+                        <i class="fa fa-check fa-fw"></i>确定
+                    </button>
+                </div>
+			</div>
+		</div>
+	</div>
+	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/hplus/content.min.js"></script>
@@ -44,12 +71,15 @@
 	<script type="text/javascript" src="${ctx}/plugins/sweetalert/sweetalert.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap-table/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/iCheck/icheck.min.js"></script>
 	
 	<script type="text/javascript">
 	;(function( $ ) {
 		
 		var $page = $('.body-article-list');
 		var type = ${type};
+		var $dialog = $page.find('#modal-topic-dialog');
+		var $topicList = $dialog.find('.topic-list');
 		
 		var $table = $k.util.bsTable($page.find('#article-list-table'), {
 			url: '${ctx}/api/article/list?type=${type}',
@@ -77,7 +107,16 @@
 					var $detail = '<a class="btn-article-detail a-operate">详情</a>';
 					var $edit = '<a class="btn-article-edit a-operate">编辑</a>';
 					var $delete = '<a class="btn-article-delete a-operate">删除</a>';
-					return $detail + $edit + $delete;
+					
+					var $topic;
+					var topicId = row.topicId;
+					if (topicId == null) {
+						$topic = '<a class="btn-article-topic-add a-operate">加入专题</a>';
+					} else {
+						$topic = '<a class="btn-article-topic-edit a-operate">变更专题</a>';
+					}
+					
+					return $detail + $edit + $topic + $delete;
 				},
 				events: window.operateEvents = {
 					'click .btn-article-detail': function(e, value, row, index) {
@@ -87,6 +126,59 @@
 					'click .btn-article-edit': function(e, value, row, index) {
 						e.stopPropagation();
 						window.location.href = './articleAdd?type=${type}&method=edit&articleId=' + row.id;
+					},
+					'click .btn-article-topic-add': function(e, value, row, index) {
+						e.stopPropagation();
+						$.ajax({
+							url: '${ctx}/api/topic/list',
+							success: function(ret) {
+								$topicList.empty();
+								$topicList.append('<div class="radio i-checks"><label><input type="radio" value="0" name="topicList">&nbsp;无专题</label></div>');
+								$.each(ret.data, function(k, val) {
+									var option = '<div class="radio i-checks">' + 
+													'<label>' + 
+														'<input type="radio" value="' + val.id +'" name="topicList">&nbsp;' + val.title + 
+													'</label>' +
+												'</div>';
+									$topicList.append(option);
+								});
+								$dialog.data('articleId', row.id);
+								$page.find(".i-checks").iCheck({
+						        	checkboxClass: "icheckbox_square-green", 
+						        	radioClass: "iradio_square-green"
+						        });
+								$dialog.modal('show');
+							},
+							error: function(err) {}
+						});
+					},
+					'click .btn-article-topic-edit': function(e, value, row, index) {
+						e.stopPropagation();
+						$.ajax({
+							url: '${ctx}/api/topic/list',
+							success: function(ret) {
+								$topicList.empty();
+								$topicList.append('<div class="radio i-checks"><label><input type="radio" value="0" name="topicList">&nbsp;无专题</label></div>');
+								$.each(ret.data, function(k, val) {
+									var option = '<div class="radio i-checks">' + 
+													'<label>' + 
+														'<input type="radio" value="' + val.id +'" name="topicList">&nbsp;' + val.title + 
+													'</label>' +
+												'</div>';
+									$topicList.append(option);
+								});
+								var $radio = $dialog.find('input[value=' + row.topicId + ']');
+								$radio.iCheck('check');
+								
+								$dialog.data('articleId', row.id);
+								$page.find(".i-checks").iCheck({
+						        	checkboxClass: "icheckbox_square-green", 
+						        	radioClass: "iradio_square-green"
+						        });
+								$dialog.modal('show');
+							},
+							error: function(err) {}
+						});
 					},
 					'click .btn-article-delete': function(e, value, row, index) {
 						e.stopPropagation();
@@ -126,6 +218,34 @@
 		$table.on('all.bs.table', function(e, row) {
 			var selNum = $table.bootstrapTable('getSelections').length;
 			selNum > 0 ? $page.find('.btn-article-delete-batch').removeAttr('disabled') : $page.find('.btn-article-delete-batch').attr('disabled', 'disabled');
+		});
+		
+		$dialog.on('click', '.btn-confirm', function() {
+			var articleId = $dialog.data('articleId');
+			var topicId = 0;
+			$dialog.find('.i-checks input').each(function() {
+				if (true == $(this).is(':checked')) {
+					topicId = $(this).attr('value');
+				}
+			});
+			
+			$.ajax({
+				url: '${ctx}/api/article/topic',
+				data: {
+					articleId: articleId,
+					topicId: topicId
+				},
+				success: function(ret) {
+					if (ret.code == 0) {
+         				$dialog.modal('hide');
+             			swal('', '加入专题成功!', 'success');
+             			$table.bootstrapTable('refresh');
+         			} else {
+         				swal('', ret.msg, 'error');
+         			}
+				},
+				error: function(err) {}
+			});
 		});
 		
 		$page
