@@ -31,7 +31,7 @@ td, label {
 	<div style="border: 1px solid #FFFF00; background-color: #FFFFFF; height: 100%; width: 1000px; margin: 0px auto 0px auto; top: 0px; bottom: 0px;">
 		<%@ include file="/WEB-INF/pages/portal/report/top.jsp"%>
 		
-	   	<div style="width: 600px; margin-right: auto; margin-left: auto">
+	   	<div style="width: 700px; margin-right: auto; margin-left: auto">
 			<div>
 				<img height="59px" src="${ctx}/img/report/03pic.gif" width="191px">
 			</div>
