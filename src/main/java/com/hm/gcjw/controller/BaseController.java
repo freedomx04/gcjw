@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.common.utils.CurrentUserUtils;
+import com.hm.gcjw.common.utils.HtmlUtil;
 import com.hm.gcjw.entity.authority.UserEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
@@ -52,7 +53,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity headline = list.getContent().get(0);
 				String content = commonService.getArticleContent(headline.getPath());
-				headline.setContent(content);
+				headline.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("headline", headline);
 			} else {
 				modelMap.addAttribute("headline", null);
@@ -90,7 +91,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity dynamicParty = list.getContent().get(0);
 				String content = commonService.getArticleContent(dynamicParty.getPath());
-				dynamicParty.setContent(content);
+				dynamicParty.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("dynamicParty", dynamicParty);
 			} else {
 				modelMap.addAttribute("dynamicParty", null);
@@ -106,7 +107,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity dynamicExamine = list.getContent().get(0);
 				String content = commonService.getArticleContent(dynamicExamine.getPath());
-				dynamicExamine.setContent(content);
+				dynamicExamine.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("dynamicExamine", dynamicExamine);
 			} else {
 				modelMap.addAttribute("dynamicExamine", null);
@@ -122,7 +123,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity dynamicPatrol = list.getContent().get(0);
 				String content = commonService.getArticleContent(dynamicPatrol.getPath());
-				dynamicPatrol.setContent(content);
+				dynamicPatrol.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("dynamicPatrol", dynamicPatrol);
 			} else {
 				modelMap.addAttribute("dynamicPatrol", null);
@@ -138,7 +139,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity dynamicPublic = list.getContent().get(0);
 				String content = commonService.getArticleContent(dynamicPublic.getPath());
-				dynamicPublic.setContent(content);
+				dynamicPublic.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("dynamicPublic", dynamicPublic);
 			} else {
 				modelMap.addAttribute("dynamicPublic", null);
@@ -152,17 +153,17 @@ public class BaseController {
 		list = articleService.listByType(12, 0, 6);
 		try {
 			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamiTeam = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamiTeam.getPath());
-				dynamiTeam.setContent(content);
-				modelMap.addAttribute("dynamiTeam", dynamiTeam);
+				ArticleEntity dynamicTeam = list.getContent().get(0);
+				String content = commonService.getArticleContent(dynamicTeam.getPath());
+				dynamicTeam.setContent(HtmlUtil.getTextFromHtml(content));
+				modelMap.addAttribute("dynamicTeam", dynamicTeam);
 			} else {
-				modelMap.addAttribute("dynamiTeam", null);
+				modelMap.addAttribute("dynamicTeam", null);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		modelMap.addAttribute("dynamiTeamList", list.getContent());
+		modelMap.addAttribute("dynamicTeamList", list.getContent());
 		
 		// 工作动态--信息公开
 		list = articleService.listByType(13, 0, 6);
@@ -170,7 +171,7 @@ public class BaseController {
 			if (list.getTotalElements() != 0) {
 				ArticleEntity dynamiTeam = list.getContent().get(0);
 				String content = commonService.getArticleContent(dynamiTeam.getPath());
-				dynamiTeam.setContent(content);
+				dynamiTeam.setContent(HtmlUtil.getTextFromHtml(content));
 				modelMap.addAttribute("dynamiInfo", dynamiTeam);
 			} else {
 				modelMap.addAttribute("dynamiInfo", null);
@@ -199,5 +200,4 @@ public class BaseController {
 	String init() {
 		return "init";
 	}
-
 }

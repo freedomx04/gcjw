@@ -154,4 +154,5 @@ public class PageController {
 		return "pages/portal/report/regulation_4";
 		
 	}
+	
 }

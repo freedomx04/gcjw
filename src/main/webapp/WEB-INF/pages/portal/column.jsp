@@ -236,7 +236,11 @@ function getData(type, page, size) {
 				$.each(ret.data.content, function(key, article) {
 					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
 					var content = article.content || "";
-					content = content.length > 120 ? content.substring(0, 120) + "..." : content;
+					var start_ptn = /<\/?[^>]*>/g;      //过滤标签开头      
+					var end_ptn = /[ | ]*\n/g;            //过滤标签结束  
+					var space_ptn = /&nbsp;/ig;          //过滤标签结尾
+					content = content.replace(start_ptn,"").replace(end_ptn).replace(space_ptn,"");
+					content = content.length > 80 ? content.substring(0, 80) + "..." : content;
 					
 					$('<table width="100%"><tbody>'
 						+ '<tr><td height="15"></td></tr>'
