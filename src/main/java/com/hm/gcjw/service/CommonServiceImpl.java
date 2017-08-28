@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hm.gcjw.common.PathFormat;
-import com.hm.gcjw.common.utils.CommonUtils;
 import com.hm.gcjw.common.utils.FileUtil;
 
 @Service
@@ -25,60 +23,8 @@ public class CommonServiceImpl implements CommonService {
 	@Value("${customize.path.upload}")
 	private String uploadPath;
 	
-	private String articlePath = "article";
-	
 	@Value("${customize.path.image}")
 	private String imageFormat;
-	
-	@Override
-	public String saveArticle(String content) throws IOException {
-		String dateFormat = "{yyyy}{mm}{dd}";
-		String datepath = PathFormat.parse(dateFormat);
-		String shortUuid = CommonUtils.getShortUuid();
-		String path = datepath + shortUuid;
-		
-		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
-		FileUtil.sureDirExists(file, true);
-		FileUtils.write(file, content, "UTF-8");
-		
-		return path;
-	}
-
-	@Override
-	public void updateArticle(String path, String content) throws IOException {
-		String datepath = path.substring(0, 8);
-		String shortUuid = path.substring(8);
-		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
-		if (file.exists()) {
-			FileUtils.write(file, content, "UTF-8");
-		} else {
-			throw new IOException("article file not exist!");
-		}
-	}
-
-	@Override
-	public String getArticleContent(String path) throws IOException {
-		String datepath = path.substring(0, 8);
-		String shortUuid = path.substring(8);
-		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
-		if (file.exists()) {
-			String content = FileUtils.readFileToString(file, "UTF-8");
-			return content;
-		} else {
-			throw new IOException("article file not exist!");
-		}
-	}
-
-	@Override
-	public void deleteArticle(String path) throws IOException {
-		String datepath = path.substring(0, 8);
-		String shortUuid = path.substring(8);
-		
-		File file = Paths.get(uploadPath, articlePath, datepath, shortUuid + ".html").toFile();
-		if (file.exists()) {
-			file.delete();
-		}
-	}
 
 	@Override
 	public String saveImage(MultipartFile uploadImage) throws IOException {
