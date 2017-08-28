@@ -3,6 +3,8 @@ package com.hm.gcjw.common.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
+
 public class HtmlUtil {
 	private static final String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // 定义script的正则表达式
     private static final String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // 定义style的正则表达式
@@ -34,6 +36,10 @@ public class HtmlUtil {
     }
     
     public static String getTextFromHtml(String htmlStr){
+    	if (StringUtils.isEmpty(htmlStr)) {
+    		return "";
+    	}
+    	
     	htmlStr = delHTMLTag(htmlStr);
     	htmlStr = htmlStr.replaceAll("&nbsp;", "");
     	htmlStr = htmlStr.substring(0, htmlStr.indexOf("。")+1);

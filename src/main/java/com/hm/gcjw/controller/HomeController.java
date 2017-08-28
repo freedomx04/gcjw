@@ -85,8 +85,6 @@ public class HomeController {
 		
 		if (articleId != null) {
 			ArticleEntity article = articleService.findOne(articleId);
-			String content = commonService.getArticleContent(article.getPath());
-			article.setContent(content);
 			modelMap.addAttribute("article", article);
 		}
 		
@@ -96,10 +94,7 @@ public class HomeController {
 	@RequestMapping(value = "/articleGet")
 	String articleGet(ModelMap modelMap, Long articleId) throws IOException {
 		ArticleEntity article = articleService.findOne(articleId);
-		String content = commonService.getArticleContent(article.getPath());
-		article.setContent(content);
 		modelMap.addAttribute("article", article);
-		
 		String title = articleService.getArticleTitle(article.getType());
 		modelMap.addAttribute("title", title);
 		

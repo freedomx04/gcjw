@@ -1,6 +1,5 @@
 package com.hm.gcjw.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -46,17 +45,11 @@ public class PageController {
 		return "pages/portal/column";
 	}
 	
-	@RequestMapping(value = "/article/{path}") 
-	String article(ModelMap modelMap, Integer type, @PathVariable("path") String path) {
-		ArticleEntity article = articleService.findByPath(path);
+	@RequestMapping(value = "/article/{articleId}") 
+	String article(ModelMap modelMap, Integer type, @PathVariable("articleId") Long articleId) {
+		ArticleEntity article = articleService.findOne(articleId);
 		if (article != null) {
-			try {
-				String content = commonService.getArticleContent(article.getPath());
-				article.setContent(content);
-				modelMap.addAttribute("article", article);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			modelMap.addAttribute("article", article);
 		}
 		
 		String articleTitle = articleService.getArticleTitle(type);

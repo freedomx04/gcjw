@@ -3,7 +3,6 @@ package com.hm.gcjw.controller.website;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -40,22 +39,19 @@ public class ArticleController {
 			@RequestParam(name = "uploadImage", required = false) MultipartFile uploadImage, String content,
 			Long topicId) {
 		try {
-			String path = commonService.saveArticle(content);
-
 			String imagePath = null;
 			if (uploadImage != null) {
 				imagePath = commonService.saveImage(uploadImage);
 			}
 
 			Date now = new Date();
-			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, path, now, now);
+			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, content, now, now);
 			
 			if (topicId != null) {
 				article.setTopicId(topicId);
 			}
 			
 			articleService.save(article);
-			
 			return new Result(Code.SUCCESS.value(), "created");
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
@@ -70,6 +66,7 @@ public class ArticleController {
 			ArticleEntity article = articleService.findOne(articleId);
 			article.setTitle(title);
 			article.setSource(source);
+			article.setContent(content);
 			article.setUpdateTime(new Date());
 
 			if (uploadImage != null && !uploadImage.isEmpty()) {
@@ -78,9 +75,7 @@ public class ArticleController {
 				article.setImagePath(imagePath);
 			}
 
-			commonService.updateArticle(article.getPath(), content);
 			articleService.save(article);
-
 			return new Result(Code.SUCCESS.value(), "updated");
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
@@ -92,13 +87,10 @@ public class ArticleController {
 	public Result delete(Long articleId) {
 		try {
 			ArticleEntity article = articleService.findOne(articleId);
-
-			commonService.deleteArticle(article.getPath());
 			if (article.getImagePath() != null) {
 				commonService.deleteImage(article.getImagePath());
 			}
 			articleService.delete(articleId);
-
 			return new Result(Code.SUCCESS.value(), "deleted");
 		} catch (Exception e) {
 			if (e.getCause().toString().indexOf("ConstraintViolationException") != -1) {
@@ -151,12 +143,6 @@ public class ArticleController {
 	public Result listPaging(Integer type, int page, int size) {
 		try {
 			Page<ArticleEntity> articlePage = articleService.listByType(type, page, size);
-			Iterator<ArticleEntity> iterator = articlePage.iterator();
-			while (iterator.hasNext()){
-				ArticleEntity article = iterator.next();
-				String content = commonService.getArticleContent(article.getPath());
-				article.setContent(content);
-			}
 			return new ResultInfo(Code.SUCCESS.value(), "ok", articlePage);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

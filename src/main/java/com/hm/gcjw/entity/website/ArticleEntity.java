@@ -53,13 +53,9 @@ public class ArticleEntity extends BaseEntity {
 	private String imagePath;
 
 	/**
-	 * 文章路径标识
-	 */
-	private String path;
-
-	/**
 	 * 文章内容
 	 */
+	@Column(length = 16777216)
 	private String content;
 	
 	/**
@@ -73,14 +69,14 @@ public class ArticleEntity extends BaseEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArticleEntity(Integer type, String title, String source, String imagePath, String path, Date createTime,
+	public ArticleEntity(Integer type, String title, String source, String imagePath, String content, Date createTime,
 			Date updateTime) {
 		super();
 		this.type = type;
 		this.title = title;
 		this.source = source;
 		this.imagePath = imagePath;
-		this.path = path;
+		this.content = content;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 	}
@@ -115,14 +111,6 @@ public class ArticleEntity extends BaseEntity {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
-	}
-
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
 	}
 
 	public String getContent() {

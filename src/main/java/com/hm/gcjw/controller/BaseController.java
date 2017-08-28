@@ -1,6 +1,5 @@
 package com.hm.gcjw.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -35,7 +34,7 @@ public class BaseController {
 	TopicService topicService;
 	
 	@RequestMapping(value = { "/", "/index" })
-	String index(ModelMap modelMap) throws IOException {
+	String index(ModelMap modelMap) {
 		Page<ArticleEntity> list = null;
 		
 		// 通知公告
@@ -52,8 +51,7 @@ public class BaseController {
 		List<ArticleEntity> articleList = articleService.listByType(3, 0, 1).getContent();
 		if (articleList.size() > 0) {
 			ArticleEntity headline = articleList.get(0);
-			String content = commonService.getArticleContent(headline.getPath());
-			headline.setContent(HtmlUtil.getTextFromHtml(content));
+			headline.setContent(HtmlUtil.getTextFromHtml(headline.getContent()));
 			modelMap.addAttribute("headline", headline);
 		}
 		
@@ -81,97 +79,62 @@ public class BaseController {
 		
 		// 工作动态--党风政风
 		list = articleService.listByType(8, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamicParty = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamicParty.getPath());
-				dynamicParty.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamicParty", dynamicParty);
-			} else {
-				modelMap.addAttribute("dynamicParty", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicParty = list.getContent().get(0);
+			modelMap.addAttribute("dynamicParty", dynamicParty);
+		} else {
+			modelMap.addAttribute("dynamicParty", null);
 		}
 		modelMap.addAttribute("dynamicPartyList", list.getContent());
 		
 		// 工作动态--纪律审查
 		list = articleService.listByType(9, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamicExamine = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamicExamine.getPath());
-				dynamicExamine.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamicExamine", dynamicExamine);
-			} else {
-				modelMap.addAttribute("dynamicExamine", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicExamine = list.getContent().get(0);
+			modelMap.addAttribute("dynamicExamine", dynamicExamine);
+		} else {
+			modelMap.addAttribute("dynamicExamine", null);
 		}
 		modelMap.addAttribute("dynamicExamineList", list.getContent());
 		
 		// 工作动态--巡查工作
 		list = articleService.listByType(10, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamicPatrol = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamicPatrol.getPath());
-				dynamicPatrol.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamicPatrol", dynamicPatrol);
-			} else {
-				modelMap.addAttribute("dynamicPatrol", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicPatrol = list.getContent().get(0);
+			modelMap.addAttribute("dynamicPatrol", dynamicPatrol);
+		} else {
+			modelMap.addAttribute("dynamicPatrol", null);
 		}
 		modelMap.addAttribute("dynamicPatrolList", list.getContent());
 		
 		// 工作动态--宣传工作
 		list = articleService.listByType(11, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamicPublic = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamicPublic.getPath());
-				dynamicPublic.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamicPublic", dynamicPublic);
-			} else {
-				modelMap.addAttribute("dynamicPublic", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicPublic = list.getContent().get(0);
+			modelMap.addAttribute("dynamicPublic", dynamicPublic);
+		} else {
+			modelMap.addAttribute("dynamicPublic", null);
 		}
 		modelMap.addAttribute("dynamicPublicList", list.getContent());
 		
 		// 工作动态--队伍建设
 		list = articleService.listByType(12, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamicTeam = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamicTeam.getPath());
-				dynamicTeam.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamicTeam", dynamicTeam);
-			} else {
-				modelMap.addAttribute("dynamicTeam", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicTeam = list.getContent().get(0);
+			modelMap.addAttribute("dynamicTeam", dynamicTeam);
+		} else {
+			modelMap.addAttribute("dynamicTeam", null);
 		}
 		modelMap.addAttribute("dynamicTeamList", list.getContent());
 		
 		// 工作动态--信息公开
 		list = articleService.listByType(13, 0, 6);
-		try {
-			if (list.getTotalElements() != 0) {
-				ArticleEntity dynamiTeam = list.getContent().get(0);
-				String content = commonService.getArticleContent(dynamiTeam.getPath());
-				dynamiTeam.setContent(HtmlUtil.getTextFromHtml(content));
-				modelMap.addAttribute("dynamiInfo", dynamiTeam);
-			} else {
-				modelMap.addAttribute("dynamiInfo", null);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamiTeam = list.getContent().get(0);
+			dynamiTeam.setContent(HtmlUtil.getTextFromHtml(dynamiTeam.getContent()));
+			modelMap.addAttribute("dynamiInfo", dynamiTeam);
+		} else {
+			modelMap.addAttribute("dynamiInfo", null);
 		}
 		modelMap.addAttribute("dynamiInfoList", list.getContent());
 		
@@ -194,4 +157,5 @@ public class BaseController {
 	String init() {
 		return "init";
 	}
+	
 }

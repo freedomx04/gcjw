@@ -107,13 +107,15 @@
 		
 		$k.util.bsValidator($form);
 		
+		$k.util.summernote($page.find('#summernote'), {
+			ctx: '${ctx}'
+		});
+		
 		if (method == 'add') {
-			$k.util.summernote($page.find('#summernote'));
 			if (type == 1) {
 				$k.util.fileinput($page.find('#uploadImage'));
 			}
 		} else {
-			$k.util.summernote($page.find('#summernote'));
 			$('#summernote').summernote('code', '${article.content}');
 			if (type == 1) {
 				$k.util.fileinput($page.find('#uploadImage'), {
