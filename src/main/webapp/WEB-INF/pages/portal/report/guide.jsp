@@ -99,7 +99,7 @@
 		<div id="toplinecontainer">
 			<div id="position">
 				<p>
-					<span>当前位置：<a href="./">首页</a>
+					<span>当前位置：<a href="${ctx}">首页</a>
 						&nbsp;&gt;&nbsp;
 						<a href="${ctx}/report" class="weizhi">举报指南</a>
 						&nbsp;&gt;&nbsp;

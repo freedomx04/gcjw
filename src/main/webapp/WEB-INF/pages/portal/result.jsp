@@ -132,7 +132,7 @@ color:#FFFFFF;
 							+ '<tr><td height="15"></td></tr>'
 							+ '<tr>'
 							+ '<td width="85%" align="left" style="font-family:黑体;color:#555656; padding-left: 15px;" class="title">'
-							+ '<a href="article/'+ article.id +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
+							+ '<a href="${ctx}/article/'+ article.id +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
 							+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
 							+ '<tr>'
 							+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'

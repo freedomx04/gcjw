@@ -31,7 +31,7 @@
 									<tr>
 										<c:forEach var="announce" items="${announceList}">
 										<td>
-											<a href="article/${announce.id}?type=0" target="_blank">${announce.title}</a>
+											<a href="${ctx}/article/${announce.id}?type=0" target="_blank">${announce.title}</a>
 										</td>
 										</c:forEach>
 									</tr>
@@ -44,7 +44,7 @@
 									<tr>
 										<c:forEach var="announce" items="${announceList2}">
 										<td>
-											<a href="article/${announce.id}?type=0" target="_blank">${announce.title}</a>
+											<a href="${ctx}/article/${announce.id}?type=0" target="_blank">${announce.title}</a>
 										</td>
 										</c:forEach>
 									</tr>
@@ -99,8 +99,8 @@
 				<!-- 廉情在线 -->
 				<div class="lianzheng-box">
 					<div class="lianzheng-top"> 
-						<a href="column?type=3" target="_blank">廉情在线</a> 
-						<a class="currentD" href="column?type=3" target="_blank">更多+</a> 
+						<a href="${ctx}/column?type=3" target="_blank">廉情在线</a> 
+						<a class="currentD" href="${ctx}/column?type=3" target="_blank">更多+</a> 
 					</div>
 					<div class="lianzheng-bottom">
 						<ul style="border-bottom: solid 1px #969696;">
@@ -132,12 +132,12 @@
 				<!-- 专题集锦 -->
 				<div class="zhuanti-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="" target="_blank">专题集锦</a>
-						<a class="currentD" href="column?type=7" target="_blank">更多+</a>
+						<a href="${ctx}/column?type=7" target="_blank">专题集锦</a>
+						<a class="currentD" href="${ctx}/column?type=7" target="_blank">更多+</a>
 					</div>
 					<div class="img-box">
 						<c:forEach var="topic" items="${topicList}">
-							<a href="column?type=7&topicId=${topic.id}" target="_blank">
+							<a href="${ctx}/column?type=7&topicId=${topic.id}" target="_blank">
 								<img src="${ctx}${topic.imagePath}" class="limg" width="420" height="70">
 							</a>
 						</c:forEach>
@@ -149,8 +149,8 @@
 				<!-- 曝光台 -->
 				<div class="puguang-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="column?type=4" target="_blank">曝光台</a>
-						<a class="currentD" href="column?type=4" target="_blank">更多+</a>
+						<a href="${ctx}/column?type=4" target="_blank">曝光台</a>
+						<a class="currentD" href="${ctx}/column?type=4" target="_blank">更多+</a>
 					</div>
 					<div class="puguang-bottom">
 						<ul>
@@ -170,7 +170,7 @@
 				<!-- 信访举报 -->
 				<div class="xinfang-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="" target="_blank">举报</a>
+						<a href="${ctx}/report/index" target="_blank">举报</a>
 					</div>
 					<div class="jb-box">
 						<a href="${ctx}/report/guide" target="_blank"><img src="${ctx}/img/jbzn.png" style="float: left; margin-right:5px;"></a>
@@ -191,16 +191,16 @@
 			<div class="banner-four">
 				<!-- 工作动态 -->
 				<div class="common-box-top">
-					<a href="column?ptype=dynamic&type=8" target="_blank">工作动态</a>
+					<a href="${ctx}/column?ptype=dynamic&type=8" target="_blank">工作动态</a>
 				</div>
 				<div class="bottom-nav-container">
 			        <div class="left-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav">
-								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="column?ptype=dynamic&type=8" target="_blank" style="margin-right: 20px;">党风政风</a> 
-								<a id="news2" onmouseover="news_change('left', 2)" href="column?ptype=dynamic&type=9" target="_blank" style="margin-right: 20px;">纪律审查</a> 
-								<a id="news3" onmouseover="news_change('left', 3)" href="column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
-								<a class="currentI" href="" target="_blank"></a> 
+								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="${ctx}/column?ptype=dynamic&type=8" target="_blank" style="margin-right: 20px;">党风政风</a> 
+								<a id="news2" onmouseover="news_change('left', 2)" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="margin-right: 20px;">纪律审查</a> 
+								<a id="news3" onmouseover="news_change('left', 3)" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
+								<a class="currentI" href="javascript: void(0);" target="_blank"></a> 
 							</div>
 							<!-- 党风政风 -->
 							<div id="newscon1" style="display: block;">
@@ -224,7 +224,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=8" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=8" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 纪律审查 -->
 				      		<div id="newscon2" style="display: none;">
@@ -248,7 +248,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=9" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 				      		<!-- 巡查工作 -->
 				      		<div id="newscon3" style="display: none;">
@@ -272,17 +272,17 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=10" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 						</div>
 			        </div>
 			        <div class="right-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav"> 
-				            	<a id="news1" onmouseover="news_change('right', 1)" href="column?ptype=dynamic&type=13" target="_blank" style="margin-right: 40px;" class="">信息公开</a>
-								<a id="news2" onmouseover="news_change('right', 2)" class="currentH" href="column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
-								<a id="news3" onmouseover="news_change('right', 3)" href="column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
-								<a class="currentI" href="" target="_blank"></a> 
+				            	<a id="news1" onmouseover="news_change('right', 1)" href="${ctx}/column?ptype=dynamic&type=13" target="_blank" style="margin-right: 40px;" class="">信息公开</a>
+								<a id="news2" onmouseover="news_change('right', 2)" class="${ctx}/currentH" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
+								<a id="news3" onmouseover="news_change('right', 3)" href="${ctx}/column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
+								<a class="currentI" href="javascript: void(0);" target="_blank"></a> 
 							</div>
 							<!-- 信息公开 -->
 							<div id="newscon1" style="display: none;">
@@ -306,7 +306,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 宣传工作 -->
 							<div id="newscon2" style="display: block;">
@@ -330,7 +330,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 队伍建设 -->
 							<div id="newscon3" style="display: none;">
@@ -354,7 +354,7 @@
 									</a> </li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 						</div>
 					</div>
@@ -369,8 +369,8 @@
 				<!-- 党纪法规 -->
 				<div class="dangji-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="column?type=5" target="_blank">党纪法规</a>
-						<a class="currentD" href="column?type=5" target="_blank">更多+</a>
+						<a href="${ctx}/column?type=5" target="_blank">党纪法规</a>
+						<a class="currentD" href="${ctx}/column?type=5" target="_blank">更多+</a>
 					</div>
 					<div class="dangji-bottom">
 						<ul>
@@ -390,8 +390,8 @@
 				<!-- 莲廉文化 -->
 				<div class="lianlian-box">
 					<div class="common-box-top" style="padding-top:9px;">
-						<a href="column?type=6" target="_blank">莲廉文化</a>
-						<a class="currentD" href="column?type=6" target="_blank">更多+</a>
+						<a href="${ctx}/column?type=6" target="_blank">莲廉文化</a>
+						<a class="currentD" href="${ctx}/column?type=6" target="_blank">更多+</a>
 					</div>
 					<div class="lianlian-bottom">
 						<ul>
@@ -412,7 +412,7 @@
 			
 			<div class="banner-link">
 				<div class="common-box-top"> 
-					<a href="" target="_blank">网站链接</a> 
+					<a href="javacsript: void(0);" target="_blank">网站链接</a> 
 				</div>
 				<div class="lianjie-nav">
 					<a id="ch_0" class="currentP" href="javascript:void(0);" target="_blank">全国各省市纪委网站</a>

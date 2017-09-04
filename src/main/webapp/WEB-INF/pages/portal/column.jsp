@@ -71,13 +71,13 @@ color:#FFFFFF;
 	                <tr>
 						<td colspan="3" height="40" align="left" style="padding-left:5px;" bgcolor="#FFFFFF">当前位置：
 							<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
-							<a class="weizhi-dynamic" style="display: none;" href="column?ptype=dynamic&type=8">工作动态</a>
+							<a class="weizhi-dynamic" style="display: none;" href="${ctx}/column?ptype=dynamic&type=8">工作动态</a>
 							<span class="weizhi-dynamic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
 							
-							<a href="column?type=${type}">${articleTitle}</a>
+							<a href="${ctx}/column?type=${type}">${articleTitle}</a>
 							
 							<span class="weizhi-topic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
-							<a class="weizhi-topic articleTitle" style="display: none;" href="column?type=7"></a>
+							<a class="weizhi-topic articleTitle" style="display: none;" href="${ctx}/column?type=7"></a>
 						</td>
 					</tr>                
 	                <tr><td colspan="3" height="6" bgcolor="#EBEAEA"></td></tr>
@@ -91,7 +91,7 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="column?type=${status.index}">${articleTitle}</a>
+											<a href="${ctx}/column?type=${status.index}">${articleTitle}</a>
 										</td>
 									</tr>
 									</c:forEach>
@@ -101,7 +101,7 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="column?type=${status.index + 3}">${articleTitle}</a>
+											<a href="${ctx}/column?type=${status.index + 3}">${articleTitle}</a>
 										</td>
 									</tr>
 									</c:forEach>
@@ -110,7 +110,7 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="column?ptype=dynamic&type=8">工作动态</a>
+											<a href="${ctx}/column?ptype=dynamic&type=8">工作动态</a>
 										</td>
 									</tr>
 								</tbody>
@@ -122,7 +122,7 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="column?ptype=dynamic&type=${status.index + 8}">${articleTitle}</a>
+											<a href="${ctx}/column?ptype=dynamic&type=${status.index + 8}">${articleTitle}</a>
 										</td>
 									</tr>
 									</c:forEach>
@@ -135,7 +135,7 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="column?type=7&topicId=${topicnews.id}">${topicnews.title}</a>
+											<a href="${ctx}/column?type=7&topicId=${topicnews.id}">${topicnews.title}</a>
 										</td>
 									</tr>
 									</c:forEach>
@@ -246,7 +246,7 @@ function getData(type, page, size) {
 						+ '<tr><td height="15"></td></tr>'
 						+ '<tr>'
 						+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
-						+ '<a href="article/'+ article.id +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
+						+ '<a href="${ctx}/article/'+ article.id +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
 						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
 						+ '<tr>'
 						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
