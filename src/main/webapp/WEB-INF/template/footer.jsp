@@ -3,12 +3,11 @@
 <body>
 	<div class="yewei">
 		<ul class="yewei-center">
-	 		<li style="margin-left: 19%;"> 广昌廉政网 Copyright 2010 www.fzlz.gov.cn 版权所有 </li>
 			<li style="margin-left: 31%;">中共广昌县纪委  广昌县监察局主办</li>
 			<li style="margin-left: 30%;"><span style="float:left;">备案许可证编号：</span><a href="javascript: void(0);" target="_blank">赣ICP备17015222号-1</a> </li>
 			<!-- <li class="currentZ">
 				<span style="float:left;">技术支持：</span>&nbsp;
-				<a href="http://www.zzrjjt.com/" target="_blank">中正软件</a> 建议使用1280*800分辨率
+				<a href="http://www.zzrjjt.com/" target="_blank">中正软件</a> 建议使用1280*800分辨率折
 			</li> -->
 		</ul>
 		<div align="center">
