@@ -68,9 +68,7 @@
                           
                         <div class="form-group">
                         	<div class="col-sm-4 col-sm-offset-3">
-                        		<button type="button" class="btn btn-primary btn-password">
-                            		<i class="fa fa-check fa-fw"></i>确定
-                        		</button>
+                        		<button type="button" class="btn btn-fw btn-primary btn-password">确定</button>
                     		</div>
                 		</div>                                        
                 	</div>

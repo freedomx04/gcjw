@@ -30,7 +30,7 @@
 	 		<div class="ibox-content">
  				<div class="btn-group hidden-xs" id="article-list-table-toolbar" role="group">
  					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
- 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+ 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
  				</div>
  				<table id="article-list-table" class="table-hm" data-mobile-responsive="true"></table>
 	 		</div>
@@ -52,12 +52,8 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-                    <button type="button" class="btn btn-white" data-dismiss="modal">
-                        <i class="fa fa-close fa-fw"></i>关闭
-                    </button>
-                    <button type="button" class="btn btn-primary btn-confirm">
-                        <i class="fa fa-check fa-fw"></i>确定
-                    </button>
+                    <button type="button" class="btn btn-fw btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-fw btn-primary btn-confirm">确定</button>
                 </div>
 			</div>
 		</div>
@@ -94,7 +90,16 @@
 			}, {
 				field: 'title',
 				title: '标题',
-				align: 'center'
+				align: 'center',
+				formatter: function(value, row, index) {
+					return '<a class="btn-article-detail">' + value + '</a>';
+				},
+				events: window.operateEvents = {
+					'click .btn-article-detail': function(e, value, row, index) {
+						e.stopPropagation();
+						window.location.href = './articleGet?articleId=' + row.id;
+					}
+				}
 			}, {
 				field: 'updateTime',
 				title: '修改时间',
@@ -104,7 +109,6 @@
 				title: '操作',
 				align: 'center',
 				formatter: function(value, row, index) {
-					var $detail = '<a class="btn-article-detail a-operate">详情</a>';
 					var $edit = '<a class="btn-article-edit a-operate">编辑</a>';
 					var $delete = '<a class="btn-article-delete a-operate">删除</a>';
 					
@@ -116,13 +120,9 @@
 						$topic = '<a class="btn-article-topic-edit a-operate">变更专题</a>';
 					}
 					
-					return $detail + $edit + $topic + $delete;
+					return $edit + $topic + $delete;
 				},
 				events: window.operateEvents = {
-					'click .btn-article-detail': function(e, value, row, index) {
-						e.stopPropagation();
-						window.location.href = './articleGet?articleId=' + row.id;
-					},
 					'click .btn-article-edit': function(e, value, row, index) {
 						e.stopPropagation();
 						window.location.href = './articleAdd?type=${type}&method=edit&articleId=' + row.id;

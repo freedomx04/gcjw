@@ -4,7 +4,7 @@
 	<div class="t_title">
 		<div class="t_word">
 			<div class="tl_word">
-				<span style="color: #000;">广昌县纪委监察局网站</span>
+				<a href="${ctx}" style="color: #000;">广昌县纪委监察委网站</a>
 			</div>
 			<div class="date">
 				<script language="JavaScript">

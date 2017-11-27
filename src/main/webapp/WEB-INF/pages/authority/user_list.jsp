@@ -31,7 +31,7 @@
 			<div class="ibox-content">
 				<div class="btn-group hidden-xs" id="user-list-table-toolbar" role="group">
                     <button type="button" class="btn btn-white btn-user-add">
-                        <i class="fa fa-plus fa-fw"></i>新增
+                        <i class="fa fa-user-plus fa-fw"></i>新增用户
                     </button>
                 </div>
                 <table id="user-list-table" class="table-hm" data-mobile-responsive="true"> </table>

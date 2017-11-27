@@ -97,7 +97,7 @@ public class BaseController {
 		}
 		modelMap.addAttribute("dynamicExamineList", list.getContent());
 		
-		// 工作动态--巡查工作
+		// 工作动态--巡察工作
 		list = articleService.listByType(10, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicPatrol = list.getContent().get(0);

@@ -52,12 +52,9 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
-							<i class="fa fa-cog fa-fw"></i><span class="nav-label">系统管理</span><span class="fa arrow"></span>
+						<a class="J_menuItem" href="userList">
+							<i class="fa fa-user fa-fw"></i><span class="nav-label">用户管理</span>
 						</a>
-						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="userList">用户管理</a></li>
-						</ul>
 					</li>
 					<li>
 						<a href="#">
@@ -74,7 +71,7 @@
 							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
 						</ul>
 					</li>
-					<li>
+<!-- 					<li>
 						<a href="#">
 							<i class="fa fa-edit fa-fw"></i><span class="nav-label">举报管理</span><span class="fa arrow"></span>
 						</a>
@@ -82,10 +79,10 @@
 							<li><a class="J_menuItem" href="reportList">网络举报</a></li>
 							<li><a class="J_menuItem" href="mailList">书记信箱</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li>
 						<a href="#">
-							<i class="fa fa-user fa-fw"></i><span class="nav-label">个人中心</span><span class="fa arrow"></span>
+							<i class="fa fa-cog fa-fw"></i><span class="nav-label">个人中心</span><span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="modifyPassword">修改密码</a></li>

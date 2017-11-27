@@ -33,7 +33,7 @@
 							<a data-toggle="tab" href="#dynamic-examine" data-tab="examine" aria-expanded="true">纪律审查</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#dynamic-patrol" data-tab="patrol" aria-expanded="true">巡查工作</a>
+							<a data-toggle="tab" href="#dynamic-patrol" data-tab="patrol" aria-expanded="true">巡察工作</a>
 						</li>
 						<li>
 							<a data-toggle="tab" href="#dynamic-info" data-tab="info" aria-expanded="true">信息公开</a>

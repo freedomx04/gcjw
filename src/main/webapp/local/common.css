@@ -9,6 +9,9 @@
 .btn-white:hover {
 	background: #fafafa;
 }
+.btn-fw {
+	min-width: 80px;	
+}
 
 .gohome {
 	display: none;

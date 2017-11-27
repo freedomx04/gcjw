@@ -33,7 +33,13 @@
  					<span>时间：<fmt:formatDate value="${article.updateTime}" pattern="yyyy-MM-dd"/></span>
  				</div>
  				
- 				<div style="padding: 20px;word-break: break-all;">${article.content}</div>
+ 				<c:if test="${not empty article.imagePath}">
+	 				<div>
+	 					<img src="${ctx}${article.imagePath}" style="max-width: 100%;">
+	 				</div>
+ 				</c:if>
+ 				
+ 				<div style="padding: 20px; word-break: break-all;">${article.content}</div>
 	 		</div>
 	 	</div>
 	

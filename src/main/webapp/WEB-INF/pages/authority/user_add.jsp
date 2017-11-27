@@ -66,12 +66,8 @@
 					
 					<div class="form-group">
                         <div class="col-sm-4 col-sm-offset-3">
-                            <button type="button" class="btn btn-primary btn-user-add">
-                                <i class="fa fa-check fa-fw"></i>确定
-                            </button>
-                            <button type="button" class="btn btn-white btn-user-cancel">
-                                <i class="fa fa-close fa-fw"></i>取消
-                            </button>
+                            <button type="button" class="btn btn-fw btn-primary btn-user-add">确定</button>
+                            <button type="button" class="btn btn-fw btn-white btn-user-cancel">取消</button>
                         </div>
                     </div>
 				</form>

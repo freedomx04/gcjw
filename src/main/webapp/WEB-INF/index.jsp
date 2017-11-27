@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>广昌县纪委监察厅网站</title>
+	<title>广昌县纪委监察委网站</title>
     
     <script type="text/javascript" src="${ctx}/plugins/marquee/MSClass.js"></script>
     <link rel="stylesheet" type="text/css" href="${ctx}/plugins/paging/paging.css">
@@ -174,14 +174,14 @@
 					</div>
 					<div class="jb-box">
 						<a href="${ctx}/report/guide" target="_blank"><img src="${ctx}/img/jbzn.png" style="float: left; margin-right:5px;"></a>
-						<a href="${ctx}/report/JBXZ" target="_blank"><img src="${ctx}/img/wyjb.png"></a>
+						<a href="http://jiangxi.12388.gov.cn/fuzhoushi/guangchangxian/" target="_blank"><img src="${ctx}/img/wyjb.png"></a>
 						<img class="jb-fs" src="${ctx}/img/jbfs.png" style="margin-top: 5px;">
-						<div style="margin-top: -121px; color: #ffffff; padding: 18px; font-size: 15px;">
+						<div style="margin-top: -121px; color: #ffffff; padding: 25px 18px; font-size: 15px;">
 							<ul>
-								<li><a href="${ctx}/report/index" target="_blank" style="color: #FFEB3B;">网络举报（${ctx}/report/index）</a></li>
-								<li>手机信息举报：13870412388 </li>
-								<li>举报电话：（0794）12388 </li>
-								<li>来信请寄：江西省广昌县纪委信访室、江西省广昌县纪委007邮箱（免邮资）</li>
+								<li>举报电话：(0794)12388 (0794)3616110</li>
+								<li>举报邮箱：gcxjw_xfs@163.com</li>
+								<li>来信请寄：广昌县纪委信访室 </li>
+								<li>邮编：344900</li>
 							</ul>
 						</div>
 				  </div>
@@ -199,7 +199,7 @@
 				            <div class="banner-four-leftnav">
 								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="${ctx}/column?ptype=dynamic&type=8" target="_blank" style="margin-right: 20px;">党风政风</a> 
 								<a id="news2" onmouseover="news_change('left', 2)" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="margin-right: 20px;">纪律审查</a> 
-								<a id="news3" onmouseover="news_change('left', 3)" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡查工作</a>
+								<a id="news3" onmouseover="news_change('left', 3)" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡察工作</a>
 								<a class="currentI" href="javascript: void(0);" target="_blank"></a> 
 							</div>
 							<!-- 党风政风 -->
@@ -250,7 +250,7 @@
 								</ul>
 								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
-				      		<!-- 巡查工作 -->
+				      		<!-- 巡察工作 -->
 				      		<div id="newscon3" style="display: none;">
 								<a class="currentJ" href="${ctx}/article/${dynamicExamine.id}?type=9" target="_blank">
 									<c:if test="${fn:length(dynamicExamine.title) > 20}">
@@ -520,6 +520,23 @@
 	<div style="position: fixed;right: 2px;bottom: 222px;">
 		<img src="${ctx}/img/qrcode.png" alt="无" width="100" height="100"/>
 	</div>
+	
+	<!-- 悬浮窗口 -->
+	<div id="ad_377" style="z-index: 9999999; position: absolute; left: 1521.71px; top: 1397.12px;">
+		<script type="text/javascript" src="${ctx}/local/MoveAd.js"></script>
+		<span onclick="document.getElementById(&#39;ad_377&#39;).style.display=&#39;none&#39;;" 
+			style="float: right; position: absolute; top: -20px; right: 0px; cursor: pointer">
+			<img src="img/fp/close.gif" alt="关闭">
+		</span>
+	
+		<a href="http://jiangxi.12388.gov.cn/fuzhoushi/nanchengxian/" target="_blank" alt="扶贫领域违纪问题举报直通车">
+			<img style="width:300px;" src="img/fp/ncfp.jpg" alt="扶贫领域违纪问题举报直通车">
+		</a>
+	</div>
+	<script type="text/javascript">
+		var ad_377=new AdMove("ad_377");
+		ad_377.Run();
+	</script>
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
