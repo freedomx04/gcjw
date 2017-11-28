@@ -22,7 +22,7 @@
 				<div class="tztitle">通知公告：</div>
 				<div id="fgyy1" style="overflow: hidden; width: 800px; height: 30px; white-space: nowrap;">
 				
-				<table cellspacing="0" cellpadding="0" style="border-collapse:collapse;display:inline;">
+				<table cellspacing="0" cellpadding="0" style="border-collapse:collapse; display:inline;">
 					<tbody>
 						<tr>
 						<td style="white-space: nowrap; word-break: keep-all;">
@@ -530,7 +530,7 @@
 		</span>
 	
 		<a href="http://jiangxi.12388.gov.cn/fuzhoushi/nanchengxian/" target="_blank" alt="扶贫领域违纪问题举报直通车">
-			<img style="width:300px;" src="img/fp/ncfp.jpg" alt="扶贫领域违纪问题举报直通车">
+			<img style="width:300px;" src="img/fp/gcfp.jpg" alt="扶贫领域违纪问题举报直通车">
 		</a>
 	</div>
 	<script type="text/javascript">

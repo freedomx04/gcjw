@@ -8,12 +8,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.common.utils.CurrentUserUtils;
+import com.hm.gcjw.entity.authority.ConfigEntity;
 import com.hm.gcjw.entity.authority.UserEntity;
 import com.hm.gcjw.entity.report.MailEntity;
 import com.hm.gcjw.entity.report.ReportEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
+import com.hm.gcjw.service.authority.ConfigService;
 import com.hm.gcjw.service.authority.UserService;
 import com.hm.gcjw.service.report.MailService;
 import com.hm.gcjw.service.report.ReportService;
@@ -40,6 +42,9 @@ public class HomeController {
 	
 	@Autowired
 	MailService mailService;
+	
+	@Autowired
+	ConfigService configService;
 
 	/**
 	 * 总览
@@ -60,6 +65,13 @@ public class HomeController {
 	@RequestMapping(value = "/userAdd") 
 	String userAdd() {
 		return "pages/authority/user_add";
+	}
+	
+	@RequestMapping(value = "/setting")
+	String setting(ModelMap modelMap) {
+		ConfigEntity config = configService.find();
+		modelMap.addAttribute("config", config);
+		return "pages/authority/setting";
 	}
 	
 	/**

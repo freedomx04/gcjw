@@ -53,7 +53,12 @@
 					</li>
 					<li>
 						<a class="J_menuItem" href="userList">
-							<i class="fa fa-user fa-fw"></i><span class="nav-label">用户管理</span>
+							<i class="fa fa-users fa-fw"></i><span class="nav-label">用户管理</span>
+						</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="setting">
+							<i class="fa fa-cog fa-fw"></i><span class="nav-label">系统设置</span>
 						</a>
 					</li>
 					<li>
@@ -82,7 +87,7 @@
 					</li> -->
 					<li>
 						<a href="#">
-							<i class="fa fa-cog fa-fw"></i><span class="nav-label">个人中心</span><span class="fa arrow"></span>
+							<i class="fa fa-user-circle-o fa-fw"></i><span class="nav-label">个人中心</span><span class="fa arrow"></span>
 						</a>
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="modifyPassword">修改密码</a></li>
