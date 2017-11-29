@@ -9,7 +9,7 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	
-	<title>广昌县监察局  | 后台管理</title>
+	<title>广昌县纪委监察委网站  | 后台管理</title>
 	<meta name="keywords" content="">
     <meta name="description" content="">
 
@@ -76,7 +76,7 @@
 							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
 						</ul>
 					</li>
-<!-- 					<li>
+				<!-- <li>
 						<a href="#">
 							<i class="fa fa-edit fa-fw"></i><span class="nav-label">举报管理</span><span class="fa arrow"></span>
 						</a>
@@ -104,10 +104,10 @@
 				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;">
 					<div class="navbar-header">
 						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
-                        <div style="padding: 16px; font-size: 18px; font-weight: 400;">广昌县监察局后台管理页面</div>
+                        <div style="padding: 16px; font-size: 18px; font-weight: 400;">广昌县纪委监察委后台管理页面</div>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                    	<li><a href="index" target="_blank"><i class="fa fa-home fa-fw"></i>平台首页</a></li>
+                    	<li><a href="index" target="_blank"><i class="fa fa-home fa-fw"></i>网站首页</a></li>
                     </ul>
 				</nav>
 			</div>

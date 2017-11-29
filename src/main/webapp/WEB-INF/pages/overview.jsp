@@ -50,15 +50,7 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-sm-6">
-				<div class="ibox float-e-margins">
-					<div class="ibox-content">
-						<div class="chart-report" style="width: 100%; height: 500px;"></div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-sm-6">
+			<div class="col-sm-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-content">
 						<div class="chart-dynamic" style="width: 100%; height: 500px;"></div>
@@ -129,52 +121,6 @@
 						name: '数量',
 						type: 'bar',
 						barWith: '60%',
-						data: seriesData
-					}]
-				}
-				chart.setOption(option);
-				
-				window.addEventListener("resize", function(){
-					chart.resize();
-		        });
-			},
-			error: function(err) {}
-		});
-		
-		// 举报类型分析
-		$.ajax({
-			url: '${ctx}/api/report/listCountByClazz',
-			success: function(ret) {
-				var seriesData = [];
-				var yAxisData = [];
-				
-				$.each(ret.data, function(k, val) {
-					yAxisData.push(val.title);
-					seriesData.push(val.count);
-				});
-				
-				var chart = echarts.init($page.find('.chart-report')[0]);
-				option = {
-					title: {
-						text: '举报类型分析',
-						x: 'center'
-					},
-					color: ['#CD2626'],
-					tooltip: {
-						trigger: 'axis',
-						axisPointer: {
-							type: 'line'
-						}
-					},
-					xAxis: {
-						type: 'value',
-					},
-					yAxis: {
-						type: 'category',
-						data: yAxisData
-					},
-					series: [{
-						type: 'bar',
 						data: seriesData
 					}]
 				}
