@@ -11,8 +11,6 @@ body {
 a {
     text-decoration: none;
     display: block;
-    color: #000;
-    cursor: pointer;
 }
 li {
     list-style: none;
@@ -353,7 +351,7 @@ li {
     font-size: 16px;
     float: left;
     color: black;
-    margin-right: 19px;
+    margin-right: 40px;
     line-height: 52px;
 }
 .banner-four-leftnav .currentI {
@@ -385,7 +383,7 @@ li {
     background-position: left;
     padding-left: 10px;
     font-size: 15px;
-    color: black;
+    color: #000;
     margin-bottom: 10px;
 }
 .js_more {

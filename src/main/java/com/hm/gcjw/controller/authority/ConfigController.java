@@ -21,11 +21,12 @@ public class ConfigController {
 	ConfigService configService;
 	
 	@RequestMapping(value = "/api/config/save", method = RequestMethod.POST)
-	public Result save(String qrcode, String picture) {
+	public Result save(String qrcode, String picture, String suspension) {
 		try {
 			ConfigEntity config = configService.find();
 			config.setQrcode(qrcode);
 			config.setPicture(picture);
+			config.setSuspension(suspension);
 			configService.save(config);
 			return new Result(Code.SUCCESS.value(), "success");
 		} catch (Exception e) {

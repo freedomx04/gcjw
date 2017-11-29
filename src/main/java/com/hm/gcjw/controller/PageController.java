@@ -46,13 +46,15 @@ public class PageController {
 	}
 	
 	@RequestMapping(value = "/article/{articleId}") 
-	String article(ModelMap modelMap, Integer type, @PathVariable("articleId") Long articleId) {
+	String article(ModelMap modelMap, @PathVariable("articleId") Long articleId) {
 		ArticleEntity article = articleService.findOne(articleId);
-		if (article != null) {
-			modelMap.addAttribute("article", article);
+		if (article == null) {
+			return "pages/404";
 		}
 		
+		Integer type = article.getType();
 		String articleTitle = articleService.getArticleTitle(type);
+		modelMap.addAttribute("article", article);
 		modelMap.addAttribute("articleTitle", articleTitle);
 		return "pages/portal/article";
 	}

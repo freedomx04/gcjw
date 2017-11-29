@@ -4,58 +4,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="${ctx}/plugins/paging/paging.js"></script>
-<script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
-<script type="text/javascript" src="${ctx}/local/common.js"></script>
-<link rel="stylesheet" type="text/css" href="${ctx}/plugins/paging/paging.css">
-<link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
-
-<title>${articleTitle}-广昌县纪委监察局</title>
-
-<style>
-body {
-	font-size: 13px;
-}
-a{
-	display: inline-block;
-}
-.red a{
-	color:#000;
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<title>${articleTitle}-广昌县纪委监察局</title>
+	
+	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/paging/paging.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
+	<script type="text/javascript" src="${ctx}/local/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/paging/paging.css">
+	<link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
+	
+	<style>
+	body {
+		font-size: 13px;
 	}
-.red a:hover{
-	color:#F00;
+	a {
+		display: inline-block;
 	}
-.title a{
- font-size:24px; 
-}
-
-.bottom a{
-color:#000000;
-}
-.top a{
-color:#FFFFFF;
-}
-.left-nav-td {
-	border-bottom: 1px solid #D8D8D8;
-	background: #F8F8F8; 
-	padding: 0 10px 0 10px;
-}
-.left-nav-td a {
-	position: relative;
-	top:5px; font-size:14px; 
-	font-weight: bold; 
-	color: #004279;
-}
-.right-title {
-	font-size: 18px; 
-	border-bottom: 3px #941D23 solid;
-}
+	.red a {
+		color:#000;
+	}
+	.red a:hover {
+		color:#F00;
+	}
+	.title a {
+		font-size:24px; 
+	}
+	.bottom a{
+		color:#000000;
+	}
+	.top a{
+		color:#FFFFFF;
+	}
+	.left-nav-td {
+		border-bottom: 1px solid #D8D8D8;
+		background: #F8F8F8; 
+		padding: 0 10px 0 10px;
+	}
+	.left-nav-td a {
+		position: relative;
+		top:5px; font-size:14px; 
+		font-weight: bold; 
+		color: #004279;
+	}
+	.right-title {
+		font-size: 18px; 
+		border-bottom: 3px #941D23 solid;
+	}
 </style>
 
 </head>
@@ -110,19 +109,19 @@ color:#FFFFFF;
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="${ctx}/column?ptype=dynamic&type=8">工作动态</a>
+											<a href="${ctx}/column?ptype=dynamic&type=11">工作动态</a>
 										</td>
 									</tr>
 								</tbody>
 								
 								<tbody class="dynamic" style="display: none;">
-									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡察工作, 宣传工作, 队伍建设, 信息公开" varStatus="status">
+									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡察工作, 信访举报, 基层风采, 宣传工作, 队伍建设" varStatus="status">
 									<tr>
 										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
 										</td>
 										<td class="left-nav-td" align="left">
-											<a href="${ctx}/column?ptype=dynamic&type=${status.index + 8}">${articleTitle}</a>
+											<a href="${ctx}/column?ptype=dynamic&type=${status.index + 11}">${articleTitle}</a>
 										</td>
 									</tr>
 									</c:forEach>
@@ -170,95 +169,98 @@ color:#FFFFFF;
 	</div>
 </body>
 
-<script>
-var pageSize = 10;
-var $page = $("#page");
-;(function() {
-	var type = Url.queryString("type");
-	var ptype = Url.queryString("ptype");
+<script type="text/javascript">
+
+	var pageSize = 10;
+	var $page = $("#page");
 	
-	if (ptype == 'dynamic') {
-		$page.find(".dynamic").css("display", "block");
-		$page.find(".article").css("display", "none");
-		$page.find(".weizhi-dynamic").show();
-	}
-	if (type == '7') {
-		$page.find(".dynamic").css("display", "none");
-		$page.find(".article").css("display", "none");
-		$page.find(".topic").css("display", "block");
-		$page.find(".weizhi-topic").show();
-	}
-	getData(type, 0, pageSize);
-	$page.find('#pageTool').Paging({
-		pagesize: pageSize, 
-		count: '${count}', 
-		callback: function(page, size, count) {
-			getData(type, page-1, size);
+	;(function() {
+		var type = Url.queryString("type");
+		var ptype = Url.queryString("ptype");
+		
+		if (ptype == 'dynamic') {
+			$page.find(".dynamic").css("display", "block");
+			$page.find(".article").css("display", "none");
+			$page.find(".weizhi-dynamic").show();
 		}
-	});
+		if (type == '7') {
+			$page.find(".dynamic").css("display", "none");
+			$page.find(".article").css("display", "none");
+			$page.find(".topic").css("display", "block");
+			$page.find(".weizhi-topic").show();
+		}
+		getData(type, 0, pageSize);
+		$page.find('#pageTool').Paging({
+			pagesize: pageSize, 
+			count: '${count}', 
+			callback: function(page, size, count) {
+				getData(type, page-1, size);
+			}
+		});
+	})();
 	
-})();
-function getData(type, page, size) {
-	$page.find(".articleList").html("");
-	var topicId = Url.queryString("topicId");
-	var url = "${ctx}/api/article/listPaging";
-	var data = {
-		type: type,
-		page: parseInt(page),
-		size: pageSize
-	};
-	
-	if (type == '7' && topicId != "") {
-		url = "${ctx}/api/article/listByTopicIdPaging";
-		data = {
-			topicId: topicId,
+	function getData(type, page, size) {
+		$page.find(".articleList").html("");
+		var topicId = Url.queryString("topicId");
+		var url = "${ctx}/api/article/listPaging";
+		var data = {
+			type: type,
 			page: parseInt(page),
 			size: pageSize
 		};
 		
+		if (type == '7' && topicId != "") {
+			url = "${ctx}/api/article/listByTopicIdPaging";
+			data = {
+				topicId: topicId,
+				page: parseInt(page),
+				size: pageSize
+			};
+			
+			$.ajax({
+				url: "${ctx}/api/topic/get",
+				type: "POST",
+				data: {topicId: topicId},
+				success: function(ret) {
+					$page.find(".articleTitle").text(ret.data.title);
+				},
+				error: function(err) {}
+			});
+		}
+		
 		$.ajax({
-			url: "${ctx}/api/topic/get",
+			url: url,
 			type: "POST",
-			data: {topicId: topicId},
+			data: data,
 			success: function(ret) {
-				$page.find(".articleTitle").text(ret.data.title);
+				if(ret.code == 0) {
+					$.each(ret.data.content, function(key, article) {
+						var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
+						var content = article.content || "";
+						var start_ptn = /<\/?[^>]*>/g;      //过滤标签开头      
+						var end_ptn = /[ | ]*\n/g;          //过滤标签结束  
+						var space_ptn = /&nbsp;/ig;         //过滤标签结尾
+						content = content.replace(start_ptn,"").replace(end_ptn).replace(space_ptn,"");
+						content = content.length > 80 ? content.substring(0, 80) + "..." : content;
+						
+						$('<table width="100%"><tbody>'
+							+ '<tr><td height="15"></td></tr>'
+							+ '<tr>'
+							+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
+							+ '<a href="${ctx}/article/'+ article.id +'" target="_blank">'+ title +'</a></td>'
+							+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
+							+ '<tr>'
+							+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
+							+ '</tr>'
+	                        + '<tr><td height="10" style="border-bottom:1px solid gray;" colspan="2"></td></tr>'
+							+ '</tbody></table>')
+						.appendTo($page.find(".articleList"));
+					});
+				}
 			},
-			error: function(err) {}
+			error: function(e) {}
 		});
 	}
 	
-	$.ajax({
-		url: url,
-		type: "POST",
-		data: data,
-		success: function(ret) {
-			if(ret.code == 0) {
-				$.each(ret.data.content, function(key, article) {
-					var title = article.title.length > 20 ? article.title.substring(0, 20) + "..." : article.title;
-					var content = article.content || "";
-					var start_ptn = /<\/?[^>]*>/g;      //过滤标签开头      
-					var end_ptn = /[ | ]*\n/g;            //过滤标签结束  
-					var space_ptn = /&nbsp;/ig;          //过滤标签结尾
-					content = content.replace(start_ptn,"").replace(end_ptn).replace(space_ptn,"");
-					content = content.length > 80 ? content.substring(0, 80) + "..." : content;
-					
-					$('<table width="100%"><tbody>'
-						+ '<tr><td height="15"></td></tr>'
-						+ '<tr>'
-						+ '<td width="85%" align="left" style="font-family:黑体;color:#555656" class="title">'
-						+ '<a href="${ctx}/article/'+ article.id +'?type='+ article.type +'" target="_blank">'+ title +'</a></td>'
-						+ '<td width="15%">'+ formatDate(article.updateTime) +'</td></tr>'
-						+ '<tr>'
-						+ '<td colspan="2" align="left" style="color:#BCBCA7;word-break: break-all;">'+ content +'</td>'
-						+ '</tr>'
-                        + '<tr><td height="10" style="border-bottom:1px solid gray;" colspan="2"></td></tr>'
-						+ '</tbody></table>')
-					.appendTo($page.find(".articleList"));
-				});
-			}
-		},
-		error: function(e) {}
-	});
-}
 </script>
 </html>

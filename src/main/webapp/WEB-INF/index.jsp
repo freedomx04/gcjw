@@ -44,7 +44,7 @@
 									<tr>
 										<c:forEach var="announce" items="${announceList2}">
 										<td>
-											<a href="${ctx}/article/${announce.id}?type=0" target="_blank">${announce.title}</a>
+											<a href="${ctx}/article/${announce.id}" target="_blank">${announce.title}</a>
 										</td>
 										</c:forEach>
 									</tr>
@@ -65,7 +65,7 @@
 						<ul class="items">
 							<c:forEach var="photonews" items="${photonewsList}">
 							<li>
-								<a href="${ctx}/article/${photonews.id}?type=1" title="${photonews.title}" target="_blank" style="width: 480px; height: 261px;">
+								<a href="${ctx}/article/${photonews.id}" title="${photonews.title}" target="_blank" style="width: 480px; height: 261px;">
 									<img src="${ctx}${photonews.imagePath}" style="width: 100%; height: 100%;">
 								</a>
 							</li>
@@ -76,8 +76,13 @@
 				<!-- 廉政头条 -->
 				<div class="right-box">
 			    	<img src="${ctx}/img/lztt.gif" style="width: 50px; padding: 10px; margin-left: 10px; margin-top: 16px;">
-				    <a class="currentB" href="${ctx}/article/${headline.id}?type=2" target="_blank" title="">
-				    	${headline.title}
+				    <a class="currentB" href="${ctx}/article/${headline.id}" target="_blank" title="">
+				    	<c:if test="${fn:length(headline.title) > 22}">
+							${fn:substring(headline.title, 0, 22)}...
+						</c:if>
+						<c:if test="${fn:length(headline.title) <= 22}">
+							${headline.title}
+						</c:if>
 				    </a>
 				    <div style="padding-top:13px"></div>
 				    <div class="js_yw">
@@ -91,7 +96,7 @@
 						</p>
 				    </div>
 				    <div style="padding-top:8px"></div>
-					<a href="${ctx}/article/${focusnewsList[0].id}?type=2" target="_blank" class="currentC">更多+</a> 
+					<a href="${ctx}/article/${focusnewsList[0].id}" target="_blank" class="currentC">更多+</a> 
 				</div>
 			</div>
 			
@@ -105,7 +110,7 @@
 					<div class="lianzheng-bottom">
 						<ul style="border-bottom: solid 1px #969696;">
 							<c:forEach var="focusnews" items="${focusnewsList}">
-							<li><a href="${ctx}/article/${focusnews.id}?type=3" target="_blank" title="${focusnews.title}">
+							<li><a href="${ctx}/article/${focusnews.id}" target="_blank" title="${focusnews.title}">
 								<c:if test="${fn:length(focusnews.title) > 20}">
 									${fn:substring(focusnews.title, 0, 20)}...
 								</c:if>
@@ -117,7 +122,7 @@
 						</ul>
 						<ul style="padding-top: 0;">
 							<c:forEach var="focusnews" items="${focusnewsList2}">
-							<li><a href="${ctx}/article/${focusnews.id}?type=3" target="_blank" title="${focusnews.title}">
+							<li><a href="${ctx}/article/${focusnews.id}" target="_blank" title="${focusnews.title}">
 								<c:if test="${fn:length(focusnews.title) > 20}">
 									${fn:substring(focusnews.title, 0, 20)}...
 								</c:if>
@@ -155,7 +160,7 @@
 					<div class="puguang-bottom">
 						<ul>
 							<c:forEach var="exposure" items="${exposureList}">
-							<li><a href="${ctx}/article/${exposure.id}?type=4" target="_blank" title="${exposure.title}">
+							<li><a href="${ctx}/article/${exposure.id}" target="_blank" title="${exposure.title}">
 								<c:if test="${fn:length(exposure.title) > 20}">
 									${fn:substring(exposure.title, 0, 20)}...
 								</c:if>
@@ -197,14 +202,14 @@
 			        <div class="left-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav">
-								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="${ctx}/column?ptype=dynamic&type=8" target="_blank" style="margin-right: 20px;">党风政风</a> 
-								<a id="news2" onmouseover="news_change('left', 2)" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="margin-right: 20px;">纪律审查</a> 
-								<a id="news3" onmouseover="news_change('left', 3)" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="margin-right: 20px;" class="">巡察工作</a>
-								<a class="currentI" href="javascript: void(0);" target="_blank"></a> 
+								<a id="news1" onmouseover="news_change('left', 1)" class="currentH" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" >党风政风</a> 
+								<a id="news2" onmouseover="news_change('left', 2)" href="${ctx}/column?ptype=dynamic&type=12" target="_blank">纪律审查</a> 
+								<a id="news3" onmouseover="news_change('left', 3)" href="${ctx}/column?ptype=dynamic&type=13" target="_blank">巡察工作</a>
+								<a id="news4" onmouseover="news_change('left', 4)" href="${ctx}/column?ptype=dynamic&type=14" target="_blank">信访举报</a>
 							</div>
 							<!-- 党风政风 -->
 							<div id="newscon1" style="display: block;">
-								<a class="currentJ" href="${ctx}/article/${dynamicParty.id}?type=8" target="_blank">
+								<a class="currentJ" href="${ctx}/article/${dynamicParty.id}" target="_blank">
 									<c:if test="${fn:length(dynamicParty.title) > 20}">
 										${fn:substring(dynamicParty.title, 0, 20)}...
 									</c:if>
@@ -214,21 +219,23 @@
 								</a>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPartyList)}">
-									<li><a href="${ctx}/article/${dynamicPartyList[i].id}?type=8" target="_blank" title="${dynamicPartyList[i + 1].title}">
-										<c:if test="${fn:length(dynamicPartyList[i].title) > 20}">
-											${fn:substring(dynamicPartyList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamicPartyList[i].title) <= 20}">
-											${dynamicPartyList[i].title}
-										</c:if>
-									</a> </li>
+									<li>
+										<a href="${ctx}/article/${dynamicPartyList[i].id}" target="_blank" title="${dynamicPartyList[i + 1].title}">
+											<c:if test="${fn:length(dynamicPartyList[i].title) > 20}">
+												${fn:substring(dynamicPartyList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicPartyList[i].title) <= 20}">
+												${dynamicPartyList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=8" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 纪律审查 -->
 				      		<div id="newscon2" style="display: none;">
-								<a class="currentJ" href="${ctx}/article/${dynamicExamine.id}?type=9" target="_blank">
+								<a class="currentJ" href="${ctx}/article/${dynamicExamine.id}" target="_blank">
 									<c:if test="${fn:length(dynamicExamine.title) > 20}">
 										${fn:substring(dynamicExamine.title, 0, 20)}...
 									</c:if>
@@ -238,21 +245,23 @@
 								</a>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicExamineList)}">
-									<li><a href="${ctx}/article/${dynamicExamineList[i].id}?type=9" target="_blank" title="${dynamicExamineList[i].title}">
-										<c:if test="${fn:length(dynamicExamineList[i].title) > 20}">
-											${fn:substring(dynamicExamineList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamicExamineList[i].title) <= 20}">
-											${dynamicExamineList[i].title}
-										</c:if>
-									</a> </li>
+									<li>
+										<a href="${ctx}/article/${dynamicExamineList[i].id}" target="_blank" title="${dynamicExamineList[i].title}">
+											<c:if test="${fn:length(dynamicExamineList[i].title) > 20}">
+												${fn:substring(dynamicExamineList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicExamineList[i].title) <= 20}">
+												${dynamicExamineList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=9" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=12" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 				      		<!-- 巡察工作 -->
 				      		<div id="newscon3" style="display: none;">
-								<a class="currentJ" href="${ctx}/article/${dynamicExamine.id}?type=9" target="_blank">
+								<a class="currentJ" href="${ctx}/article/${dynamicExamine.id}" target="_blank">
 									<c:if test="${fn:length(dynamicExamine.title) > 20}">
 										${fn:substring(dynamicExamine.title, 0, 20)}...
 									</c:if>
@@ -262,108 +271,144 @@
 								</a>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPatrolList)}">
-									<li><a href="${ctx}/article/${dynamicPatrolList[i].id}?type=10" target="_blank" title="${dynamicPatrolList[i].title}">
-										<c:if test="${fn:length(dynamicPatrolList[i].title) > 20}">
-											${fn:substring(dynamicPatrolList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamicPatrolList[i].title) <= 20}">
-											${dynamicPatrolList[i].title}
-										</c:if>
-									</a> </li>
+									<li>
+										<a href="${ctx}/article/${dynamicPatrolList[i].id}" target="_blank" title="${dynamicPatrolList[i].title}">
+											<c:if test="${fn:length(dynamicPatrolList[i].title) > 20}">
+												${fn:substring(dynamicPatrolList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicPatrolList[i].title) <= 20}">
+												${dynamicPatrolList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=10" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=13" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+				      		</div>
+				      		<!-- 信访举报 -->
+				      		<div id="newscon4" style="display: none;">
+								<a class="currentJ" href="${ctx}/article/${dynamicPetition.id}" target="_blank">
+									<c:if test="${fn:length(dynamicPetition.title) > 20}">
+										${fn:substring(dynamicPetition.title, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicPetition.title) <= 20}">
+										${dynamicPetition.title}
+									</c:if>
+								</a>
+								<ul>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicPetitionList)}">
+									<li>
+										<a href="${ctx}/article/${dynamicPetitionList[i].id}" target="_blank" title="${dynamicPetitionList[i].title}">
+											<c:if test="${fn:length(dynamicPetitionList[i].title) > 20}">
+												${fn:substring(dynamicPetitionList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicPetitionList[i].title) <= 20}">
+												${dynamicPetitionList[i].title}
+											</c:if>
+										</a> 
+									</li>
+									</c:forEach>
+								</ul>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=14" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 				      		</div>
 						</div>
 			        </div>
 			        <div class="right-nav">
 						<div class="banner-four-nav">
 				            <div class="banner-four-leftnav"> 
-				            	<a id="news1" onmouseover="news_change('right', 1)" href="${ctx}/column?ptype=dynamic&type=13" target="_blank" style="margin-right: 40px;" class="">信息公开</a>
-								<a id="news2" onmouseover="news_change('right', 2)" class="${ctx}/currentH" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="margin-right: 40px;">宣传工作</a> 
-								<a id="news3" onmouseover="news_change('right', 3)" href="${ctx}/column?ptype=dynamic&type=12" target="_blank" style="margin-right: 40px;" class="">队伍建设</a> 
-								<a class="currentI" href="javascript: void(0);" target="_blank"></a> 
+				            	<a id="news1" onmouseover="news_change('right', 1)" class="currentH" href="${ctx}/column?ptype=dynamic&type=15" target="_blank">基层风采</a>
+								<a id="news2" onmouseover="news_change('right', 2)" href="${ctx}/column?ptype=dynamic&type=16" target="_blank">宣传工作</a> 
+								<a id="news3" onmouseover="news_change('right', 3)" href="${ctx}/column?ptype=dynamic&type=17" target="_blank">队伍建设</a> 
 							</div>
-							<!-- 信息公开 -->
-							<div id="newscon1" style="display: none;">
-								<a class="currentJ" href="${ctx}/article/${dynamiInfo.id}?type=13" target="_blank">
-								<c:if test="${fn:length(dynamiInfo.title) > 20}">
-									${fn:substring(dynamiInfo.title, 0, 20)}...
-								</c:if>
-								<c:if test="${fn:length(dynamiInfo.title) <= 20}">
-									${dynamiInfo.title}
-								</c:if>
+							<!-- 基层风采 -->
+							<div id="newscon1" style="display: block;">
+								<a class="currentJ" href="${ctx}/article/${dynamicBasic.id}" target="_blank">
+									<c:if test="${fn:length(dynamicBasic.title) > 20}">
+										${fn:substring(dynamicBasic.title, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicBasic.title) <= 20}">
+										${dynamicBasic.title}
+									</c:if>
 								</a>
 								<ul>
-									<c:forEach var="i" begin="1" end="${fn:length(dynamiInfoList)}">
-									<li><a href="${ctx}/article/${dynamiInfoList[i].id}?type=13" target="_blank" title="${dynamiInfoList[i].title}">
-										<c:if test="${fn:length(dynamiInfoList[i].title) > 20}">
-											${fn:substring(dynamiInfoList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamiInfoList[i].title) <= 20}">
-											${dynamiInfoList[i].title}
-										</c:if>
-									</a> </li>
+									<c:forEach var="i" begin="1" end="${fn:length(dynamicBasicList)}">
+									<li>
+										<a href="${ctx}/article/${dynamicBasicList[i].id}" target="_blank" title="${dynamicBasicList[i].title}">
+											<c:if test="${fn:length(dynamicBasicList[i].title) > 20}">
+												${fn:substring(dynamicBasicList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicBasicList[i].title) <= 20}">
+												${dynamicBasicList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=15" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 宣传工作 -->
-							<div id="newscon2" style="display: block;">
-								<a class="currentJ" href="${ctx}/article/${dynamicPublic.id}?type=11" target="_blank">
-								<c:if test="${fn:length(dynamicPublic.title) > 20}">
-									${fn:substring(dynamicPublic.title, 0, 20)}...
-								</c:if>
-								<c:if test="${fn:length(dynamicPublic.title) <= 20}">
-									${dynamicPublic.title}
-								</c:if>
+							<div id="newscon2" style="display: none;">
+								<a class="currentJ" href="${ctx}/article/${dynamicPublic.id}" target="_blank">
+									<c:if test="${fn:length(dynamicPublic.title) > 20}">
+										${fn:substring(dynamicPublic.title, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicPublic.title) <= 20}">
+										${dynamicPublic.title}
+									</c:if>
 								</a>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicPublicList)}">
-									<li><a href="${ctx}/article/${dynamicPublicList[i].id}?type=11" target="_blank" title="${dynamicPublicList[i].title}">
-										<c:if test="${fn:length(dynamicPublicList[i].title) > 20}">
-											${fn:substring(dynamicPublicList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamicPublicList[i].title) <= 20}">
-											${dynamicPublicList[i].title}
-										</c:if>
-									</a> </li>
+									<li>
+										<a href="${ctx}/article/${dynamicPublicList[i].id}" target="_blank" title="${dynamicPublicList[i].title}">
+											<c:if test="${fn:length(dynamicPublicList[i].title) > 20}">
+												${fn:substring(dynamicPublicList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicPublicList[i].title) <= 20}">
+												${dynamicPublicList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=16" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 							<!-- 队伍建设 -->
 							<div id="newscon3" style="display: none;">
-								<a class="currentJ" href="${ctx}/article/${dynamicTeam.id}?type=11" target="_blank">
-								<c:if test="${fn:length(dynamicTeam.title) > 20}">
-									${fn:substring(dynamicTeam.title, 0, 20)}...
-								</c:if>
-								<c:if test="${fn:length(dynamicTeam.title) <= 20}">
-									${dynamicTeam.title}
-								</c:if>
+								<a class="currentJ" href="${ctx}/article/${dynamicTeam.id}" target="_blank">
+									<c:if test="${fn:length(dynamicTeam.title) > 20}">
+										${fn:substring(dynamicTeam.title, 0, 20)}...
+									</c:if>
+									<c:if test="${fn:length(dynamicTeam.title) <= 20}">
+										${dynamicTeam.title}
+									</c:if>
 								</a>
 								<ul>
 									<c:forEach var="i" begin="1" end="${fn:length(dynamicTeamList)}">
-									<li><a href="${ctx}/article/${dynamicTeamList[i].id}?type=11" target="_blank" title="${dynamicTeamList[i].title}">
-										<c:if test="${fn:length(dynamicTeamList[i].title) > 20}">
-											${fn:substring(dynamicTeamList[i].title, 0, 20)}...
-										</c:if>
-										<c:if test="${fn:length(dynamicTeamList[i].title) <= 20}">
-											${dynamicTeamList[i].title}
-										</c:if>
-									</a> </li>
+									<li>
+										<a href="${ctx}/article/${dynamicTeamList[i].id}" target="_blank" title="${dynamicTeamList[i].title}">
+											<c:if test="${fn:length(dynamicTeamList[i].title) > 20}">
+												${fn:substring(dynamicTeamList[i].title, 0, 20)}...
+											</c:if>
+											<c:if test="${fn:length(dynamicTeamList[i].title) <= 20}">
+												${dynamicTeamList[i].title}
+											</c:if>
+										</a> 
+									</li>
 									</c:forEach>
 								</ul>
-								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=11" target="_blank" style="color:black">更多&gt;&gt;</a></span>
+								<span class="js_more"><a class="currentD" href="${ctx}/column?ptype=dynamic&type=17" target="_blank" style="color:black">更多&gt;&gt;</a></span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="banner-h">
-				<img class="rimg" src="${ctx}/img/hf.gif">
-			</div>
+			<!-- 动态图片 -->
+			<c:if test="${not empty config.picture}">
+				<div class="banner-h">
+					<img class="rimg" src="${ctx}${config.picture}">
+				</div>
+			</c:if>
 			
 			<div class="banner-five">
 				<!-- 党纪法规 -->
@@ -375,7 +420,7 @@
 					<div class="dangji-bottom">
 						<ul>
 							<c:forEach var="policy" items="${policyList}">
-							<li><a href="${ctx}/article/${policy.id}?type=5" target="_blank" title="${policy.title}">
+							<li><a href="${ctx}/article/${policy.id}" target="_blank" title="${policy.title}">
 								<c:if test="${fn:length(policy.title) > 20}">
 									${fn:substring(policy.title, 0, 20)}...
 								</c:if>
@@ -396,7 +441,7 @@
 					<div class="lianlian-bottom">
 						<ul>
 							<c:forEach var="culture" items="${cultureList}">
-							<li><a href="${ctx}/article/${culture.id}?type=6" target="_blank" title="${culture.title}">
+							<li><a href="${ctx}/article/${culture.id}" target="_blank" title="${culture.title}">
 								<c:if test="${fn:length(culture.title) > 20}">
 									${fn:substring(culture.title, 0, 20)}...
 								</c:if>
@@ -517,32 +562,38 @@
 		</div>
 	</div>
 	
-	<div style="position: fixed;right: 2px;bottom: 222px;">
-		<img src="${ctx}/img/qrcode.png" alt="无" width="100" height="100"/>
-	</div>
+	<!-- 二维码 -->
+	<c:if test="${not empty config.qrcode}">
+		<div style="position: fixed; right: 2px; bottom: 200px;">
+			<img src="${ctx}${config.qrcode}" alt="无" width="100" height="100"/>
+		</div>
+	</c:if>
 	
 	<!-- 悬浮窗口 -->
-	<div id="ad_377" style="z-index: 9999999; position: absolute; left: 1521.71px; top: 1397.12px;">
-		<script type="text/javascript" src="${ctx}/local/MoveAd.js"></script>
-		<span onclick="document.getElementById(&#39;ad_377&#39;).style.display=&#39;none&#39;;" 
-			style="float: right; position: absolute; top: -20px; right: 0px; cursor: pointer">
-			<img src="img/fp/close.gif" alt="关闭">
-		</span>
-	
-		<a href="http://jiangxi.12388.gov.cn/fuzhoushi/nanchengxian/" target="_blank" alt="扶贫领域违纪问题举报直通车">
-			<img style="width:300px;" src="img/fp/gcfp.jpg" alt="扶贫领域违纪问题举报直通车">
-		</a>
-	</div>
-	<script type="text/javascript">
-		var ad_377=new AdMove("ad_377");
-		ad_377.Run();
-	</script>
+	<c:if test="${not empty config.suspension}">
+		<div id="ad_377" style="z-index: 9999999; position: absolute; left: 1521.71px; top: 1397.12px;">
+			<script type="text/javascript" src="${ctx}/local/MoveAd.js"></script>
+			<span onclick="document.getElementById(&#39;ad_377&#39;).style.display=&#39;none&#39;;" 
+				style="float: right; position: absolute; top: -20px; right: 0px; cursor: pointer">
+				<img src="${ctx}/img/close.gif" alt="关闭">
+			</span>
+		
+			<a href="http://jiangxi.12388.gov.cn/fuzhoushi/nanchengxian/" target="_blank" alt="扶贫领域违纪问题举报直通车">
+				<img style="width:300px;" src="${ctx}${config.suspension}" alt="扶贫领域违纪问题举报直通车">
+			</a>
+		</div>
+		<script type="text/javascript">
+			var ad_377=new AdMove("ad_377");
+			ad_377.Run();
+		</script>
+	</c:if>
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
 	
-	<script>
+	<script type="text/javascript">
 	;(function() {
+		
 		var $page = $('.body-index');
 		// 图片新闻
 		$page.find('.slideBox').slideBox({
@@ -551,6 +602,7 @@
 			delay: 3,			//滚动延迟时间，单位：秒
 			clickBarRadius: 1
 		});
+		
 		$page
 		.on('mouseover', '.lianjie-nav a', function() {
 			var $this = $(this);
@@ -574,6 +626,7 @@
 	   $('.'+side+'-nav #newscon'+k).css('display', 'block');
 	   $('.'+side+'-nav #news'+k).addClass('currentH');
 	}
+	
 	</script>
 	
 </body>

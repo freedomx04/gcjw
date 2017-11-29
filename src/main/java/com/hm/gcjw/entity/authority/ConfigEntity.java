@@ -24,14 +24,20 @@ public class ConfigEntity {
 	 */
 	private String picture;
 	
+	/**
+	 * 悬浮图片
+	 */
+	private String suspension;
+	
 	public ConfigEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConfigEntity(String qrcode, String picture) {
+	public ConfigEntity(String qrcode, String picture, String suspension) {
 		super();
 		this.qrcode = qrcode;
 		this.picture = picture;
+		this.suspension = suspension;
 	}
 
 	public String getName() {
@@ -56,6 +62,14 @@ public class ConfigEntity {
 
 	public void setPicture(String picture) {
 		this.picture = picture;
+	}
+
+	public String getSuspension() {
+		return suspension;
+	}
+
+	public void setSuspension(String suspension) {
+		this.suspension = suspension;
 	}
 	
 }

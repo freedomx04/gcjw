@@ -36,7 +36,10 @@
 							<a data-toggle="tab" href="#dynamic-patrol" data-tab="patrol" aria-expanded="true">巡察工作</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#dynamic-info" data-tab="info" aria-expanded="true">信息公开</a>
+							<a data-toggle="tab" href="#dynamic-petition" data-tab="petition" aria-expanded="true">信访举报</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#dynamic-basic" data-tab="basic" aria-expanded="true">基层风采</a>
 						</li>
 						<li>
 							<a data-toggle="tab" href="#dynamic-public" data-tab="public" aria-expanded="true">宣传工作</a>
@@ -50,7 +53,7 @@
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-party" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
 				 				<table id="table-dynamic-party" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
@@ -60,7 +63,7 @@
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-examine" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
 				 				<table id="table-dynamic-examine" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
@@ -70,19 +73,29 @@
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-patrol" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
 				 				<table id="table-dynamic-patrol" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
 						</div>
 						
-						<div id="dynamic-info" class="tab-pane">
+						<div id="dynamic-petition" class="tab-pane">
 							<div class="panel-body">
-								<div class="btn-group" id="toolbar-dynamic-info" role="group">
+								<div class="btn-group" id="toolbar-dynamic-petition" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
-				 				<table id="table-dynamic-info" class="table-hm" data-mobile-responsive="true"></table>
+				 				<table id="table-dynamic-petition" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
+						
+						<div id="dynamic-basic" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-basic" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
+				 				</div>
+				 				<table id="table-dynamic-basic" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
 						</div>
 						
@@ -90,7 +103,7 @@
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-public" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
 				 				<table id="table-dynamic-public" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
@@ -100,7 +113,7 @@
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-team" role="group">
 				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-white btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>批量删除</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
 				 				</div>
 				 				<table id="table-dynamic-team" class="table-hm" data-mobile-responsive="true"></table>
 							</div>
@@ -125,9 +138,12 @@
     <script type="text/javascript">
     
     	var $page = $('.body-dynamic-list');
+    	
     	var $party = $page.find('#dynamic-party');
     	var $examine = $page.find('#dynamic-examine');
     	var $patrol = $page.find('#dynamic-patrol');
+    	var $petition = $page.find('#dynamic-petition');
+    	var $basic = $page.find('#dynamic-basic');
     	var $public = $page.find('#dynamic-public');
     	var $team = $page.find('#dynamic-team');
     	
@@ -142,34 +158,40 @@
     	function initTable(tab) {
     		switch (tab) {
     		case 'party':	
-    			type = '8';	
+    			type = '11';	
     			$table = $page.find('#table-dynamic-party');
     			$toolbar = $page.find('#toolbar-dynamic-party');
     			break;
     		case 'examine':	
-    			type = '9';
+    			type = '12';
     			$table = $page.find('#table-dynamic-examine');
     			$toolbar = $page.find('#toolbar-dynamic-examine');
     			break;
     		case 'patrol':	
-    			type = '10';	
+    			type = '13';	
     			$table = $page.find('#table-dynamic-patrol');
     			$toolbar = $page.find('#toolbar-dynamic-patrol');
     			break;
+    		case 'petition':
+    			type = '14';
+    			$table = $page.find('#table-dynamic-petition');
+    			$toolbar = $page.find('#toolbar-dynamic-petition');
+    			break;
+    		case 'basic':
+    			type = '15';
+    			$table = $page.find('#table-dynamic-basic');
+    			$toolbar = $page.find('#toolbar-dynamic-basic');
+    			break;
     		case 'public':	
-    			type = '11';
+    			type = '16';
     			$table = $page.find('#table-dynamic-public');
     			$toolbar = $page.find('#toolbar-dynamic-public');
     			break;
     		case 'team':
-    			type = '12';
+    			type = '17';
     			$table = $page.find('#table-dynamic-team');
     			$toolbar = $page.find('#toolbar-dynamic-team');
     			break;
-    		case 'info':
-    			type = '13';
-    			$table = $page.find('#table-dynamic-info');
-    			$toolbar = $page.find('#toolbar-dynamic-info');
     		default:		
     			break;
     		}

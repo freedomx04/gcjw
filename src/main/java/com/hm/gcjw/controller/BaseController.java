@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hm.gcjw.common.utils.CurrentUserUtils;
 import com.hm.gcjw.common.utils.HtmlUtil;
+import com.hm.gcjw.entity.authority.ConfigEntity;
 import com.hm.gcjw.entity.authority.UserEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
+import com.hm.gcjw.service.authority.ConfigService;
 import com.hm.gcjw.service.website.ArticleService;
 import com.hm.gcjw.service.website.TopicService;
 
@@ -32,6 +34,9 @@ public class BaseController {
 	
 	@Autowired
 	TopicService topicService;
+	
+	@Autowired
+	ConfigService configService;
 	
 	@RequestMapping(value = { "/", "/index" })
 	String index(ModelMap modelMap) {
@@ -78,7 +83,7 @@ public class BaseController {
 		modelMap.addAttribute("topicList", topicList.getContent());
 		
 		// 工作动态--党风政风
-		list = articleService.listByType(8, 0, 6);
+		list = articleService.listByType(11, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicParty = list.getContent().get(0);
 			modelMap.addAttribute("dynamicParty", dynamicParty);
@@ -88,7 +93,7 @@ public class BaseController {
 		modelMap.addAttribute("dynamicPartyList", list.getContent());
 		
 		// 工作动态--纪律审查
-		list = articleService.listByType(9, 0, 6);
+		list = articleService.listByType(12, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicExamine = list.getContent().get(0);
 			modelMap.addAttribute("dynamicExamine", dynamicExamine);
@@ -98,7 +103,7 @@ public class BaseController {
 		modelMap.addAttribute("dynamicExamineList", list.getContent());
 		
 		// 工作动态--巡察工作
-		list = articleService.listByType(10, 0, 6);
+		list = articleService.listByType(13, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicPatrol = list.getContent().get(0);
 			modelMap.addAttribute("dynamicPatrol", dynamicPatrol);
@@ -107,8 +112,28 @@ public class BaseController {
 		}
 		modelMap.addAttribute("dynamicPatrolList", list.getContent());
 		
+		// 工作动态--信访举报
+		list = articleService.listByType(14, 0, 6);
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicPetition = list.getContent().get(0);
+			modelMap.addAttribute("dynamicPetition", dynamicPetition);
+		} else {
+			modelMap.addAttribute("dynamicPetition", null);
+		}
+		modelMap.addAttribute("dynamicPetitionList", list.getContent());		
+		
+		// 工作动态--基层风采
+		list = articleService.listByType(15, 0, 6);
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicBasic = list.getContent().get(0);
+			modelMap.addAttribute("dynamicBasic", dynamicBasic);
+		} else {
+			modelMap.addAttribute("dynamicBasic", null);
+		}
+		modelMap.addAttribute("dynamicBasicList", list.getContent());		
+		
 		// 工作动态--宣传工作
-		list = articleService.listByType(11, 0, 6);
+		list = articleService.listByType(16, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicPublic = list.getContent().get(0);
 			modelMap.addAttribute("dynamicPublic", dynamicPublic);
@@ -118,7 +143,7 @@ public class BaseController {
 		modelMap.addAttribute("dynamicPublicList", list.getContent());
 		
 		// 工作动态--队伍建设
-		list = articleService.listByType(12, 0, 6);
+		list = articleService.listByType(17, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicTeam = list.getContent().get(0);
 			modelMap.addAttribute("dynamicTeam", dynamicTeam);
@@ -127,16 +152,9 @@ public class BaseController {
 		}
 		modelMap.addAttribute("dynamicTeamList", list.getContent());
 		
-		// 工作动态--信息公开
-		list = articleService.listByType(13, 0, 6);
-		if (list.getTotalElements() != 0) {
-			ArticleEntity dynamiTeam = list.getContent().get(0);
-			dynamiTeam.setContent(HtmlUtil.getTextFromHtml(dynamiTeam.getContent()));
-			modelMap.addAttribute("dynamiInfo", dynamiTeam);
-		} else {
-			modelMap.addAttribute("dynamiInfo", null);
-		}
-		modelMap.addAttribute("dynamiInfoList", list.getContent());
+		// 系统设置
+		ConfigEntity config = configService.find();
+		modelMap.addAttribute("config", config);
 		
 		return "index";
 	}

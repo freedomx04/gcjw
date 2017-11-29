@@ -91,17 +91,15 @@
 </head>
 
 <body>
-	
 	<div id="page">
 		<%@ include file="/WEB-INF/template/top.jsp"%>
 		
 		<div id="toplinecontainer">
 			<div id="position">
 				<p>
-					<span>当前位置：<a href="${ctx}">首页</a>
-						&nbsp;&gt;&nbsp;
-						<a href="${ctx}/column?type=${article.type}" class="weizhi">${articleTitle}</a>
-						&nbsp;&gt;&nbsp;
+					<span>
+						当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
+						<a href="${ctx}/column?type=${article.type}" class="weizhi">${articleTitle}</a>&nbsp;&gt;&nbsp;
 						正文
 					</span>
 				</p>
@@ -128,12 +126,4 @@
 		<%@ include file="/WEB-INF/template/footer.jsp"%>
 	</div>
 </body>
-
-<script>
-;(function() {
-	var type = Url.queryString("type");
-	$(".weizhi").attr("href", "column?type="+type);
-	
-})();
-</script>
 </html>

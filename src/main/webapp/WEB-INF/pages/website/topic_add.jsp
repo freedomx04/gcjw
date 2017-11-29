@@ -53,22 +53,15 @@
 					</div>
 					
 					<div class="hr-line-dashed"></div>
-					
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-2">
 							<c:if test="${method == 'add'}">
-							<button type="button" class="btn btn-primary btn-topic-add">
-		                        <i class="fa fa-check fa-fw"></i>确定
-		                    </button>
+								<button type="button" class="btn btn-fw btn-primary btn-topic-add">确定</button>
 		                    </c:if>
 		                    <c:if test="${method == 'edit'}">
-		                    <button type="button" class="btn btn-primary btn-topic-edit">
-		                        <i class="fa fa-check fa-fw"></i>确定
-		                    </button>
+		                    	<button type="button" class="btn btn-fw btn-primary btn-topic-edit">确定</button>
 		                    </c:if>
-							<button type="button" class="btn btn-white btn-topic-cancel">
-		                        <i class="fa fa-close fa-fw"></i>取消
-		                    </button>
+							<button type="button" class="btn btn-fw btn-white btn-topic-cancel">取消</button>
 						</div>
 					</div>
  				</form>

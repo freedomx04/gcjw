@@ -30,48 +30,47 @@
 			
 			<div class="ibox-content">
 				<form class="form-horizontal" role="form" autocomplete="off" id="form-password">
-					<div class="panel-body">
-						<div class="form-group">
-							<label for="oldPassword" class="col-sm-3 control-label"><i class="form-required">*</i>原密码</label>
-							<div class="col-sm-5">
-								<input type="password" class="form-control" name="oldPassword" required data-bv-notempty-message="请输入原密码">
-							</div>
+					<div class="form-group">
+						<label for="oldPassword" class="col-sm-3 control-label"><i class="form-required">*</i>原密码</label>
+						<div class="col-sm-5">
+							<input type="password" class="form-control" name="oldPassword" required data-bv-notempty-message="请输入原密码">
 						</div>
-                          
-                        <div class="form-group">
-                        	<label for="newPassword" class="col-sm-3 control-label"><i class="form-required">*</i>新密码</label>
-                        	<div class="col-sm-5">
-                        		<input type="password" class="form-control" name="newPassword" id="newPassword" required data-bv-notempty-message="请输入新密码">
-                            </div>
-                        </div>
-                          
-                        <div class="form-group">
-                        	<label for="" class="col-sm-3 control-label" style="font-weight: normal; color: #999;">密码强度</label>
-                        	<div class="col-sm-5">
-                        		<div id="level" class="pw-strength">
-                        			<div class="pw-bar"></div>
-                        			<div class="pw-bar-on"></div>
-                        			<div class="pw-txt">
-                        				<span>弱</span><span>中</span><span>强</span>
-                        			</div>
-                        			<div style="color: #999; padding: 4px 10px;">6-16个字符,请使用字母加数字或者符号的组合密码</div>
-                        		</div>
-                        	</div>
-                        </div>
-                          
-                        <div class="form-group">
-                        	<label for="confirmPassword" class="col-sm-3 control-label"><i class="form-required">*</i>确认密码</label>
-                        	<div class="col-sm-5">
-                        		<input type="password" class="form-control" name="confirmPassword" required data-bv-notempty-message="请输入确认密码">
-                        	</div>
-                        </div>
-                          
-                        <div class="form-group">
-                        	<div class="col-sm-4 col-sm-offset-3">
-                        		<button type="button" class="btn btn-fw btn-primary btn-password">确定</button>
-                    		</div>
-                		</div>                                        
-                	</div>
+					</div>
+					
+					<div class="form-group">
+                       	<label for="newPassword" class="col-sm-3 control-label"><i class="form-required">*</i>新密码</label>
+                       	<div class="col-sm-5">
+                       		<input type="password" class="form-control" name="newPassword" id="newPassword" required data-bv-notempty-message="请输入新密码">
+                       	</div>
+                    </div>
+                    
+                    <div class="form-group">
+                       	<label for="" class="col-sm-3 control-label" style="font-weight: normal; color: #999;">密码强度</label>
+                       	<div class="col-sm-5">
+                       		<div id="level" class="pw-strength">
+                       			<div class="pw-bar"></div>
+                       			<div class="pw-bar-on"></div>
+                       			<div class="pw-txt">
+                       				<span>弱</span><span>中</span><span>强</span>
+                       			</div>
+                       			<div style="color: #999; padding: 4px 10px;">6-16个字符,请使用字母加数字或者符号的组合密码</div>
+                       		</div>
+                       	</div>
+                    </div>
+                    
+                    <div class="form-group">
+                       	<label for="confirmPassword" class="col-sm-3 control-label"><i class="form-required">*</i>确认密码</label>
+                       	<div class="col-sm-5">
+                       		<input type="password" class="form-control" name="confirmPassword" required data-bv-notempty-message="请输入确认密码">
+                       	</div>
+                    </div>
+                    
+                    <div class="hr-line-dashed"></div>
+                    	<div class="form-group">
+                       	<div class="col-sm-4 col-sm-offset-3">
+                       		<button type="button" class="btn btn-fw btn-primary btn-password">确定</button>
+                   		</div>
+               		</div>                                        
               	</form>
 			</div>
 		</div>

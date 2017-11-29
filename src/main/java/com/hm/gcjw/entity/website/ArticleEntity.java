@@ -16,20 +16,22 @@ public class ArticleEntity extends BaseEntity {
 	 * 类型分类
 	 */
 	public class ArticleType {
-		public static final int ANNOUNCE = 0;	// 通知公告
-		public static final int PHOTONEWS = 1; 	// 图片新闻
-		public static final int FOCUSNEWS = 3;	// 廉情在线
-		public static final int EXPOSURE = 4;	// 曝光台
-		public static final int POLICY = 5;		// 党纪法规
-		public static final int CULTURE = 6;	// 莲廉文化
-		public static final int TOPICNEWS = 7;	// 专题文章
+		public static final int ANNOUNCE = 0;			// 通知公告
+		public static final int PHOTONEWS = 1; 			// 图片新闻
+		public static final int FOCUSNEWS = 3;			// 廉情在线
+		public static final int EXPOSURE = 4;			// 曝光台
+		public static final int POLICY = 5;				// 党纪法规
+		public static final int CULTURE = 6;			// 莲廉文化
+		public static final int TOPICNEWS = 7;			// 专题文章
+		public static final int INFORMATION = 8;		// 信息公开
 		
-		public static final int DYNAMIC_PARTY = 8;		// 党风政风
-		public static final int DYNAMIC_EXAMINE = 9;	// 纪律审查
-		public static final int DYNAMIC_PATROL = 10;	// 巡察工作
-		public static final int DYNAMIC_PUBLIC = 11;	// 宣传工作
-		public static final int DYNAMIC_TEAM = 12;		// 队伍建设
-		public static final int DYNAMIC_INFO = 13;		// 信息公开
+		public static final int DYNAMIC_PARTY = 11;		// 党风政风
+		public static final int DYNAMIC_EXAMINE = 12;	// 纪律审查
+		public static final int DYNAMIC_PATROL = 13;	// 巡察工作
+		public static final int DYNAMIC_PETITION = 14;	// 信访举报
+		public static final int DYNAMIC_BASIC = 15;		// 基层风采
+		public static final int DYNAMIC_PUBLIC = 16;	// 宣传工作
+		public static final int DYNAMIC_TEAM = 17;		// 队伍建设
 	}
 	
 	/**
