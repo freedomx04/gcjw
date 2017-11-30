@@ -650,10 +650,11 @@
 	</script>
 	
 	<!-- 360自动推送 -->
-	<script>(function(){
+	<script>
+	(function(){
 		var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?8022ebe1d4ce47dd35de256ded9bda21":"https://jspassport.ssl.qhimg.com/11.0.1.js?8022ebe1d4ce47dd35de256ded9bda21";
-			document.write('<script src="' + src + '" id="sozz"><\/script>');
-		})();
+		document.write('<script src="' + src + '" id="sozz"><\/script>');
+	})();
 	</script>
 	
 </body>
