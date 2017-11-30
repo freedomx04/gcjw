@@ -96,7 +96,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public Page<ArticleEntity> search(String input, int page, int size) {
-		return articleRepository.findByTitleContaining(input, new PageRequest(page, size));
+		return articleRepository.findByTitleContainingOrderByUpdateTimeDesc(input, new PageRequest(page, size));
 	}
 
 }

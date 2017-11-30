@@ -4,12 +4,18 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 import com.hm.gcjw.entity.BaseEntity;
 
 @Entity
-@Table(name = "website_article")
+@Table(name = "website_article", indexes = {
+	@Index(name = "index_website_article_type", columnList = "type"),
+	@Index(name = "index_website_article_type_updatetime", columnList = "type, updateTime"),
+	@Index(name = "index_website_article_topic_updatetime", columnList = "topic_id, updateTime"),
+	@Index(name = "index_website_article_title_updatetime", columnList = "title, updateTime")
+})
 public class ArticleEntity extends BaseEntity {
 
 	/**
