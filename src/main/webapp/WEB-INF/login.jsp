@@ -152,7 +152,7 @@
 	    <div class="page-content height-full">
 	        <div class="page-brand-info vertical-align animated slideInLeft hidden-xs">
 	            <div class="page-brand vertical-align-middle">
-	                <h3>广昌县纪委监察委网站</h3>
+	                <h3>广昌县纪委监察局网站</h3>
 	                <ul class="list-icons">
 					<!-- <li>
 	                        <i class="wb-check" aria-hidden="true"></i> 该平台是主要是为帮助政府建设园区内企业经济数据信息化系统，便于监测分析企业各经济指标，并作出相应决策；
@@ -170,7 +170,7 @@
 	            <div class="vertical-align">
 	                <div class="vertical-align-middle">
 	                    <form class="login-form form-horizontal" role="form" autocomplete="off" style="position: relative;">
-	                    	<h3 style="font-size: 20px; margin-bottom: 20px;">广昌县纪委监察委登录</h3>
+	                    	<h3 style="font-size: 20px; margin-bottom: 20px;">用户登录</h3>
 	                    
 	                    	<div id="toast-container" class="toast-top-center hide" role="alert" style="position: absolute; top: -60px;">
 								<div class="toast toast-error" style="width: 320px;">

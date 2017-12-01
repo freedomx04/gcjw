@@ -5,10 +5,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>广昌县纪委监察委网站</title>
+	<title>广昌县纪委监察局网站</title>
 	
 	<meta name="keywords" content="广昌廉政网,江西广昌廉政网,中共广昌县纪律检查委员会,广昌县监察局,广昌县纪律监察局网站" />
-	<meta name="description" content="中共广昌县纪律检查委员会-广昌县纪律监察委网站" />
+	<meta name="description" content="中共广昌县纪律检查委员会-广昌县纪律监察局网站" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
