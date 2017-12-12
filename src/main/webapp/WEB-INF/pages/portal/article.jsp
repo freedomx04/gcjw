@@ -25,6 +25,9 @@
     display: block;
     padding-bottom: 10px;
 }
+#page img {
+	max-width: 100%;
+}
 #position {
     display: block;
     width: 980px;

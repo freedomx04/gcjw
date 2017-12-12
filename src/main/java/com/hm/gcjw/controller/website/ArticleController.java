@@ -35,7 +35,7 @@ public class ArticleController {
 	CommonService commonService;
 
 	@RequestMapping(value = "/api/article/create", method = RequestMethod.POST)
-	public Result create(Integer type, String title, String source,
+	public Result create(Integer type, String title, String source, String updateTime,
 			@RequestParam(name = "uploadImage", required = false) MultipartFile uploadImage, String content,
 			Long topicId) {
 		try {
@@ -46,11 +46,11 @@ public class ArticleController {
 
 			Date now = new Date();
 			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, content, now, now);
-			
+
 			if (topicId != null) {
 				article.setTopicId(topicId);
 			}
-			
+
 			articleService.save(article);
 			return new Result(Code.SUCCESS.value(), "created");
 		} catch (Exception e) {
@@ -60,7 +60,7 @@ public class ArticleController {
 	}
 
 	@RequestMapping(value = "/api/article/update", method = RequestMethod.POST)
-	public Result update(Long articleId, String title, String source,
+	public Result update(Long articleId, String title, String source, String updateTime,
 			@RequestParam(name = "uploadImage", required = false) MultipartFile uploadImage, String content) {
 		try {
 			ArticleEntity article = articleService.findOne(articleId);
@@ -171,47 +171,47 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/listCountByType")
 	public Result listCountByType() {
 		try {
 			List<Map<String, Object>> resultList = new ArrayList<>();
 			List<Object[]> list = articleService.listCountByType();
-			
-			for (Object[] object: list) {
+
+			for (Object[] object : list) {
 				Map<String, Object> map = new HashMap<>();
 				map.put("title", articleService.getArticleTitle(Integer.parseInt(object[0].toString())));
 				map.put("count", object[1]);
 				resultList.add(map);
 			}
-			
+
 			return new ResultInfo(Code.SUCCESS.value(), "ok", resultList);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/listDynamicCountByType")
 	public Result listDynamicCountByType() {
 		try {
 			List<Map<String, Object>> resultList = new ArrayList<>();
 			List<Object[]> list = articleService.listDynamicCountByType();
-			
-			for (Object[] object: list) {
+
+			for (Object[] object : list) {
 				Map<String, Object> map = new HashMap<>();
 				map.put("title", articleService.getArticleTitle(Integer.parseInt(object[0].toString())));
 				map.put("count", object[1]);
 				resultList.add(map);
 			}
-			
+
 			return new ResultInfo(Code.SUCCESS.value(), "ok", resultList);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/search")
 	public Result search(String input, int page, int size) {
 		try {
@@ -222,7 +222,7 @@ public class ArticleController {
 			return new Result(Code.ERROR.value(), e.getMessage());
 		}
 	}
-	
+
 	@RequestMapping(value = "/api/article/topic")
 	public Result topic(Long articleId, Long topicId) {
 		try {

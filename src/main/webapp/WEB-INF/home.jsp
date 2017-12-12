@@ -9,7 +9,7 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp" />
 	
-	<title>广昌县纪委监察局网站  | 后台管理</title>
+	<title>广昌县纪委监察局  | 后台管理</title>
 	<meta name="keywords" content="">
     <meta name="description" content="">
 

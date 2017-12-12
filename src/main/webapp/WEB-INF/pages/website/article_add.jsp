@@ -17,10 +17,16 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrapValidator/css/bootstrapValidator.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap-fileinput/css/fileinput.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap-fileinput/css/fileinput-rtl.min.css">
+	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css">
 	
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/hplus/style.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/local/common.css">
 	
+	<style type="text/css">
+	img {
+		max-width: 100%;
+	}
+	</style>
 </head>
 
 <body class="gray-bg body-article-add">
@@ -42,6 +48,13 @@
 						<label for="source" class="col-sm-1 control-label">来源</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="source" value="${article.source}">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="updateTime" class="col-sm-1 control-label"><i class="form-required">*</i>时间</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="updateTime" id="updateTime" 
+								 required>
 						</div>
 					</div>
 					<c:if test="${type==1}">
@@ -89,6 +102,8 @@
 	<script type="text/javascript" src="${ctx}/plugins/bootstrapValidator/js/language/zh_CN.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap-fileinput/js/fileinput.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap-fileinput/js/locales/zh.js"></script>
+	<script type="text/javascript" src="${ctx}/plugins/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="${ctx}/plugins/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	
 	<script type="text/javascript">
 	
@@ -100,7 +115,6 @@
 		var topicId = '${topicId}';
 		
 		$k.util.bsValidator($form);
-		
 		$k.util.summernote($page.find('#summernote'), {
 			ctx: '${ctx}'
 		});
@@ -109,6 +123,13 @@
 			if (type == 1) {
 				$k.util.fileinput($page.find('#uploadImage'));
 			}
+			$('#updateTime').datetimepicker({
+				format: 'yyyy-mm-dd hh:ii',
+				language: 'zh-CN',
+				autoclose: true,
+				startDate: "2017-01-01",
+			});
+			$('#updateTime').val(formatDate2(new Date()));
 		} else {
 			$('#summernote').summernote('code', '${article.content}');
 			if (type == 1) {

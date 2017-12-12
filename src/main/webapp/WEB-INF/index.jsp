@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>广昌县纪委监察局网站</title>
+	<title>广昌县纪委监察局</title>
 	
 	<meta name="keywords" content="广昌廉政网,江西广昌廉政网,中共广昌县纪律检查委员会,广昌县监察局,广昌县纪律监察局网站" />
 	<meta name="description" content="中共广昌县纪律检查委员会-广昌县纪律监察局网站" />
