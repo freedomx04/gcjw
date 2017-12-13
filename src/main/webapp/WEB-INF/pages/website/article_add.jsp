@@ -54,7 +54,7 @@
 						<label for="updateTime" class="col-sm-1 control-label"><i class="form-required">*</i>时间</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="updateTime" id="updateTime" 
-								 required>
+								value="<fmt:formatDate value="${article.updateTime}" pattern='yyyy-MM-dd HH:mm'/>" required>
 						</div>
 					</div>
 					<c:if test="${type==1}">
@@ -118,17 +118,17 @@
 		$k.util.summernote($page.find('#summernote'), {
 			ctx: '${ctx}'
 		});
+		$('#updateTime').datetimepicker({
+			format: 'yyyy-mm-dd hh:ii',
+			language: 'zh-CN',
+			autoclose: true,
+			startDate: "2017-01-01",
+		});
 		
 		if (method == 'add') {
 			if (type == 1) {
 				$k.util.fileinput($page.find('#uploadImage'));
 			}
-			$('#updateTime').datetimepicker({
-				format: 'yyyy-mm-dd hh:ii',
-				language: 'zh-CN',
-				autoclose: true,
-				startDate: "2017-01-01",
-			});
 			$('#updateTime').val(formatDate2(new Date()));
 		} else {
 			$('#summernote').summernote('code', '${article.content}');

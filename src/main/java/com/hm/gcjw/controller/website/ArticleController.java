@@ -1,5 +1,6 @@
 package com.hm.gcjw.controller.website;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -44,8 +45,9 @@ public class ArticleController {
 				imagePath = commonService.saveImage(uploadImage);
 			}
 
-			Date now = new Date();
-			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, content, now, now);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+			Date date = sdf.parse(updateTime);
+			ArticleEntity article = new ArticleEntity(type, title, source, imagePath, content, date, date);
 
 			if (topicId != null) {
 				article.setTopicId(topicId);
@@ -67,7 +69,10 @@ public class ArticleController {
 			article.setTitle(title);
 			article.setSource(source);
 			article.setContent(content);
-			article.setUpdateTime(new Date());
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+			Date date = sdf.parse(updateTime);
+			article.setUpdateTime(date);
 
 			if (uploadImage != null && !uploadImage.isEmpty()) {
 				commonService.deleteImage(article.getImagePath());
