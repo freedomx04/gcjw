@@ -64,9 +64,9 @@ public class ArticleServiceImpl implements ArticleService {
 		case 12:	title = "纪律审查";		break;
 		case 13:	title = "巡察工作";		break;
 		case 14:	title = "信访举报";		break;
-		case 15:	title = "基层风采";		break;
-		case 16:	title = "宣传工作";		break;
-		case 17:	title = "队伍建设";		break;
+		case 15:	title = "宣传工作";		break;
+		case 16:	title = "队伍建设";		break;
+		case 17:	title = "基层风采";		break;
 		
 		default:	break;
 		}

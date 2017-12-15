@@ -115,7 +115,7 @@
 								</tbody>
 								
 								<tbody class="dynamic" style="display: none;">
-									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡察工作, 信访举报, 基层风采, 宣传工作, 队伍建设" varStatus="status">
+									<c:forEach var="articleTitle" items="党风政风, 纪律审查, 巡察工作, 信访举报, 宣传工作, 队伍建设, 基层风采" varStatus="status">
 									<tr>
 										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">

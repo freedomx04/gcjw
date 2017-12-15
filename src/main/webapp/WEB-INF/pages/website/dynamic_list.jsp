@@ -39,13 +39,13 @@
 							<a data-toggle="tab" href="#dynamic-petition" data-tab="petition" aria-expanded="true">信访举报</a>
 						</li>
 						<li>
-							<a data-toggle="tab" href="#dynamic-basic" data-tab="basic" aria-expanded="true">基层风采</a>
-						</li>
-						<li>
 							<a data-toggle="tab" href="#dynamic-public" data-tab="public" aria-expanded="true">宣传工作</a>
 						</li>
 						<li>
 							<a data-toggle="tab" href="#dynamic-team" data-tab="team" aria-expanded="true">队伍建设</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#dynamic-basic" data-tab="basic" aria-expanded="true">基层风采</a>
 						</li>
 					</ul>
 					<div class="tab-content">
@@ -89,16 +89,6 @@
 							</div>
 						</div>
 						
-						<div id="dynamic-basic" class="tab-pane">
-							<div class="panel-body">
-								<div class="btn-group" id="toolbar-dynamic-basic" role="group">
-				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
-				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
-				 				</div>
-				 				<table id="table-dynamic-basic" class="table-hm" data-mobile-responsive="true"></table>
-							</div>
-						</div>
-						
 						<div id="dynamic-public" class="tab-pane">
 							<div class="panel-body">
 								<div class="btn-group" id="toolbar-dynamic-public" role="group">
@@ -119,6 +109,15 @@
 							</div>
 						</div>
 						
+						<div id="dynamic-basic" class="tab-pane">
+							<div class="panel-body">
+								<div class="btn-group" id="toolbar-dynamic-basic" role="group">
+				 					<button type="button" class="btn btn-white btn-article-add"><i class="fa fa-plus fa-fw"></i>新增</button>
+				 					<button type="button" class="btn btn-danger btn-article-delete-batch" disabled='disabled'><i class="fa fa-trash-o fa-fw"></i>删除</button>
+				 				</div>
+				 				<table id="table-dynamic-basic" class="table-hm" data-mobile-responsive="true"></table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -143,9 +142,9 @@
     	var $examine = $page.find('#dynamic-examine');
     	var $patrol = $page.find('#dynamic-patrol');
     	var $petition = $page.find('#dynamic-petition');
-    	var $basic = $page.find('#dynamic-basic');
     	var $public = $page.find('#dynamic-public');
     	var $team = $page.find('#dynamic-team');
+    	var $basic = $page.find('#dynamic-basic');
     	
     	var tab = Url.queryString('tab');
     	if (!tab) {
@@ -177,25 +176,26 @@
     			$table = $page.find('#table-dynamic-petition');
     			$toolbar = $page.find('#toolbar-dynamic-petition');
     			break;
-    		case 'basic':
-    			type = '15';
-    			$table = $page.find('#table-dynamic-basic');
-    			$toolbar = $page.find('#toolbar-dynamic-basic');
-    			break;
     		case 'public':	
-    			type = '16';
+    			type = '15';
     			$table = $page.find('#table-dynamic-public');
     			$toolbar = $page.find('#toolbar-dynamic-public');
     			break;
     		case 'team':
-    			type = '17';
+    			type = '16';
     			$table = $page.find('#table-dynamic-team');
     			$toolbar = $page.find('#toolbar-dynamic-team');
+    			break;
+    		case 'basic':
+    			type = '17';
+    			$table = $page.find('#table-dynamic-basic');
+    			$toolbar = $page.find('#toolbar-dynamic-basic');
     			break;
     		default:		
     			break;
     		}
     		
+    		debugger;
     		$bsTable = $k.util.bsTable($table, {
     			url: '${ctx}/api/article/list?type=' + type,
     			toolbar: $toolbar,

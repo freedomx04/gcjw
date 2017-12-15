@@ -122,18 +122,8 @@ public class BaseController {
 		}
 		modelMap.addAttribute("dynamicPetitionList", list.getContent());		
 		
-		// 工作动态--基层风采
-		list = articleService.listByType(15, 0, 6);
-		if (list.getTotalElements() != 0) {
-			ArticleEntity dynamicBasic = list.getContent().get(0);
-			modelMap.addAttribute("dynamicBasic", dynamicBasic);
-		} else {
-			modelMap.addAttribute("dynamicBasic", null);
-		}
-		modelMap.addAttribute("dynamicBasicList", list.getContent());		
-		
 		// 工作动态--宣传工作
-		list = articleService.listByType(16, 0, 6);
+		list = articleService.listByType(15, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicPublic = list.getContent().get(0);
 			modelMap.addAttribute("dynamicPublic", dynamicPublic);
@@ -143,7 +133,7 @@ public class BaseController {
 		modelMap.addAttribute("dynamicPublicList", list.getContent());
 		
 		// 工作动态--队伍建设
-		list = articleService.listByType(17, 0, 6);
+		list = articleService.listByType(16, 0, 6);
 		if (list.getTotalElements() != 0) {
 			ArticleEntity dynamicTeam = list.getContent().get(0);
 			modelMap.addAttribute("dynamicTeam", dynamicTeam);
@@ -151,6 +141,16 @@ public class BaseController {
 			modelMap.addAttribute("dynamicTeam", null);
 		}
 		modelMap.addAttribute("dynamicTeamList", list.getContent());
+		
+		// 工作动态--基层风采
+		list = articleService.listByType(17, 0, 6);
+		if (list.getTotalElements() != 0) {
+			ArticleEntity dynamicBasic = list.getContent().get(0);
+			modelMap.addAttribute("dynamicBasic", dynamicBasic);
+		} else {
+			modelMap.addAttribute("dynamicBasic", null);
+		}
+		modelMap.addAttribute("dynamicBasicList", list.getContent());
 		
 		// 系统设置
 		ConfigEntity config = configService.find();
