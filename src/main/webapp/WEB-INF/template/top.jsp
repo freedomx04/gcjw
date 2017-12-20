@@ -62,7 +62,7 @@
 	</div>
 	<div class="nav-container">
 		<div class="nav"> 
-			<a href="${ctx}" target="_blank">网站首页</a> 
+			<a href="${ctx}/" target="_blank">网站首页</a> 
 			<a href="${ctx}/column?type=0" target="_blank">通知公告</a> 
 			<a href="${ctx}/column?type=3" target="_blank">廉情在线</a> 
 			<a href="${ctx}/column?type=5" target="_blank">党纪法规</a> 
