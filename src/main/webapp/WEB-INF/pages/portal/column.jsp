@@ -84,7 +84,7 @@
 						<td width="292" valign="top" bgcolor="#FFFFFF">
 							<table width="100%" cellpadding="0" cellspacing="0">
 								<tbody class="article"> 
-									<c:forEach var="articleTitle" items="通知公告, 图片新闻" varStatus="status">
+									<c:forEach var="articleTitle" items="通知公告" varStatus="status">
 									<tr>
 										<td class="left-nav-td" width="10%" align="center" valign="middle" height="32"> 
 											<img src="${ctx}/img/jian.png" border="0" align="absmiddle" style="padding-top:12px">
@@ -143,7 +143,6 @@
 							</table>				
 						</td>
 						<td width="5" bgcolor="#EBEAEA"></td>
-						
 						<td width="669" valign="top" bgcolor="#FFFFFF">
 						    <table width="100%"><tbody><tr>
 	                            <td class="articleTitle right-title" height="36" align="left" oldid="3395" related="1">${articleTitle}</td>

@@ -40,6 +40,8 @@ public class PageController {
 		if (type == 7) {
 			List<TopicEntity> topicList = topicService.list();
 			modelMap.addAttribute("topicList", topicList);
+		} else if (type == 1) {
+			return "pages/portal/column_image";
 		}
 		
 		return "pages/portal/column";
