@@ -4,17 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
-<link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
+	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
+	<!--IE8只能支持jQuery1.9-->
+	<!--[if lte IE 8]>
+	<script src="${ctx}/plugins/jquery/1.9.1/jquery.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="${ctx}/plugins/jquery/url.js"></script>
+	<link rel="stylesheet" href="${ctx}/local/index.css" type="text/css"/>
 
-<title>${article.title}</title>
-
+	<title>${article.title}</title>
 <style>
 * {
     font-family: "Microsoft Yahei","宋体";
@@ -101,7 +104,7 @@
 			<div id="position">
 				<p>
 					<span>
-						当前位置：<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
+						当前位置：<a href="${ctx}/">首页</a>&nbsp;&gt;&nbsp;
 						<a href="${ctx}/column?type=${article.type}" class="weizhi">${articleTitle}</a>&nbsp;&gt;&nbsp;
 						正文
 					</span>

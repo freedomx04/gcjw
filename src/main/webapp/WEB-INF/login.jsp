@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/hplus/style.min.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/local/common.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/toastr/toastr.min.css">
-
+	
 	<style type="text/css">
 	.page-login {
 	    height: 100%;

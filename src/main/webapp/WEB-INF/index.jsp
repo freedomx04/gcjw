@@ -599,6 +599,10 @@
 	</c:if>
 	
 	<script type="text/javascript" src="${ctx}/plugins/jquery/2.1.4/jquery.min.js"></script>
+	<!--IE8只能支持jQuery1.9-->
+	<!--[if lte IE 8]>
+	<script src="${ctx}/plugins/jquery/1.9.1/jquery.min.js"></script>
+	<![endif]-->
 	<script type="text/javascript" src="${ctx}/plugins/slideBox/jquery.slideBox.js"></script>
 	
 	<script type="text/javascript">
