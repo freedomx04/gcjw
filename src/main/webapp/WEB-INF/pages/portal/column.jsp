@@ -73,7 +73,7 @@
 					<tr><td colspan="3" height="6" bgcolor="#EBEAEA"></td></tr>
 	                <tr>
 						<td colspan="3" height="40" align="left" style="padding-left:5px;" bgcolor="#FFFFFF">当前位置：
-							<a href="${ctx}">首页</a>&nbsp;&gt;&nbsp;
+							<a href="${ctx}/">首页</a>&nbsp;&gt;&nbsp;
 							<a class="weizhi-dynamic" style="display: none;" href="${ctx}/column?ptype=dynamic&type=8">工作动态</a>
 							<span class="weizhi-dynamic" style="display: none;" >&nbsp;&gt;&nbsp;</span>
 							
