@@ -16,6 +16,14 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/plugins/hplus/style.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/local/common.css">
 	
+	<style type="text/css">
+	img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+	</style>
+	
 </head>
 
 <body class="gray-bg body-article-detail">
@@ -49,7 +57,7 @@
 	<script type="text/javascript" src="${ctx}/plugins/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${ctx}/plugins/hplus/content.min.js"></script>
 	<script type="text/javascript" src="${ctx}/local/common.js"></script>
-
+	
 	<script type="text/javascript">
 	
 		var $page = $('.body-article-detail');
