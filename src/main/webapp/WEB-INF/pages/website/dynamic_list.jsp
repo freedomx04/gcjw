@@ -195,7 +195,6 @@
     			break;
     		}
     		
-    		debugger;
     		$bsTable = $k.util.bsTable($table, {
     			url: '${ctx}/api/article/list?type=' + type,
     			toolbar: $toolbar,
