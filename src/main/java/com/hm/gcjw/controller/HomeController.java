@@ -10,15 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.hm.gcjw.common.utils.CurrentUserUtils;
 import com.hm.gcjw.entity.authority.ConfigEntity;
 import com.hm.gcjw.entity.authority.UserEntity;
-import com.hm.gcjw.entity.report.MailEntity;
-import com.hm.gcjw.entity.report.ReportEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
 import com.hm.gcjw.service.authority.ConfigService;
 import com.hm.gcjw.service.authority.UserService;
-import com.hm.gcjw.service.report.MailService;
-import com.hm.gcjw.service.report.ReportService;
 import com.hm.gcjw.service.website.ArticleService;
 import com.hm.gcjw.service.website.TopicService;
 
@@ -36,12 +32,6 @@ public class HomeController {
 	
 	@Autowired
 	TopicService topicService;
-	
-	@Autowired
-	ReportService reportService;
-	
-	@Autowired
-	MailService mailService;
 	
 	@Autowired
 	ConfigService configService;
@@ -142,44 +132,13 @@ public class HomeController {
 	}
 	
 	/**
-	 * 举报管理
+	 * 举报指南
 	 */
-	@RequestMapping(value = "reportList")
-	String reportList() {
-		return "pages/report/report_list";
-	}
-	
-	@RequestMapping(value = "reportGet")
-	String reportGet(ModelMap modelMap, Long reportId) {
-		ReportEntity report = reportService.findOne(reportId);
-		modelMap.addAttribute("report", report);
-		return "pages/report/report_get";
-	}
-	
-	@RequestMapping(value = "reportReply")
-	String reportReply(ModelMap modelMap, Long reportId) {
-		ReportEntity report = reportService.findOne(reportId);
-		modelMap.addAttribute("report", report);
-		return "pages/report/report_reply";
-	}
-	
-	@RequestMapping(value = "mailList")
-	String mailList() {
-		return "pages/report/mail_list";
-	}
-	
-	@RequestMapping(value = "/mailGet")
-	String mailGet(ModelMap modelMap, Long mailId) {
-		MailEntity mail = mailService.findOne(mailId);
-		modelMap.addAttribute("mail", mail);
-		return "pages/report/mail_get";
-	}
-	
-	@RequestMapping(value = "/mailReply")
-	String mailReply(ModelMap modelMap, Long mailId) {
-		MailEntity mail = mailService.findOne(mailId);
-		modelMap.addAttribute("mail", mail);
-		return "pages/report/mail_reply";
+	@RequestMapping(value = "/authority/guide")
+	String guide(ModelMap modelMap) {
+		ConfigEntity config = configService.find();
+		modelMap.addAttribute("guide", config.getGuide());
+		return "pages/report/guide";
 	}
 	
 	/**

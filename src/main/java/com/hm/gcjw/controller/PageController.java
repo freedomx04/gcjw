@@ -10,9 +10,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hm.gcjw.entity.authority.ConfigEntity;
 import com.hm.gcjw.entity.website.ArticleEntity;
 import com.hm.gcjw.entity.website.TopicEntity;
 import com.hm.gcjw.service.CommonService;
+import com.hm.gcjw.service.authority.ConfigService;
 import com.hm.gcjw.service.website.ArticleService;
 import com.hm.gcjw.service.website.TopicService;
 
@@ -28,6 +30,9 @@ public class PageController {
 	
 	@Autowired
 	TopicService topicService;
+	
+	@Autowired
+	ConfigService configService;
 	
 	@RequestMapping(value = "/column") 
 	String column(ModelMap modelMap, Integer type) {
@@ -67,89 +72,12 @@ public class PageController {
 		return "pages/portal/result";
 		
 	}
-	
-	/** 举报指南 **/
-	@RequestMapping(value = "/report/guide") 
-	String guide() {
+
+	@RequestMapping(value = "/report/guide")
+	String guide(ModelMap modelMap) {
+		ConfigEntity config = configService.find();
+		modelMap.addAttribute("guide", config.getGuide());
 		return "pages/portal/report/guide";
-		
-	}
-	
-	/** 举报首页  **/
-	@RequestMapping(value = "/report/index") 
-	String home() {
-		return "pages/portal/report/index";
-		
-	}
-	
-	/** 相关法律法规  **/
-	@RequestMapping(value = "/report/law") 
-	String law() {
-		return "pages/portal/report/law";
-		
-	}
-	
-	/** 举报须知  **/
-	@RequestMapping(value = "/report/JBXZ") 
-	String jbxz() {
-		return "pages/portal/report/jbxz";
-		
-	}
-	
-	/** 书记信箱  **/
-	@RequestMapping(value = "/report/SJMail") 
-	String sjmail() {
-		return "pages/portal/report/sjmail";
-		
-	}
-	
-	/** 信件查询  **/
-	@RequestMapping(value = "/report/MailCX") 
-	String mailcx() {
-		return "pages/portal/report/mailcx";
-		
-	}
-	
-	/** 举报  **/
-	@RequestMapping(value = "/report/JBBill") 
-	String jbbill() {
-		return "pages/portal/report/jbbill";
-		
-	}
-	
-	/** 相关法律法规--举报信主要样式  **/
-	@RequestMapping(value = "/report/letter") 
-	String letter() {
-		return "pages/portal/report/law/letter_type";
-		
-	}
-	
-	/** 相关法律法规--中国共产党纪律处分条例 **/
-	@RequestMapping(value = "/report/regulation_1") 
-	String regulation_1() {
-		return "pages/portal/report/law/regulation_1";
-		
-	}
-	
-	/** 相关法律法规--中国共产党纪律检查机关控告申诉工作条例**/
-	@RequestMapping(value = "/report/regulation_2") 
-	String regulation_2() {
-		return "pages/portal/report/law/regulation_2";
-		
-	}
-	
-	/** 相关法律法规--中纪委监察部关于保护检举、控告人的规定 **/
-	@RequestMapping(value = "/report/regulation_3") 
-	String regulation_3() {
-		return "pages/portal/report/law/regulation_3";
-		
-	}
-	
-	/** 相关法律法规--中华人民共和国行政监察法实施条例 **/
-	@RequestMapping(value = "/report/regulation_4") 
-	String regulation_4() {
-		return "pages/portal/report/regulation_4";
-		
 	}
 	
 }

@@ -76,15 +76,11 @@
 							<li><a class="J_menuItem" href="articleList?type=6">莲廉文化</a></li>
 						</ul>
 					</li>
-				<!-- <li>
-						<a href="#">
-							<i class="fa fa-edit fa-fw"></i><span class="nav-label">举报管理</span><span class="fa arrow"></span>
+					<li>
+						<a class="J_menuItem" href="${ctx}/authority/guide">
+							<i class="fa fa-edit fa-fw"></i><span class="nav-label">举报指南</span>
 						</a>
-						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="reportList">网络举报</a></li>
-							<li><a class="J_menuItem" href="mailList">书记信箱</a></li>
-						</ul>
-					</li> -->
+					</li>
 					<li>
 						<a href="#">
 							<i class="fa fa-user-circle-o fa-fw"></i><span class="nav-label">个人中心</span><span class="fa arrow"></span>

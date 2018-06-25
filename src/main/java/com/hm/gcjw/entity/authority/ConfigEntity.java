@@ -1,5 +1,6 @@
 package com.hm.gcjw.entity.authority;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,26 +9,22 @@ import javax.persistence.Table;
 @Table(name = "authority_config")
 public class ConfigEntity {
 	
-	/**
-	 * 配置名称
-	 */
+	// 配置名称
 	@Id
 	private String name = "config";
 	
-	/**
-	 * 二维码
-	 */
+	// 二维码
 	private String qrcode;
 	
-	/**
-	 * 动态图片
-	 */
+	// 动态图片
 	private String picture;
 	
-	/**
-	 * 悬浮图片
-	 */
+	// 悬浮图片
 	private String suspension;
+	
+	// 举报指南
+	@Column(length = 16777216)
+	private String guide;
 	
 	public ConfigEntity() {
 		// TODO Auto-generated constructor stub
@@ -70,6 +67,14 @@ public class ConfigEntity {
 
 	public void setSuspension(String suspension) {
 		this.suspension = suspension;
+	}
+
+	public String getGuide() {
+		return guide;
+	}
+
+	public void setGuide(String guide) {
+		this.guide = guide;
 	}
 	
 }

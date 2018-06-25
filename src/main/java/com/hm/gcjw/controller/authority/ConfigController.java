@@ -35,4 +35,17 @@ public class ConfigController {
 		}
 	}
 	
+	@RequestMapping(value = "/api/config/guide", method = RequestMethod.POST)
+	public Result guide(String content) {
+		try {
+			ConfigEntity config = configService.find();
+			config.setGuide(content);
+			configService.save(config);
+			return new Result(Code.SUCCESS.value(), "保存成功");
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			return new Result(Code.ERROR.value(), e.getMessage());
+		}
+	}
+	
 }
